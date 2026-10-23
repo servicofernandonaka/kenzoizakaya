@@ -1,4 +1,5 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { Glossario } from '../components/Glossario';
 import { IngredientesComuns } from '../components/IngredientesComuns';
 import { hrefReceita } from '../lib/route';
 import { BASES, INSTRUMENTOS, INTRO, PILARES_AGEMONO, PILARES_NIMONO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
@@ -154,6 +155,16 @@ export function Fundamentos() {
         hidden={tab !== 'ingredientes'}
       >
         {tab === 'ingredientes' && <IngredientesComuns />}
+      </div>
+
+      {/* Glossário */}
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-glossario`}
+        aria-labelledby={`${uid}-tab-glossario`}
+        hidden={tab !== 'glossario'}
+      >
+        {tab === 'glossario' && <Glossario />}
       </div>
     </section>
   );

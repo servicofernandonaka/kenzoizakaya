@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { GlossaryText } from '../components/GlossaryText';
 import { CheckIcon, ClockIcon, FlameIcon, HeartIcon, UsersIcon } from '../components/Icons';
 import { IngredientList } from '../components/IngredientList';
 import { InteractiveTimer } from '../components/InteractiveTimer';
@@ -172,7 +173,9 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
                   </button>
 
                   <div className={`space-y-4 pt-1 transition-opacity duration-200 ${done ? 'opacity-55' : ''}`}>
-                    <p className="reading">{p.instrucao}</p>
+                    <p className="reading">
+                      <GlossaryText text={p.instrucao} />
+                    </p>
 
                     {p.timer_segundos !== undefined && (
                       <div className="space-y-1.5">
@@ -187,13 +190,13 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
                     {p.alerta_kenzo && (
                       <p className="max-w-[62ch] rounded-2xl border-l-4 border-lantern bg-lantern/10 p-4 leading-relaxed">
                         <strong className="mr-1 text-lanternink">Alerta do Kenzō:</strong>
-                        {p.alerta_kenzo}
+                        <GlossaryText text={p.alerta_kenzo} />
                       </p>
                     )}
                     {p.dica_tomesan && (
                       <p className="max-w-[62ch] rounded-2xl border-l-4 border-mute/50 bg-raised/60 p-4 leading-relaxed">
                         <strong className="mr-1">Dica de Tomesan:</strong>
-                        {p.dica_tomesan}
+                        <GlossaryText text={p.dica_tomesan} />
                       </p>
                     )}
                   </div>
