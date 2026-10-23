@@ -4,6 +4,7 @@ import { hrefReceita } from '../lib/route';
 import type { Receita, UnitMode } from '../types';
 import { ChevronLeft, ChevronRight, CloseIcon, FlameIcon, ListIcon } from './Icons';
 import { IngredientList } from './IngredientList';
+import { PortionStepper } from './PortionStepper';
 import { InteractiveTimer } from './InteractiveTimer';
 import { TimerDock } from './TimerDock';
 import { UnitModeToggle } from './UnitModeToggle';
@@ -14,6 +15,7 @@ interface Props {
   servings: number;
   unitMode: UnitMode;
   onUnitModeChange: (m: UnitMode) => void;
+  onServingsChange: (n: number) => void;
   onExit: () => void;
 }
 
@@ -21,7 +23,7 @@ interface Props {
  * Modo Cozinha — imersão em tela cheia, alto contraste (sempre tema escuro), fontes enormes
  * e alvos de toque ≥ 72px para usar com a mão suja, a 1 metro de distância.
  */
-export function KitchenModeView({ receita, factor, servings, unitMode, onUnitModeChange, onExit }: Props) {
+export function KitchenModeView({ receita, factor, servings, unitMode, onUnitModeChange, onServingsChange, onExit }: Props) {
   const total = receita.passos.length;
   const [index, setIndex] = useState(0);
   const [drawer, setDrawer] = useState(false);
@@ -260,6 +262,7 @@ export function KitchenModeView({ receita, factor, servings, unitMode, onUnitMod
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line p-4">
               <h2 className="text-2xl font-bold">Ingredientes · {servings} {servings === 1 ? 'porção' : 'porções'}</h2>
               <div className="flex flex-wrap items-center gap-3">
+                <PortionStepper large value={servings} onChange={onServingsChange} />
                 <UnitModeToggle large value={unitMode} onChange={onUnitModeChange} />
                 <button
                   type="button"

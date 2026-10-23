@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { ClockIcon, FlameIcon, HeartIcon, MinusIcon, PlusIcon, UsersIcon } from '../components/Icons';
+import { ClockIcon, FlameIcon, HeartIcon, UsersIcon } from '../components/Icons';
 import { IngredientList } from '../components/IngredientList';
 import { InteractiveTimer } from '../components/InteractiveTimer';
 import { NotesLog } from '../components/NotesLog';
+import { PortionStepper } from '../components/PortionStepper';
 import { UnitConverter } from '../components/UnitConverter';
 import { UnitModeToggle } from '../components/UnitModeToggle';
 import { CATEGORIA_ICONE, CATEGORIA_LABEL, formatDuration } from '../lib/format';
@@ -19,9 +20,6 @@ interface Props {
   favorite: boolean;
   onToggleFavorite: (id: string) => void;
 }
-
-const MIN_SERVINGS = 1;
-const MAX_SERVINGS = 24;
 
 export function RecipeDetail({ receita, servings, onServingsChange, unitMode, onUnitModeChange, favorite, onToggleFavorite }: Props) {
   const [converterOpen, setConverterOpen] = useState(false);
@@ -77,34 +75,7 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
             Ingredientes
           </h2>
           <div className="flex flex-wrap items-end gap-4">
-            <div>
-              <p id="porcoes-label" className="mb-1 text-sm font-semibold text-mute">
-                Porções
-              </p>
-              <div role="group" aria-labelledby="porcoes-label" className="inline-flex items-center rounded-xl border border-line bg-canvas">
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  onClick={() => onServingsChange(Math.max(MIN_SERVINGS, servings - 1))}
-                  disabled={servings <= MIN_SERVINGS}
-                  aria-label="Diminuir porções"
-                >
-                  <MinusIcon />
-                </button>
-                <output className="tabular min-w-[3rem] text-center text-xl font-bold" aria-live="polite">
-                  {servings}
-                </output>
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  onClick={() => onServingsChange(Math.min(MAX_SERVINGS, servings + 1))}
-                  disabled={servings >= MAX_SERVINGS}
-                  aria-label="Aumentar porções"
-                >
-                  <PlusIcon />
-                </button>
-              </div>
-            </div>
+            <PortionStepper value={servings} onChange={onServingsChange} />
             <div>
               <p className="mb-1 text-sm font-semibold text-mute">Medidas</p>
               <UnitModeToggle value={unitMode} onChange={onUnitModeChange} />

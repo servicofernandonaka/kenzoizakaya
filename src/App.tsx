@@ -200,6 +200,7 @@ export default function App() {
             factor={servings / receita.rendimento_base_porcoes}
             unitMode={prefs.unitMode}
             onUnitModeChange={(unitMode) => patchPrefs({ unitMode })}
+            onServingsChange={setServings}
             onExit={() => navigate(hrefReceita(receita.id))}
           />
         </ErrorBoundary>
