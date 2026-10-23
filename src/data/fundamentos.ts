@@ -87,6 +87,17 @@ export const BASES: Base[] = [
       'Ferva em fogo médio por 5 minutos e coe espremendo bem desta vez.',
     ],
   },
+  {
+    titulo: 'Dashi Rápido de Emergência',
+    selo: 'Emergência',
+    descricao: 'Para quando há pressa no balcão: sem molho prévio do kombu.',
+    receitaId: 'dashi-rapido',
+    proporcao: '1000ml de água | 1 tira de 15cm de Kombu | 2 colheres de sopa de Katsuobushi esmagado',
+    passos: [
+      'Coloque a água e o kombu picado no fogo médio e retire o kombu assim que ferver.',
+      'Adicione o katsuobushi, ferva por 1 minuto, desligue e decante por 1 minuto antes de coar rapidamente.',
+    ],
+  },
 ];
 
 export const TECNICAS: Tecnica[] = [

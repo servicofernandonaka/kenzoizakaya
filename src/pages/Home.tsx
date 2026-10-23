@@ -8,6 +8,8 @@ interface Props {
   onToggleFavorite: (id: string) => void;
 }
 
+const DESTAQUES = ['misoshiru-autentico', 'buta-no-kakuni-classico', 'tori-no-karaage'];
+
 const PILARES: Array<{ titulo: string; texto: string; href?: string }> = [
   { titulo: 'Kihon (O Alicerce)', texto: 'A física e a química dos caldos, cortes e temperaturas.', href: '#/fundamentos' },
   { titulo: 'Caderno da Tomesan', texto: 'Receitas com gramaturas exatas para balança, sem adivinhações.', href: '#/receitas' },
@@ -86,7 +88,7 @@ export function Home({ receitas, favorites, onToggleFavorite }: Props) {
           </a>
         </div>
         <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {receitas.slice(0, 3).map((r) => (
+          {DESTAQUES.map((id) => receitas.find((r) => r.id === id)).filter((r): r is Receita => r !== undefined).map((r) => (
             <li key={r.id} className="flex">
               <div className="flex-1">
                 <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />

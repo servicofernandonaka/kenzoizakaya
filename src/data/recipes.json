@@ -816,5 +816,1293 @@
         "alerta_kenzo": "Não pule o descanso! O sabor do nimono se completa enquanto esfria."
       }
     ]
+  },
+  {
+    "id": "dashi-rapido",
+    "titulo_pt": "Dashi Rápido de Emergência",
+    "titulo_jp": "即席だし",
+    "categoria": "bases",
+    "subtitulo": "Sem molho prévio: para quando há pressa no balcão",
+    "tempo_minutos": 10,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 1000,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Alga Kombu seca",
+        "quantidade_base": 1,
+        "unidade": "tira de 15 cm",
+        "nota": "Picada em pedaços menores"
+      },
+      {
+        "nome": "Katsuobushi esmagado",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Coloque a água e o kombu picado em pedaços menores em uma panela, ligando direto em fogo médio."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Assim que a água ferver (sem tempo de molho prévio), retire o kombu imediatamente."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Adicione o katsuobushi e ferva por 1 minuto. Desligue o fogo.",
+        "timer_segundos": 60
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Decante por 1 minuto e coe rapidamente.",
+        "timer_segundos": 60,
+        "dica_tomesan": "Salva quando há pressa no balcão."
+      }
+    ]
+  },
+  {
+    "id": "ebi-furai",
+    "titulo_pt": "Ebi Furai (Camarões Empanados na Panko)",
+    "titulo_jp": "エビフライ",
+    "categoria": "agemono",
+    "subtitulo": "Camarão suculento sob uma crosta dourada de panko",
+    "tempo_minutos": 20,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Camarões grandes limpos, com a cauda intacta",
+        "quantidade_base": 8,
+        "unidade": "camarões"
+      },
+      {
+        "nome": "Sal e pimenta",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Farinha de trigo",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Ovo batido",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Farinha Panko",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Óleo vegetal neutro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para fritura de imersão, a 180°C"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Endireitar o camarão: faça pequenos cortes horizontais na barriga e estique-o pressionando levemente, para que não entorte ao fritar."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Tempere com sal e pimenta. Prepare os pratos de trigo, ovo e panko."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Passe no trigo, mergulhe no ovo e envolva na panko segurando pela cauda."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Fritura rápida (180°C): frite por 2 minutos até que o panko esteja dourado e o camarão cozido e suculento. Escorra na grade.",
+        "timer_segundos": 120
+      }
+    ]
+  },
+  {
+    "id": "korokke",
+    "titulo_pt": "Korokke (Croquete Japonês de Batata e Carne)",
+    "titulo_jp": "コロッケ",
+    "categoria": "agemono",
+    "subtitulo": "Massa de batata e carne moída, empanada e frita até dourar",
+    "tempo_minutos": 60,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Batatas grandes cozidas e amassadas",
+        "quantidade_base": 3,
+        "unidade": "unidades"
+      },
+      {
+        "nome": "Carne moída refogada com cebola",
+        "quantidade_base": 150,
+        "unidade": "g"
+      },
+      {
+        "nome": "Sal",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Noz-moscada",
+        "quantidade_base": 1,
+        "unidade": "pitada"
+      },
+      {
+        "nome": "Farinha de trigo",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Ovo batido",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Farinha Panko",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Óleo vegetal neutro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para fritura de imersão, a 180°C"
+      },
+      {
+        "nome": "Molho tonkatsu",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para servir"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Massa base: misture a batata amassada com a carne moída refogada, sal e uma pitada de noz-moscada. Deixe esfriar na geladeira por 30 minutos.",
+        "timer_segundos": 1800
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Modelagem: modele discos ovais firmes com as mãos."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Empanamento: passe cada croquete no trigo, depois no ovo batido e envolva generosamente na panko."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Fritura (180°C): frite em imersão por 3 a 4 minutos até dourarem por completo por fora. Sirva quente com molho tonkatsu.",
+        "timer_segundos": 240
+      }
+    ]
+  },
+  {
+    "id": "agedashi-tofu",
+    "titulo_pt": "Agedashi Tofu (Tofu Frito em Caldo Dashi)",
+    "titulo_jp": "揚げ出し豆腐",
+    "categoria": "agemono",
+    "subtitulo": "Casquinha delicada de amido sobre tofu macio, em tentsuyu quente",
+    "tempo_minutos": 35,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Tofu firme",
+        "quantidade_base": 1,
+        "unidade": "bloco",
+        "nota": "Cortado em cubos grandes"
+      },
+      {
+        "nome": "Amido de batata",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para empanar"
+      },
+      {
+        "nome": "Óleo vegetal neutro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para fritura, a 180°C"
+      },
+      {
+        "nome": "Molho tentsuyu quente",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Dashi, shoyu e mirin"
+      },
+      {
+        "nome": "Nabo ralado (daikon)",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para coroar"
+      },
+      {
+        "nome": "Cebolinha",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Secagem extrema: pressione o bloco de tofu entre folhas de papel toalha por 20 minutos para extrair o máximo de água. Pique em cubos.",
+        "timer_segundos": 1200
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Empanamento em amido: envolva cada cubo de tofu em amido de batata imediatamente antes de fritar.",
+        "dica_tomesan": "O tofu absorve o amido rápido: não empane com antecedência."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Fritura cuidadosa (180°C): frite os cubos por 2 minutos até formar uma casquinha delicada.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Montagem na tigela: coloque o tofu frito em um bowl fundo, despeje o molho tentsuyu quente ao redor e coroe com nabo ralado e cebolinha."
+      }
+    ]
+  },
+  {
+    "id": "nikudofu",
+    "titulo_pt": "Nikudofu (Tofu com Carne Cozidos ao Shoyu)",
+    "titulo_jp": "肉豆腐",
+    "categoria": "nimono",
+    "subtitulo": "Tofu e carne fatiada no caldo de dashi, shoyu e mirin",
+    "tempo_minutos": 30,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Tofu firme",
+        "quantidade_base": 1,
+        "unidade": "bloco",
+        "nota": "Cortado em grandes cubos"
+      },
+      {
+        "nome": "Carne bovina fatiada fina",
+        "quantidade_base": 250,
+        "unidade": "g"
+      },
+      {
+        "nome": "Awase Dashi",
+        "quantidade_base": 300,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Açúcar",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Cebolinha",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para finalizar"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Base aromática: ferva o dashi, o shoyu, o mirin e o açúcar em uma panela rasa."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Inclusão da carne: adicione a carne bovina fatiada, cozinhando por 3 minutos até mudar de cor.",
+        "timer_segundos": 180
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Adição do tofu: acomode delicadamente os cubos de tofu entre a carne."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Cozimento lento com otoshibuta: cubra com papel manteiga e cozinhe em fogo brando por 15 minutos para o tofu absorver o caldo.",
+        "timer_segundos": 900
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Finalização: salpique cebolinha e sirva quente direto da panela."
+      }
+    ]
+  },
+  {
+    "id": "oden",
+    "titulo_pt": "Oden (Cozido de Inverno com Variedades)",
+    "titulo_jp": "おでん",
+    "categoria": "nimono",
+    "subtitulo": "Daikon, ovos e bolinhos de peixe em dashi leve, em fogo mínimo",
+    "tempo_minutos": 90,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Daikon em rodelas grossas",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Ovos cozidos",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Sem casca"
+      },
+      {
+        "nome": "Bolinhos de peixe (chikuwa, satsuma-age)",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Konjac",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Dashi leve",
+        "quantidade_base": 1200,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Shoyu claro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para temperar o dashi"
+      },
+      {
+        "nome": "Saquê",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para temperar o dashi"
+      },
+      {
+        "nome": "Arroz cru",
+        "quantidade_base": 1,
+        "unidade": "punhado",
+        "nota": "Para o pré-cozimento do daikon"
+      },
+      {
+        "nome": "Mostarda japonesa karashi",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para servir"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Pré-cozimento do daikon: cozinhe as rodelas de nabo em água com um punhado de arroz cru por 15 minutos, para remover o amargor e amaciar. Lave.",
+        "timer_segundos": 900
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Montagem da panela: em uma panela grande, disponha o daikon, os ovos cozidos sem casca, o konjac e os bolinhos de peixe."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Caldo dashi: despeje o dashi temperado com shoyu claro e saquê até cobrir tudo."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Fogo mínimo prolongado: cozinhe em fogo mínimo por pelo menos 1 hora. Sirva com mostarda japonesa karashi.",
+        "timer_segundos": 3600,
+        "alerta_kenzo": "Sem ferver jamais: a fervura esfarela os bolinhos de peixe!"
+      }
+    ]
+  },
+  {
+    "id": "kobocha-no-nimono",
+    "titulo_pt": "Kobocha no Nimono (Abóbora Japonesa Cozida)",
+    "titulo_jp": "かぼちゃの煮物",
+    "categoria": "nimono",
+    "subtitulo": "Kabocha com casca, adocicada pelo caldo de shoyu e mirin",
+    "tempo_minutos": 30,
+    "rendimento_base_porcoes": 3,
+    "ingredientes": [
+      {
+        "nome": "Abóbora japonesa (kabocha) com casca",
+        "quantidade_base": 500,
+        "unidade": "g",
+        "nota": "Cortada em cubos grandes"
+      },
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 300,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Açúcar",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Corte e limpeza: retire as sementes da abóbora e corte em cubos grandes, aparando as pontas agudas para não rasgarem a panela."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Disposição: coloque os cubos com a casca para baixo na panela, em camada única."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Caldo: adicione a água, o shoyu, o mirin e o açúcar."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Otoshibuta: cubra com papel manteiga e cozinhe em fogo médio por 12 a 15 minutos, até a abóbora estar macia ao perfurar com o hashi.",
+        "timer_segundos": 900
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Descanso: deixe esfriar na panela para a abóbora absorver o dulçor do caldo."
+      }
+    ]
+  },
+  {
+    "id": "yakiudon",
+    "titulo_pt": "Yakiudon na Chapa (Udon Salteado)",
+    "titulo_jp": "焼きうどん",
+    "categoria": "menrui",
+    "subtitulo": "Udon vaporizado na chapa e caramelizado nas bordas quentes",
+    "tempo_minutos": 20,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Macarrão udon",
+        "quantidade_base": 2,
+        "unidade": "pacotes"
+      },
+      {
+        "nome": "Porco em tiras",
+        "quantidade_base": 200,
+        "unidade": "g"
+      },
+      {
+        "nome": "Repolho",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Em tiras"
+      },
+      {
+        "nome": "Cenoura",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Em tiras"
+      },
+      {
+        "nome": "Água (para o vapor)",
+        "quantidade_base": 3,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Molho de ostra (oyster)",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Separe os fios de udon. Salteie a carne de porco na chapa quente."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Adicione repolho e cenoura em tiras, refogando por 2 minutos.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Coloque o udon, adicione 3 colheres de sopa de água e tampe por 30 segundos para gerar vapor.",
+        "timer_segundos": 30
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Remova a tampa e regue shoyu, molho de ostra e mirin nas bordas quentes da chapa para caramelizar antes de envolver o macarrão.",
+        "dica_tomesan": "O molho vai nas bordas quentes, não direto no macarrão: é a caramelização que dá o sabor."
+      }
+    ]
+  },
+  {
+    "id": "zaru-soba",
+    "titulo_pt": "Zaru Soba (Macarrão Sarraceno Gelado)",
+    "titulo_jp": "ざるそば",
+    "categoria": "menrui",
+    "subtitulo": "Soba firme e gelado, servido com tsuyu, cebolinha e wasabi",
+    "tempo_minutos": 15,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Soba seco",
+        "quantidade_base": 200,
+        "unidade": "g"
+      },
+      {
+        "nome": "Tsuyu concentrado",
+        "quantidade_base": 100,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Cebolinha",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Wasabi",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Kizami nori",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Cocção: cozinhe o soba em água fervente sem sal pelo tempo da embalagem (cerca de 4 a 5 minutos).",
+        "timer_segundos": 300
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Choque térmico: escorra e esfregue levemente o soba sob água corrente com gelo, para remover o amido superficial e firmar os fios.",
+        "dica_tomesan": "Sem esse banho de gelo o soba fica pegajoso e mole."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Montagem: escorra bem e disponha sobre uma peneira de bambu (zaru), polvilhando nori fatiado por cima. Sirva com molho tsuyu, cebolinha e wasabi separados."
+      }
+    ]
+  },
+  {
+    "id": "shoyu-ramen",
+    "titulo_pt": "Shoyu Ramen Caseiro do Izakaya",
+    "titulo_jp": "醤油ラーメン",
+    "categoria": "menrui",
+    "subtitulo": "Caldo de awase dashi com shoyu, macarrão katame, chashu e ovo",
+    "tempo_minutos": 20,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Macarrão para ramen",
+        "quantidade_base": 2,
+        "unidade": "porções"
+      },
+      {
+        "nome": "Awase Dashi",
+        "quantidade_base": 800,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Shoyu especial",
+        "quantidade_base": 3,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Chashu",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Em fatias"
+      },
+      {
+        "nome": "Ovo ajitsuke",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Cortado ao meio"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Caldo base: aqueça o awase dashi com o shoyu especial em fogo médio até aquecer bem."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Noodles: cozinhe o macarrão de ramen em água fervente separada até o ponto firme (katame). Escorra bem."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Montagem: coloque o macarrão na tigela, despeje o caldo quente aromático por cima e coroe com as fatias de chashu e o ovo marinado cortado ao meio."
+      }
+    ]
+  },
+  {
+    "id": "yakisoba",
+    "titulo_pt": "Yakisoba Clássico Shokudo",
+    "titulo_jp": "焼きそば",
+    "categoria": "menrui",
+    "subtitulo": "Macarrão salteado na wok em fogo alto, com legumes e molho",
+    "tempo_minutos": 20,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Macarrão para yakisoba",
+        "quantidade_base": 2,
+        "unidade": "pacotes",
+        "nota": "Pré-cozido"
+      },
+      {
+        "nome": "Carne ou frango",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Brócolis",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Cenoura",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Repolho",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Moyashi",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Molho para yakisoba",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Óleo vegetal",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Um fio"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Salteio de base: refogue a carne e os legumes na wok, em fogo alto, com um fio de óleo."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Inclusão do macarrão: adicione o macarrão pré-cozido e o molho especial para yakisoba."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Finalização na wok: salteie vigorosamente por 2 minutos, para que o molho envolva os ingredientes de forma homogênea, e sirva fumegante.",
+        "timer_segundos": 120
+      }
+    ]
+  },
+  {
+    "id": "kitsune-udon",
+    "titulo_pt": "Kitsune Udon (Udon com Tofu Doce)",
+    "titulo_jp": "きつねうどん",
+    "categoria": "menrui",
+    "subtitulo": "Udon em dashi leve coroado com aburaage adocicado",
+    "tempo_minutos": 15,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Macarrão udon",
+        "quantidade_base": 2,
+        "unidade": "porções"
+      },
+      {
+        "nome": "Awase Dashi",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "Leve"
+      },
+      {
+        "nome": "Aburaage",
+        "quantidade_base": 2,
+        "unidade": "pedaços",
+        "nota": "Cozidos no shoyu e açúcar"
+      },
+      {
+        "nome": "Cebolinha verde",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Picada"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Cozinhe o macarrão udon e distribua em bowls fundos."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Despeje o awase dashi leve e bem quente por cima do macarrão."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Coroe cada bowl com um grande pedaço de aburaage (tofu frito adocicado) e polvilhe cebolinha verde picada."
+      }
+    ]
+  },
+  {
+    "id": "oyakodon",
+    "titulo_pt": "Oyakodon (Frango e Ovo sobre Arroz)",
+    "titulo_jp": "親子丼",
+    "categoria": "donburi",
+    "subtitulo": "Frango e ovo cremoso sobre arroz quente",
+    "tempo_minutos": 20,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Gohan (arroz japonês cozido)",
+        "quantidade_base": 2,
+        "unidade": "xícaras",
+        "nota": "Quente, para a tigela"
+      },
+      {
+        "nome": "Frango em cubos",
+        "quantidade_base": 250,
+        "unidade": "g"
+      },
+      {
+        "nome": "Cebola",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Fatiada"
+      },
+      {
+        "nome": "Ovos batidos levemente",
+        "quantidade_base": 3,
+        "unidade": "unidades"
+      },
+      {
+        "nome": "Dashi",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Ferva o dashi, o shoyu, o mirin e a cebola em panela rasa até amaciar."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Adicione os cubos de frango e cozinhe por 4 minutos.",
+        "timer_segundos": 240
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Despeje dois terços dos ovos batidos e tampe por 30 segundos.",
+        "timer_segundos": 30
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Adicione o restante do ovo para dar cremosidade, desligue e despeje sobre o arroz quente na tigela."
+      }
+    ]
+  },
+  {
+    "id": "gyudon",
+    "titulo_pt": "Gyudon (Fatias de Carne com Cebola)",
+    "titulo_jp": "牛丼",
+    "categoria": "donburi",
+    "subtitulo": "Carne ultrafina e cebola num caldo agridoce reduzido",
+    "tempo_minutos": 25,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Gohan (arroz japonês cozido)",
+        "quantidade_base": 2,
+        "unidade": "xícaras",
+        "nota": "Quente, para a tigela"
+      },
+      {
+        "nome": "Carne bovina em fatias ultrafinas",
+        "quantidade_base": 300,
+        "unidade": "g"
+      },
+      {
+        "nome": "Cebola",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Em gomos"
+      },
+      {
+        "nome": "Água",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Saquê",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Cozinhe a cebola em gomos e a carne fatiada ultrafina em panela com água, shoyu, mirin e saquê."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Deixe cozinhar em fogo médio até que o caldo reduza pela metade e a carne absorva o sabor agridoce."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Sirva generosamente sobre uma tigela funda de arroz japonês quente."
+      }
+    ]
+  },
+  {
+    "id": "katsudon",
+    "titulo_pt": "Katsudon (Tonkatsu com Ovo sobre Arroz)",
+    "titulo_jp": "カツ丼",
+    "categoria": "donburi",
+    "subtitulo": "Tonkatsu em caldo de dashi com ovo cremoso sobre arroz",
+    "tempo_minutos": 15,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Gohan (arroz japonês cozido)",
+        "quantidade_base": 2,
+        "unidade": "xícaras",
+        "nota": "Quente, para a tigela"
+      },
+      {
+        "nome": "Tonkatsu já frito",
+        "quantidade_base": 2,
+        "unidade": "bifes",
+        "nota": "Veja a receita de Tonkatsu"
+      },
+      {
+        "nome": "Cebola",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Fatiada"
+      },
+      {
+        "nome": "Ovos batidos",
+        "quantidade_base": 2,
+        "unidade": "unidades"
+      },
+      {
+        "nome": "Dashi",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Ferva o dashi, o shoyu, o mirin e a cebola em uma frigideira."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Corte o tonkatsu frito em tiras e acomode no caldo fervente."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Regue com os ovos batidos, tampe até atingir o ponto cremoso e deslize cuidadosamente sobre o arroz quente."
+      }
+    ]
+  },
+  {
+    "id": "tendon",
+    "titulo_pt": "Tendon (Tempura Variado sobre Arroz)",
+    "titulo_jp": "天丼",
+    "categoria": "donburi",
+    "subtitulo": "Tempura recém-frito sobre arroz, regado com tentsuyu",
+    "tempo_minutos": 30,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Gohan (arroz japonês cozido)",
+        "quantidade_base": 2,
+        "unidade": "xícaras",
+        "nota": "Quente, para a tigela"
+      },
+      {
+        "nome": "Camarões e legumes em tempura crocante",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Molho tentsuyu reduzido",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Agridoce e encorpado"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Prepare os tempuras de camarão e vegetais, mantendo a crocância."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Disponha os tempuras recém-fritos sobre o arroz fresco na tigela."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Regue generosamente com o molho tentsuyu agridoce encorpado."
+      }
+    ]
+  },
+  {
+    "id": "soborodon",
+    "titulo_pt": "Soborodon (Carne Moída e Ovo sobre Arroz)",
+    "titulo_jp": "そぼろ丼",
+    "categoria": "donburi",
+    "subtitulo": "Faixas de carne moída escura e ovo amarelo sobre o arroz",
+    "tempo_minutos": 25,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Gohan (arroz japonês cozido)",
+        "quantidade_base": 2,
+        "unidade": "xícaras",
+        "nota": "Quente, para a tigela"
+      },
+      {
+        "nome": "Carne moída bovina",
+        "quantidade_base": 250,
+        "unidade": "g"
+      },
+      {
+        "nome": "Ovos",
+        "quantidade_base": 2,
+        "unidade": "unidades"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Saquê",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Gengibre",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Açúcar",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Cozinhe a carne moída, mexendo sempre, com shoyu, saquê, gengibre e açúcar até secar completamente."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Em outra panela, faça ovos mexidos bem picadinhos (iri-tamago)."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Monte faixas alternadas de carne moída escura e ovos amarelos sobre o arroz na tigela."
+      }
+    ]
+  },
+  {
+    "id": "gyuniku-no-batayaki",
+    "titulo_pt": "Gyuniku no Batayaki (Carne com Manteiga e Alho)",
+    "titulo_jp": "牛肉のバター焼き",
+    "categoria": "yakimono",
+    "subtitulo": "Cubos de contrafilé selados na chapa com alho crocante",
+    "tempo_minutos": 15,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Contrafilé em cubos",
+        "quantidade_base": 400,
+        "unidade": "g"
+      },
+      {
+        "nome": "Manteiga",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Alho em lâminas",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Alho-poró",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Doure as lâminas de alho na manteiga até ficarem crocantes e reserve."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Sele os cubos de carne na mesma chapa quente por 2 minutos, sem mexer.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Adicione o alho-poró e o restante da manteiga. Regue com shoyu nas bordas para caramelizar e sirva com o alho crocante por cima."
+      }
+    ]
+  },
+  {
+    "id": "yakitori",
+    "titulo_pt": "Yakitori (Espetinhos de Frango com Tare)",
+    "titulo_jp": "焼き鳥",
+    "categoria": "yakimono",
+    "subtitulo": "Negima laqueado com tare até caramelizar",
+    "tempo_minutos": 30,
+    "rendimento_base_porcoes": 3,
+    "ingredientes": [
+      {
+        "nome": "Coxa de frango em cubos",
+        "quantidade_base": 500,
+        "unidade": "g"
+      },
+      {
+        "nome": "Cebolinha",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para alternar nos espetos (negima)"
+      },
+      {
+        "nome": "Molho tare",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Shoyu, mirin, saquê e açúcar"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Monte os espetinhos alternando cubos de frango e pedaços de cebolinha."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Grelhe na brasa ou na chapa quente, pincelando o molho tare repetidas vezes até caramelizar e dourar por igual."
+      }
+    ]
+  },
+  {
+    "id": "shogayaki-porco",
+    "titulo_pt": "Shogayaki de Porco (Lombo Grelhado ao Gengibre)",
+    "titulo_jp": "豚の生姜焼き",
+    "categoria": "yakimono",
+    "subtitulo": "Lombo fatiado fino, glaçado com gengibre fresco",
+    "tempo_minutos": 15,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Lombo suíno fatiado fino",
+        "quantidade_base": 400,
+        "unidade": "g"
+      },
+      {
+        "nome": "Gengibre ralado",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Fresco, para o final"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Saquê",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Marine o lombo fatiado levemente na mistura de shoyu, mirin e saquê."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Grelhe as fatias em frigideira quente e adicione o gengibre ralado fresco no final, formando uma glaçagem brilhante."
+      }
+    ]
+  },
+  {
+    "id": "shiozake",
+    "titulo_pt": "Shiozake (Filé de Salmão Grelhado com Sal)",
+    "titulo_jp": "塩鮭",
+    "categoria": "yakimono",
+    "subtitulo": "Sal grosso, pele estalando e daikon ralado",
+    "tempo_minutos": 35,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Filés de salmão fresco",
+        "quantidade_base": 2,
+        "unidade": "filés"
+      },
+      {
+        "nome": "Sal grosso marinho",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Limão siciliano",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Daikon ralado",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para servir"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Polvilhe sal grosso nos filés de salmão e deixe descansar por 20 minutos, para drenar a umidade e firmar a carne.",
+        "timer_segundos": 1200
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Limpe o excesso de sal com papel toalha e grelhe com a pele para baixo em fogo médio até dourar e estalar. Sirva com daikon."
+      }
+    ]
+  },
+  {
+    "id": "batayaki-cogumelos",
+    "titulo_pt": "Batayaki de Cogumelos (Shimeji e Shiitake)",
+    "titulo_jp": "きのこのバター焼き",
+    "categoria": "yakimono",
+    "subtitulo": "Cogumelos salteados em manteiga, com shoyu direto na frigideira",
+    "tempo_minutos": 10,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Shimeji",
+        "quantidade_base": 200,
+        "unidade": "g"
+      },
+      {
+        "nome": "Shiitake fatiado",
+        "quantidade_base": 150,
+        "unidade": "g"
+      },
+      {
+        "nome": "Manteiga",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 0,
+        "unidade": "a gosto"
+      },
+      {
+        "nome": "Cebolinha verde",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Picada"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Aqueça a manteiga em frigideira de ferro, em fogo alto."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Salteie o shimeji e o shiitake fatiado até murcharem."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Adicione o shoyu diretamente na manteiga e finalize com cebolinha verde picada."
+      }
+    ]
   }
 ]

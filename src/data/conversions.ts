@@ -35,6 +35,9 @@ export const CONVERSIONS: Record<string, Conversion> = {
   Açúcar: { metric: 'g', unit: 'colher_sopa', perUnit: 12 },
   'Awase Dashi': { metric: 'ml', unit: 'xicara', perUnit: 240 },
 
+  Manteiga: { metric: 'g', unit: 'colher_sopa', perUnit: 14 },
+  'Dashi leve': { metric: 'ml', unit: 'xicara', perUnit: 240 },
+
   'Sal refinado': { metric: 'g', unit: 'colher_cha', perUnit: 6, qualifier: ['rasa', 'rasas'] },
   'Alga Wakame desidratada': { metric: 'g', unit: 'colher_sopa', perUnit: 2 },
   'Vinagre de arroz fermentado puro': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },

@@ -6,6 +6,7 @@ export const CATEGORIAS = [
   { id: 'agemono', nome: 'Frituras (Agemono)', icone: '🍤' },
   { id: 'yakimono', nome: 'Chapa e Grelhados (Yakimono)', icone: '🍳' },
   { id: 'nimono', nome: 'Cozidos Lentos (Nimono)', icone: '🥘' },
+  { id: 'menrui', nome: 'Massas (Menrui)', icone: '🍜' },
   { id: 'donburi', nome: 'Tigelas de Arroz (Donburi)', icone: '🍚' },
 ] as const;
 
