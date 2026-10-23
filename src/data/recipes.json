@@ -636,7 +636,7 @@
     "titulo_jp": "豚の角煮",
     "categoria": "nimono",
     "subtitulo": "Versão do Mestre Kenzo: douração, dupla fervura e horas de fogo brando até a gordura ficar translúcida",
-    "tempo_minutos": 200,
+    "tempo_minutos": 210,
     "rendimento_base_porcoes": 4,
     "ingredientes": [
       {
@@ -708,10 +708,15 @@
         "ordem": 4,
         "instrucao": "Otoshibuta e fogo brando: cubra com uma tampa de papel manteiga (otoshibuta) furada no centro. Cozinhe em fogo brando por 1h30 a 2 horas, até que a carne esteja extremamente macia.",
         "timer_segundos": 5400,
-        "dica_tomesan": "Corte o papel manteiga no diâmetro exato da panela. Ele faz o caldo circular por cima e evita que os blocos batam uns nos outros e se quebrem."
+        "dica_tomesan": "Corte o papel manteiga no diâmetro exato da panela. Ele faz o caldo circular por cima e evita que os blocos batam uns nos outros e se quebrem. Na panela de pressão, a receita original cozinhava 20 minutos depois que a panela chiava (contra 35 em fogo brando): confira a maciez com o hashi antes de dar mais tempo."
       },
       {
         "ordem": 5,
+        "instrucao": "Redução do molho: retire o otoshibuta, aumente levemente a chama e deixe o molho reduzir borbulhando até restar uma camada espessa, caramelizada e marrom brilhante no fundo, regando os pedaços com a colher.",
+        "dica_tomesan": "Quando o molho cobrir as costas da colher sem escorrer feito água, está no ponto exato."
+      },
+      {
+        "ordem": 6,
         "instrucao": "Descanso e serviço: deixe amornar. Sirva fatiado com ovos cozidos marinados (ajitsuke tamago) e nabo cozido.",
         "alerta_kenzo": "O nimono atinge o ápice depois de esfriar: é no resfriamento que o caldo penetra fundo nas fibras da carne."
       }
