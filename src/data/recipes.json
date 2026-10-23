@@ -537,5 +537,187 @@
         "alerta_kenzo": "Aqui pode espremer: o objetivo é a extração total de corpo para cozidos (nimono) e para temperar arrozes."
       }
     ]
+  },
+  {
+    "id": "tori-no-karaage",
+    "titulo_pt": "Tori no Karaage (Frango Frito do Izakaya)",
+    "titulo_jp": "鶏の唐揚げ",
+    "categoria": "agemono",
+    "subtitulo": "Marinado no shoyu, saquê e gengibre, empanado em katakuriko e frito duas vezes: crosta seca e interior suculento",
+    "tempo_minutos": 50,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Coxa e sobrecoxa de frango desossada (com pele)",
+        "quantidade_base": 500,
+        "unidade": "g",
+        "nota": "Cortada em cubos médios (mordida perfeita); a pele garante suculência"
+      },
+      {
+        "nome": "Shoyu tradicional (marinada)",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Saquê culinário (Ryorishu)",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa"
+      },
+      {
+        "nome": "Suco de gengibre fresco ralado",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa"
+      },
+      {
+        "nome": "Alho ralado",
+        "quantidade_base": 1,
+        "unidade": "dente"
+      },
+      {
+        "nome": "Óleo de gergelim torrado (marinada)",
+        "quantidade_base": 1,
+        "unidade": "colher de chá"
+      },
+      {
+        "nome": "Amido de batata (katakuriko) ou fécula de milho",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para empanar: o suficiente para cobrir como uma poeira fina"
+      },
+      {
+        "nome": "Óleo vegetal neutro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para fritura imersiva: quantidade que cubra os pedaços"
+      },
+      {
+        "nome": "Limão siciliano",
+        "quantidade_base": 2,
+        "unidade": "gomos",
+        "nota": "Para servir"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "A marinada (Shitagaki): em uma tigela, misture o shoyu, o saquê, o gengibre, o alho e o óleo de gergelim. Mergulhe os cubos de frango e deixe marinar por pelo menos 30 minutos na geladeira.",
+        "timer_segundos": 1800
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Retire o frango da marinada e seque o excesso de líquido com papel toalha.",
+        "alerta_kenzo": "Frango úmido espirra óleo e empasta a crosta!"
+      },
+      {
+        "ordem": 3,
+        "instrucao": "O empanamento leve: passe cada pedaço de frango no amido de batata, sacudindo bem para remover qualquer excesso. O amido deve apenas cobrir a superfície como uma poeira fina."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Primeira fritura (170°C): aqueça o óleo a 170°C. Frite os pedaços em pequenos lotes por cerca de 3 a 4 minutos, até que estejam cozidos por dentro mas ainda com uma cor clara por fora.",
+        "timer_segundos": 240,
+        "dica_tomesan": "Teste do hashi: bolhas contínuas e uniformes ao redor do bambu indicam 170°C a 180°C."
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Retire os pedaços e deixe descansar na grade por 3 minutos, em camada única.",
+        "timer_segundos": 180,
+        "dica_tomesan": "Nunca empilhe frituras recém-saídas do óleo: o vapor amolece a crosta."
+      },
+      {
+        "ordem": 6,
+        "instrucao": "Segunda fritura (190°C): aumente a temperatura do óleo para 190°C. Retorne o frango por 45 segundos para purgar a umidade residual e criar a crosta dourada perfeita. Sirva com um gomo de limão siciliano.",
+        "timer_segundos": 45,
+        "alerta_kenzo": "A segunda fritura é o segredo da crocância. Passou de 45 segundos, o frango resseca!"
+      }
+    ]
+  },
+  {
+    "id": "tonkatsu",
+    "titulo_pt": "Tonkatsu (Lombo de Porco à Panko)",
+    "titulo_jp": "とんかつ",
+    "categoria": "agemono",
+    "subtitulo": "Clássico dos pratos de conforto (Yoshoku e Teishoku): cortes altos empanados em panko grosso",
+    "tempo_minutos": 30,
+    "rendimento_base_porcoes": 2,
+    "ingredientes": [
+      {
+        "nome": "Bifes altos de lombo de porco",
+        "quantidade_base": 2,
+        "unidade": "bifes",
+        "nota": "Cerca de 200 g cada, com a capa de gordura lateral preservada para dar sabor"
+      },
+      {
+        "nome": "Sal e pimenta-do-reino branca",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para temperar os dois lados"
+      },
+      {
+        "nome": "Farinha de trigo",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Ovo batido",
+        "quantidade_base": 1,
+        "unidade": "unidade"
+      },
+      {
+        "nome": "Farinha Panko",
+        "quantidade_base": 1,
+        "unidade": "xícara",
+        "nota": "Farinha de rosca japonesa grossa"
+      },
+      {
+        "nome": "Óleo vegetal neutro",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Quantidade que cubra o bife na fritura de imersão"
+      },
+      {
+        "nome": "Molho Tonkatsu artesanal",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Mistura de shoyu, molho inglês, ketchup e açúcar mascavo"
+      },
+      {
+        "nome": "Repolho roxo ou verde em fios ultrafinos",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Para servir ao lado"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Preparação da carne: faça pequenos cortes verticais na gordura lateral do lombo a cada 2 cm para evitar que o bife entorte ao fritar. Bata levemente com o dorso da faca ou batedor para amaciar as fibras."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Tempere ambos os lados com sal e pimenta branca."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "A tríade de empanamento: passe o bife primeiro na farinha de trigo (removendo o excesso), depois mergulhe no ovo batido e por fim pressione delicadamente na farinha panko para cobrir uniformemente, sem apertar demais."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Fritura de imersão (170°C): aqueça o óleo em quantidade que cubra o bife. Frite por 4 a 5 minutos de um lado.",
+        "timer_segundos": 300,
+        "dica_tomesan": "Teste do hashi: bolhas contínuas e uniformes ao redor do bambu indicam 170°C a 180°C."
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Vire e frite mais 2 minutos do outro lado, até que o panko esteja dourado e crocante.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 6,
+        "instrucao": "Descanso sagrado: retire e deixe repousar em pé ou sobre uma grade por 3 minutos antes de fatiar em tiras verticais. Sirva com repolho em fios ultrafinos e molho tonkatsu por cima.",
+        "timer_segundos": 180,
+        "alerta_kenzo": "Cortou antes do descanso, o suco escorre e o lombo resseca!"
+      }
+    ]
   }
 ]

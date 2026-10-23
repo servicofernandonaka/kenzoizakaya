@@ -15,7 +15,8 @@ export interface Base {
 export interface Tecnica {
   titulo: string;
   descricao: string;
-  citacao: string;
+  itens?: string[];
+  citacao?: string;
 }
 
 export interface Instrumento {
@@ -101,6 +102,27 @@ export const TECNICAS: Tecnica[] = [
       'Polvilhar sal grosso em carnes e peixes para drenar umidade e eliminar odores fortes antes da chapa.',
     citacao:
       'Deixe agir por 15 minutos, passe rapidamente em água corrente fria e seque com papel toalha. O sabor limpo agradece.',
+  },
+];
+
+export const PILARES_AGEMONO: Tecnica[] = [
+  {
+    titulo: 'Abura no Ondo (Temperatura do Óleo)',
+    descricao: 'No agemono, o termômetro manda: óleo limpo e temperatura rigorosa garantem a crosta seca.',
+    itens: [
+      'Baixa (160°C - 170°C): vegetais densos e cortes grossos que precisam cozinhar por dentro sem queimar por fora.',
+      'Alta (180°C - 190°C): frangos, empanados em panko e frutos do mar que exigem selagem rápida e crosta crocante.',
+    ],
+  },
+  {
+    titulo: 'O Teste do Hashi',
+    descricao:
+      'Insira um hashi de bambu no óleo quente. Se pequenas bolhas subirem de forma contínua e uniforme ao redor da madeira, o óleo está a 170°C-180°C.',
+  },
+  {
+    titulo: 'Abura-kiri (Escorrer o Óleo)',
+    descricao:
+      'Nunca empilhe as frituras recém-saídas do óleo. Use uma grelha de metal (batto) ou papel absorvente em camada única para que o vapor escape e não amoleça a crosta.',
   },
 ];
 

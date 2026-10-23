@@ -32,6 +32,15 @@ export interface ResolvedAmount {
   fixed: { value: number; unidade: string } | null;
 }
 
+/** Descobre qual medida caseira o texto da unidade expressa (ou null se não for uma). */
+function householdKeyOf(base: string): HouseholdKey | null {
+  if (/^colher(es)? de sopa/.test(base)) return 'colher_sopa';
+  if (/^colher(es)? de chá/.test(base)) return 'colher_cha';
+  if (/^xícaras?/.test(base)) return 'xicara';
+  if (/^punhados?/.test(base)) return 'punhado';
+  return null;
+}
+
 /** Calcula todas as representações possíveis de um ingrediente para o fator de porções informado. */
 export function resolveIngredient(ing: Ingrediente, factor: number): ResolvedAmount {
   const value = ing.quantidade_base * factor;
@@ -45,7 +54,7 @@ export function resolveIngredient(ing: Ingrediente, factor: number): ResolvedAmo
       fixed: null,
     };
   }
-  if (conv && base.startsWith('colher')) {
+  if (conv && householdKeyOf(base) === conv.unit) {
     return {
       metric: { value: householdToMetric(conv, value), unit: conv.metric },
       household: { value, conv },
@@ -92,10 +101,14 @@ const PLURAL_PAIRS: Array<[string, string]> = [
   ['unidade', 'unidades'],
   ['talo inteiro', 'talos inteiros'],
   ['tigela pequena', 'tigelas pequenas'],
+  ['dente', 'dentes'],
+  ['gomo', 'gomos'],
+  ['bife', 'bifes'],
   ['colher de chá de amido', 'colheres de chá de amido'],
 ];
 
 export function formatFixed(value: number, unidade: string): string {
+  if (value === 0) return unidade; // convenção: quantidade 0 + unidade "a gosto"
   const { text, singular } = quarters(value);
   const pair = PLURAL_PAIRS.find(([s, p]) => s === unidade || p === unidade);
   const label = pair ? (singular ? pair[0] : pair[1]) : unidade;

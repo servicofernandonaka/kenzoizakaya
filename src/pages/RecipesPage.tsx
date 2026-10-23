@@ -1,7 +1,7 @@
 import { useId, useMemo, useState } from 'react';
 import { RecipeCard } from '../components/RecipeCard';
 import { HeartIcon, SearchIcon } from '../components/Icons';
-import { CATEGORIAS } from '../data/categorias';
+import { CATEGORIAS, CATEGORIA_INTROS } from '../data/categorias';
 import type { Categoria, Receita } from '../types';
 
 interface Props {
@@ -97,6 +97,10 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
           </button>
         </div>
       </div>
+
+      {cat !== 'todas' && CATEGORIA_INTROS[cat] && (
+        <p className="rounded-xl border border-line bg-surface p-4 leading-relaxed text-mute">{CATEGORIA_INTROS[cat]}</p>
+      )}
 
       <p className="text-sm text-mute" aria-live="polite">
         {visible.length} de {receitas.length} receitas

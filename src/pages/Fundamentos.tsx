@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { hrefReceita } from '../lib/route';
-import { BASES, INSTRUMENTOS, INTRO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
+import { BASES, INSTRUMENTOS, INTRO, PILARES_AGEMONO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
 
 /** Fundamentos do Oyaji: abas acessíveis (setas, Home, End) com bases, técnicas e instrumentos. */
 export function Fundamentos() {
@@ -107,14 +107,23 @@ export function Fundamentos() {
         hidden={tab !== 'preparo'}
         className="grid gap-6 md:grid-cols-2"
       >
-        {TECNICAS.map((t) => (
+        {[...TECNICAS, ...PILARES_AGEMONO].map((t) => (
           <article key={t.titulo} className="panel p-6 md:p-8">
             <h2 className="text-xl font-bold">{t.titulo}</h2>
             <p className="mt-2 text-sm text-mute">{t.descricao}</p>
-            <blockquote className="mt-4 rounded-xl border border-line bg-canvas/70 p-4 text-sm italic">
-              “{t.citacao}”
-              <footer className="mt-2 not-italic text-mute">— Mestre Kenzo</footer>
-            </blockquote>
+            {t.itens && (
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+                {t.itens.map((it) => (
+                  <li key={it}>{it}</li>
+                ))}
+              </ul>
+            )}
+            {t.citacao && (
+              <blockquote className="mt-4 rounded-xl border border-line bg-canvas/70 p-4 text-sm italic">
+                “{t.citacao}”
+                <footer className="mt-2 not-italic text-mute">— Mestre Kenzo</footer>
+              </blockquote>
+            )}
           </article>
         ))}
       </div>

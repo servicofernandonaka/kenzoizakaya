@@ -29,6 +29,13 @@ export const CONVERSIONS: Record<string, Conversion> = {
   'Moyashi (broto de feijão fresco)': { metric: 'g', unit: 'xicara', perUnit: 90 },
   'Óleo de gergelim torrado': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
 
+  'Shoyu tradicional (marinada)': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
+  'Saquê culinário (Ryorishu)': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
+  'Suco de gengibre fresco ralado': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
+  'Óleo de gergelim torrado (marinada)': { metric: 'ml', unit: 'colher_cha', perUnit: 5 },
+  'Farinha de trigo': { metric: 'g', unit: 'colher_sopa', perUnit: 8 },
+  'Farinha Panko': { metric: 'g', unit: 'xicara', perUnit: 50 },
+
   'Sal refinado': { metric: 'g', unit: 'colher_cha', perUnit: 6, qualifier: ['rasa', 'rasas'] },
   'Alga Wakame desidratada': { metric: 'g', unit: 'colher_sopa', perUnit: 2 },
   'Vinagre de arroz fermentado puro': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
