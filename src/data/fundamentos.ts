@@ -50,7 +50,7 @@ export const BASES: Base[] = [
       'Limpe o Kombu levemente com pano úmido, preservando o pó branco umami.',
       'Hidrate na água fria por 30 minutos. Aqueça em fogo médio.',
       'Segredo do Oyaji: Retire o kombu antes da fervura total (cerca de 80°C) para não amargar.',
-      'Desligue o fogo ao ferver o katsuobushi, deixe afundar em 2 min e coe com pano sem espremer.',
+      'Com o kombu fora, deixe a água ferver em borbulhas fortes, jogue o katsuobushi e apague o fogo na hora: o choque térmico solta o inosinato. Deixe afundar por 2 min e coe com pano sem espremer.',
     ],
   },
   {

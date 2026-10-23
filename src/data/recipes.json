@@ -293,7 +293,8 @@
       },
       {
         "ordem": 4,
-        "instrucao": "Aumente o fogo até a água ferver, desligue o fogo imediatamente e adicione o katsuobushi de uma só vez."
+        "instrucao": "Retirado o kombu, aumente o fogo e deixe a água chegar a uma fervura borbulhante. Só então jogue o katsuobushi de uma só vez e apague o fogo na hora.",
+        "alerta_kenzo": "O choque térmico da fervura é indispensável para soltar o inosinato. Se o katsuobushi cair na água morna (80°C), o peixe só hidrata e não extrai todo o aroma defumado!"
       },
       {
         "ordem": 5,
@@ -1251,14 +1252,15 @@
         "nome": "Arroz cru",
         "quantidade_base": 1,
         "unidade": "punhado",
-        "nota": "Para o pré-cozimento do daikon"
+        "nota": "Ou água de lavagem do arroz (togijiru), para o pré-cozimento do daikon"
       }
     ],
     "passos": [
       {
         "ordem": 1,
-        "instrucao": "Pré-cozimento do daikon: cozinhe as rodelas de nabo em água com um punhado de arroz cru por 15 minutos para remover o amargor e amaciar. Lave.",
-        "timer_segundos": 900
+        "instrucao": "Preparo e pré-cozimento do daikon: chanfre as quinas de cada rodela grossa (mentori) e faça um corte em cruz na base (jūji-kiri). Cozinhe as rodelas em água com um punhado de arroz cru (ou na água de lavagem do arroz, togijiru) por 15 minutos para remover o amargor e amaciar. Lave.",
+        "timer_segundos": 900,
+        "dica_tomesan": "O corte em cruz faz o dashi penetrar até o miolo sem desmanchar as bordas."
       },
       {
         "ordem": 2,
@@ -1315,7 +1317,8 @@
     "passos": [
       {
         "ordem": 1,
-        "instrucao": "Corte e limpeza: retire as sementes da abóbora e corte em cubos grandes, aparando as pontas agudas para não rasgarem a panela."
+        "instrucao": "Corte e limpeza: retire as sementes da abóbora e corte em cubos grandes. Chanfre todas as quinas dos cubos, principalmente as da casca (mentori).",
+        "alerta_kenzo": "Quina pontuda bate no fundo da panela quando o caldo borbulha, quebra e deixa o caldo cheio de farelo. Chanfrou, o cubo chega inteiro ao final!"
       },
       {
         "ordem": 2,
