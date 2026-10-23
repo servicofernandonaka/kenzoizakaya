@@ -15,7 +15,8 @@ const REGIOES = ['liberdade', 'online', 'bairros'];
 
 function isIngrediente(v: unknown): boolean {
   return (
-    isRecord(v) && isStr(v.nome) && isNum(v.quantidade_base) && v.quantidade_base >= 0 && isStr(v.unidade) && optStr(v.nota)
+    isRecord(v) && isStr(v.nome) && isNum(v.quantidade_base) && v.quantidade_base >= 0 && isStr(v.unidade) && optStr(v.nota) &&
+    (v.escala === undefined || typeof v.escala === 'boolean')
   );
 }
 

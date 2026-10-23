@@ -43,7 +43,7 @@ function householdKeyOf(base: string): HouseholdKey | null {
 
 /** Calcula todas as representações possíveis de um ingrediente para o fator de porções informado. */
 export function resolveIngredient(ing: Ingrediente, factor: number): ResolvedAmount {
-  const value = ing.quantidade_base * factor;
+  const value = ing.quantidade_base * (ing.escala === false ? 1 : factor);
   const conv: Conversion | undefined = CONVERSIONS[ing.nome];
   const base = ing.unidade.trim().toLowerCase();
 

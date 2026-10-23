@@ -495,10 +495,11 @@
         "nota": "Para empanar: o suficiente para cobrir como uma poeira fina"
       },
       {
-        "nome": "Óleo vegetal neutro",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Para fritura imersiva: quantidade que cubra os pedaços"
+        "nome": "Óleo vegetal neutro de soja ou milho",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "800 a 1000 ml: o suficiente para imersão de 3 a 5 cm na panela funda",
+        "escala": false
       },
       {
         "nome": "Limão siciliano",
@@ -565,8 +566,9 @@
       },
       {
         "nome": "Farinha de trigo",
-        "quantidade_base": 2,
-        "unidade": "colheres de sopa"
+        "quantidade_base": 40,
+        "unidade": "g",
+        "nota": "Cerca de 4 colheres de sopa"
       },
       {
         "nome": "Ovo batido",
@@ -575,15 +577,16 @@
       },
       {
         "nome": "Farinha Panko",
-        "quantidade_base": 1,
-        "unidade": "xícara",
-        "nota": "Farinha de rosca japonesa grossa"
+        "quantidade_base": 80,
+        "unidade": "g",
+        "nota": "Cerca de 1 xícara; farinha de rosca japonesa grossa"
       },
       {
-        "nome": "Óleo vegetal neutro",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Quantidade que cubra o bife na fritura de imersão"
+        "nome": "Óleo vegetal neutro de soja ou milho",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "800 a 1000 ml: o suficiente para imersão de 3 a 5 cm na panela funda",
+        "escala": false
       },
       {
         "nome": "Molho Tonkatsu artesanal",
@@ -819,7 +822,7 @@
   },
   {
     "id": "dashi-rapido",
-    "titulo_pt": "Dashi Rápido de Emergência",
+    "titulo_pt": "Dashi Rápido de Emergência (Kombu & Bonito Base)",
     "titulo_jp": "即席だし",
     "categoria": "bases",
     "subtitulo": "Sem molho prévio: para quando há pressa no balcão",
@@ -835,12 +838,13 @@
         "nome": "Alga Kombu seca",
         "quantidade_base": 1,
         "unidade": "tira de 15 cm",
-        "nota": "Picada em pedaços menores"
+        "nota": "Cerca de 10 g, picada em pedaços menores"
       },
       {
-        "nome": "Katsuobushi esmagado",
-        "quantidade_base": 2,
-        "unidade": "colheres de sopa"
+        "nome": "Katsuobushi (flocos de bonito)",
+        "quantidade_base": 25,
+        "unidade": "g",
+        "nota": "Flocos de bonito seco"
       }
     ],
     "passos": [
@@ -886,8 +890,9 @@
       },
       {
         "nome": "Farinha de trigo",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 40,
+        "unidade": "g",
+        "nota": "Cerca de 4 colheres de sopa"
       },
       {
         "nome": "Ovo batido",
@@ -896,14 +901,16 @@
       },
       {
         "nome": "Farinha Panko",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 80,
+        "unidade": "g",
+        "nota": "Cerca de 1 xícara"
       },
       {
-        "nome": "Óleo vegetal neutro",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Para fritura de imersão, a 180°C"
+        "nome": "Óleo vegetal neutro de soja ou milho",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "800 a 1000 ml: o suficiente para imersão de 3 a 5 cm na panela funda",
+        "escala": false
       }
     ],
     "passos": [
@@ -971,10 +978,11 @@
         "unidade": "a gosto"
       },
       {
-        "nome": "Óleo vegetal neutro",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Para fritura de imersão, a 180°C"
+        "nome": "Óleo vegetal neutro de soja ou milho",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "800 a 1000 ml: o suficiente para imersão de 3 a 5 cm na panela funda",
+        "escala": false
       },
       {
         "nome": "Molho tonkatsu",
@@ -1026,10 +1034,11 @@
         "nota": "Para empanar"
       },
       {
-        "nome": "Óleo vegetal neutro",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Para fritura, a 180°C"
+        "nome": "Óleo vegetal neutro de soja ou milho",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "800 a 1000 ml: o suficiente para imersão de 3 a 5 cm na panela funda",
+        "escala": false
       },
       {
         "nome": "Molho tentsuyu quente",
@@ -1590,40 +1599,48 @@
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
-        "quantidade_base": 2,
-        "unidade": "xícaras",
-        "nota": "Quente, para a tigela"
+        "quantidade_base": 300,
+        "unidade": "g",
+        "nota": "2 tigelas individuais"
       },
       {
-        "nome": "Frango em cubos",
+        "nome": "Coxa e sobrecoxa de frango sem osso",
         "quantidade_base": 250,
-        "unidade": "g"
+        "unidade": "g",
+        "nota": "Cortada em cubos de 3 cm"
       },
       {
-        "nome": "Cebola",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Fatiada"
+        "nome": "Cebola média",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Cerca de 150 g, fatiada em meias-luas finas (2 mm)"
       },
       {
-        "nome": "Ovos batidos levemente",
+        "nome": "Ovos inteiros",
         "quantidade_base": 3,
-        "unidade": "unidades"
+        "unidade": "unidades",
+        "nota": "Cerca de 55 g cada; batidos levemente com garfo, sem homogeneizar totalmente gema e clara"
       },
       {
-        "nome": "Dashi",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "nome": "Awase Dashi",
+        "quantidade_base": 150,
+        "unidade": "ml"
       },
       {
         "nome": "Shoyu tradicional",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 30,
+        "unidade": "ml"
       },
       {
         "nome": "Mirin",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 30,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Cebolinha verde picada fina",
+        "quantidade_base": 15,
+        "unidade": "g",
+        "nota": "Para finalizar"
       }
     ],
     "passos": [
@@ -1643,7 +1660,7 @@
       },
       {
         "ordem": 4,
-        "instrucao": "Adicione o restante do ovo para dar cremosidade, desligue e despeje sobre o arroz quente na tigela."
+        "instrucao": "Adicione o restante do ovo para dar cremosidade, desligue e despeje sobre o arroz quente na tigela. Finalize com a cebolinha verde picada fina."
       }
     ]
   },
@@ -1658,46 +1675,53 @@
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
-        "quantidade_base": 2,
-        "unidade": "xícaras",
-        "nota": "Quente, para a tigela"
+        "quantidade_base": 300,
+        "unidade": "g",
+        "nota": "2 tigelas individuais"
       },
       {
         "nome": "Carne bovina em fatias ultrafinas",
-        "quantidade_base": 300,
-        "unidade": "g"
+        "quantidade_base": 350,
+        "unidade": "g",
+        "nota": "Tipo sukiyaki ou shabu-shabu, como acém ou patinho"
       },
       {
-        "nome": "Cebola",
-        "quantidade_base": 0,
-        "unidade": "a gosto",
-        "nota": "Em gomos"
+        "nome": "Cebola grande",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Cerca de 200 g, em gomos longitudinais de 1 cm"
       },
       {
-        "nome": "Água",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "nome": "Água filtrada",
+        "quantidade_base": 200,
+        "unidade": "ml"
       },
       {
         "nome": "Shoyu tradicional",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 40,
+        "unidade": "ml"
       },
       {
         "nome": "Mirin",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "quantidade_base": 40,
+        "unidade": "ml"
       },
       {
-        "nome": "Saquê",
-        "quantidade_base": 0,
-        "unidade": "a gosto"
+        "nome": "Saquê culinário (Ryorishu)",
+        "quantidade_base": 20,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Açúcar",
+        "quantidade_base": 10,
+        "unidade": "g",
+        "nota": "Refinado"
       }
     ],
     "passos": [
       {
         "ordem": 1,
-        "instrucao": "Cozinhe a cebola em gomos e a carne fatiada ultrafina em panela com água, shoyu, mirin e saquê."
+        "instrucao": "Cozinhe a cebola em gomos e a carne fatiada ultrafina em panela com a água, o shoyu, o mirin, o saquê e o açúcar."
       },
       {
         "ordem": 2,
@@ -1933,7 +1957,7 @@
     "categoria": "yakimono",
     "subtitulo": "Negima laqueado com tare até caramelizar",
     "tempo_minutos": 30,
-    "rendimento_base_porcoes": 3,
+    "rendimento_base_porcoes": 2,
     "ingredientes": [
       {
         "nome": "Coxa de frango em cubos",

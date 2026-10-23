@@ -8,6 +8,8 @@ export interface Ingrediente {
   quantidade_base: number;
   unidade: string;
   nota?: string;
+  /** false = quantidade fixa, não muda com as porções (ex.: óleo de fritura) */
+  escala?: boolean;
 }
 
 export interface Passo {

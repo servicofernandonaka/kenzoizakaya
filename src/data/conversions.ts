@@ -26,8 +26,8 @@ export const CONVERSIONS: Record<string, Conversion> = {
   'Saquê culinário (Ryorishu)': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
   'Suco de gengibre fresco ralado': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
   'Óleo de gergelim torrado (marinada)': { metric: 'ml', unit: 'colher_cha', perUnit: 5 },
-  'Farinha de trigo': { metric: 'g', unit: 'colher_sopa', perUnit: 8 },
-  'Farinha Panko': { metric: 'g', unit: 'xicara', perUnit: 50 },
+  'Farinha de trigo': { metric: 'g', unit: 'colher_sopa', perUnit: 10 },
+  'Farinha Panko': { metric: 'g', unit: 'xicara', perUnit: 80 },
 
   'Shoyu tradicional': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
   Mirin: { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
