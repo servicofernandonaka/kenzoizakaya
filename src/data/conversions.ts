@@ -17,13 +17,6 @@ export const CONVERSIONS: Record<string, Conversion> = {
   'Wakame desidratada': { metric: 'g', unit: 'colher_sopa', perUnit: 2 },
   'Cebolinha fina (negi)': { metric: 'g', unit: 'colher_sopa', perUnit: 3 },
 
-  'Água ou Dashi base': { metric: 'ml', unit: 'xicara', perUnit: 240 },
-  'Saquê culinário seco': { metric: 'ml', unit: 'xicara', perUnit: 240 },
-  'Mirin autêntico (Hon-Mirin)': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
-  'Açúcar cristal ou mascavo': { metric: 'g', unit: 'colher_sopa', perUnit: 12 },
-  'Shoyu tradicional de fermentação natural': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
-  'Mostarda japonesa Karashi': { metric: 'g', unit: 'colher_cha', perUnit: 5 },
-
   'Amido de milho + 1 colher de shoyu': { metric: 'g', unit: 'colher_cha', perUnit: 3 },
   'Cogumelos frescos (Portobello ou Shiitake)': { metric: 'g', unit: 'xicara', perUnit: 70 },
   'Moyashi (broto de feijão fresco)': { metric: 'g', unit: 'xicara', perUnit: 90 },
