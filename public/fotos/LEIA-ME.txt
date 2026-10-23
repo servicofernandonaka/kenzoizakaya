@@ -1,0 +1,5 @@
+Fotos das receitas
+------------------
+1. Coloque a foto aqui, por exemplo: public/fotos/oyakodon.jpg  (sugestão: 1600x1200, JPG ou WebP, menos de 300 KB).
+2. Em src/data/recipes.json, na receita correspondente, acrescente:  "foto": "fotos/oyakodon.jpg"
+Receitas sem "foto" mostram automaticamente a capa ilustrada da categoria.

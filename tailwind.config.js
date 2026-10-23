@@ -19,15 +19,14 @@ export default {
         aizome: '#1B2A4A',
       },
       fontFamily: {
-        serif: ['"Noto Serif JP"', '"Sawarabi Mincho"', '"Hiragino Mincho ProN"', '"Yu Mincho"', 'Georgia', 'serif'],
+        serif: ['"Iowan Old Style"', '"Palatino Linotype"', 'Palatino', '"Noto Serif JP"', '"Hiragino Mincho ProN"', '"Yu Mincho"', 'Georgia', 'serif'],
         sans: ['Inter', '"Noto Sans JP"', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        lantern:
-          '0 0 0 1px rgb(211 47 47 / .55), 0 2px 10px rgb(211 47 47 / .35), 0 0 28px rgb(211 47 47 / .30), 0 0 64px rgb(211 47 47 / .18)',
-        'lantern-lg':
-          '0 0 0 2px rgb(211 47 47 / .65), 0 4px 18px rgb(211 47 47 / .45), 0 0 44px rgb(211 47 47 / .40), 0 0 110px rgb(211 47 47 / .25)',
-        panel: '0 1px 0 rgb(255 255 255 / .04) inset, 0 10px 30px -12px rgb(0 0 0 / .55)',
+        lantern: '0 1px 2px rgb(0 0 0 / .25), 0 10px 26px -10px rgb(211 47 47 / .65)',
+        'lantern-lg': '0 2px 4px rgb(0 0 0 / .3), 0 16px 40px -12px rgb(211 47 47 / .75), 0 0 0 4px rgb(211 47 47 / .12)',
+        panel: '0 1px 2px rgb(0 0 0 / .08), 0 18px 40px -24px rgb(0 0 0 / .45)',
+        card: '0 1px 2px rgb(0 0 0 / .1), 0 24px 48px -28px rgb(0 0 0 / .6)',
       },
       keyframes: {
         flicker: {

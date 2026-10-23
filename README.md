@@ -19,3 +19,7 @@ npm run preview    # servir o build localmente
 - `src/components/` — RecipeCard, KitchenModeView, UnitConverter, IngredientList, InteractiveTimer, TimerDock, EmporiumLocator, NotesLog, ErrorBoundary
 
 Para adicionar uma receita: inclua o objeto em `recipes.json` (mesmo schema) e, se quiser medida caseira, o ingrediente em `conversions.ts`.
+
+## Fotos das receitas
+Cada receita aceita um campo opcional `"foto": "fotos/<id>.jpg"` em `src/data/recipes.json`, apontando para um arquivo em `public/fotos/`.
+Sem foto, o app mostra uma capa ilustrada da categoria. Veja `public/fotos/LEIA-ME.txt`.

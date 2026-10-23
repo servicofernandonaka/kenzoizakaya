@@ -28,6 +28,8 @@ export interface Receita {
   subtitulo: string;
   tempo_minutos: number;
   rendimento_base_porcoes: number;
+  /** caminho opcional da foto (ex.: "fotos/oyakodon.jpg", dentro de public/); sem ela, usa-se a capa ilustrada */
+  foto?: string;
   ingredientes: Ingrediente[];
   passos: Passo[];
 }
@@ -68,6 +70,7 @@ export interface CookNote {
 
 export type NotesByRecipe = Record<string, CookNote[]>;
 /** receitaId -> nomes dos ingredientes já separados */
+export type StepChecksByRecipe = Record<string, number[]>;
 export type ChecksByRecipe = Record<string, string[]>;
 
 export type Route =

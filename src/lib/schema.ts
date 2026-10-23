@@ -41,6 +41,7 @@ export function isReceita(v: unknown): v is Receita {
     CATEGORIA_IDS.includes(v.categoria) &&
     isStr(v.subtitulo) &&
     isNum(v.tempo_minutos) &&
+    optStr(v.foto) &&
     isNum(v.rendimento_base_porcoes) &&
     v.rendimento_base_porcoes > 0 &&
     Array.isArray(v.ingredientes) &&
@@ -98,3 +99,6 @@ export const isNotes = (v: unknown): v is NotesByRecipe =>
   isRecord(v) && Object.values(v).every((list) => Array.isArray(list) && list.every(isNote));
 
 export const isChecks = (v: unknown): v is ChecksByRecipe => isRecord(v) && Object.values(v).every(isStringArray);
+
+export const isStepChecks = (v: unknown): v is Record<string, number[]> =>
+  isRecord(v) && Object.values(v).every((a) => Array.isArray(a) && a.every(isNum));

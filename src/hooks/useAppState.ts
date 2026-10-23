@@ -1,11 +1,14 @@
 import { useCallback } from 'react';
-import { isChecks, isNotes, isPrefs, isStringArray } from '../lib/schema';
-import type { ChecksByRecipe, CookNote, NotesByRecipe, Prefs } from '../types';
+import { isChecks, isNotes, isPrefs, isStepChecks, isStringArray } from '../lib/schema';
+import type { ChecksByRecipe, StepChecksByRecipe, CookNote, NotesByRecipe, Prefs } from '../types';
 import { useStoredState } from './useStoredState';
 
 /* Contrato de estado persistido — chaves: prefs, favorites, notes, checks */
 
-const DEFAULT_PREFS: Prefs = { unitMode: 'metric', theme: 'dark' };
+/** Sem preferência salva, o tema segue o sistema (linho no claro, carvão no escuro). */
+const prefersLight = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-color-scheme: light)').matches;
+const DEFAULT_PREFS: Prefs = { unitMode: 'metric', theme: prefersLight ? 'washi' : 'dark' };
+const NO_STEPS: StepChecksByRecipe = {};
 const NO_FAVORITES: string[] = [];
 const NO_NOTES: NotesByRecipe = {};
 const NO_CHECKS: ChecksByRecipe = {};
@@ -67,4 +70,22 @@ export function useChecks(recipeId: string) {
   const clear = useCallback(() => setAll((prev) => ({ ...prev, [recipeId]: [] })), [recipeId, setAll]);
 
   return { checked, toggle, clear };
+}
+
+/** Passos já feitos de uma receita (checklist do preparo). */
+export function useStepChecks(recipeId: string) {
+  const [all, setAll] = useStoredState<StepChecksByRecipe>('steps', NO_STEPS, isStepChecks);
+  const done = all[recipeId] ?? [];
+
+  const toggle = useCallback(
+    (ordem: number) =>
+      setAll((prev) => {
+        const cur = prev[recipeId] ?? [];
+        return { ...prev, [recipeId]: cur.includes(ordem) ? cur.filter((n) => n !== ordem) : [...cur, ordem] };
+      }),
+    [recipeId, setAll],
+  );
+  const clear = useCallback(() => setAll((prev) => ({ ...prev, [recipeId]: [] })), [recipeId, setAll]);
+
+  return { done, toggle, clear };
 }

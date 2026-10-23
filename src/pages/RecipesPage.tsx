@@ -42,9 +42,11 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
   return (
     <div className="space-y-6">
       <header>
-        <p className="kicker">Caderno da Tomesan</p>
-        <h1 className="mt-1 text-4xl font-bold">Receitas</h1>
-        <p className="mt-2 text-mute">Gramaturas exatas para a balança, sem adivinhações.</p>
+        <p className="kicker">Diário &amp; Laboratório Culinário</p>
+        <h1 className="mt-2 text-5xl font-bold leading-tight">O Diário de Receitas</h1>
+        <p className="mt-3 max-w-2xl text-lg leading-relaxed text-mute">
+          Cada página tem gramaturas exatas para a balança, tempos cronometrados e espaço para anotar como ficou.
+        </p>
       </header>
 
       <div className="panel space-y-4 p-5">
@@ -107,12 +109,10 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
       </p>
 
       {visible.length > 0 ? (
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((r) => (
-            <li key={r.id} className="flex">
-              <div className="flex-1">
-                <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
-              </div>
+            <li key={r.id}>
+              <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
             </li>
           ))}
         </ul>

@@ -207,7 +207,7 @@ export function KitchenModeView({ receita, factor, servings, unitMode, onUnitMod
               )}
               {passo.dica_tomesan && (
                 <aside className="rounded-2xl border-2 border-line bg-raised p-5 text-[clamp(1.25rem,1.1rem+0.9vw,1.75rem)] leading-snug">
-                  <p className="mb-1 text-base font-bold uppercase tracking-widest text-mute">Dica da Tomesan</p>
+                  <p className="mb-1 text-base font-bold uppercase tracking-widest text-mute">Dica de Tomesan</p>
                   {passo.dica_tomesan}
                 </aside>
               )}

@@ -15,7 +15,7 @@ import { RecipesPage } from './pages/RecipesPage';
 
 const NAV = [
   { href: '#/', label: 'Início', match: (n: string) => n === 'home' },
-  { href: '#/receitas', label: 'Receitas', match: (n: string) => n === 'receitas' || n === 'receita' },
+  { href: '#/receitas', label: 'Diário', match: (n: string) => n === 'receitas' || n === 'receita' },
   { href: '#/fundamentos', label: 'Fundamentos', match: (n: string) => n === 'fundamentos' },
   { href: '#/mercado', label: 'Mercado', match: (n: string) => n === 'mercado' },
 ];
@@ -47,7 +47,7 @@ export default function App() {
   // Tema
   useEffect(() => {
     document.documentElement.dataset.theme = prefs.theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', prefs.theme === 'dark' ? '#121212' : '#F4F1EA');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', prefs.theme === 'dark' ? '#1E1E21' : '#F3EEE3');
   }, [prefs.theme]);
 
   // A cada navegação: topo da página + foco no conteúdo (leitores de tela / teclado)
@@ -129,11 +129,14 @@ export default function App() {
       </a>
 
       <div className="sticky top-0 z-30">
-        <header className="border-b border-line bg-canvas/90 backdrop-blur">
+        <header className="border-b border-line bg-canvas/85 backdrop-blur-md">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 px-4 py-1 sm:py-2">
             <a href="#/" className="flex items-center gap-3" aria-label="Izakaya do Kenzō — início">
               <Lantern size={26} />
-              <span className="hidden font-serif text-xl font-bold sm:inline">Izakaya do Kenzō</span>
+              <span className="hidden leading-tight sm:block">
+                <span className="block font-serif text-xl font-bold">Izakaya do Kenzō</span>
+                <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-mute">Diário &amp; Laboratório Culinário</span>
+              </span>
             </a>
             <nav aria-label="Principal" className="ml-auto flex w-full items-center justify-between sm:w-auto sm:justify-start sm:gap-1">
               {NAV.map((n) => {
@@ -153,7 +156,7 @@ export default function App() {
                 type="button"
                 className="btn btn-ghost !px-3"
                 onClick={() => patchPrefs({ theme: prefs.theme === 'dark' ? 'washi' : 'dark' })}
-                aria-label={prefs.theme === 'dark' ? 'Mudar para tema papel washi (claro)' : 'Mudar para tema madeira queimada (escuro)'}
+                aria-label={prefs.theme === 'dark' ? 'Mudar para o modo claro (papel de linho)' : 'Mudar para o modo escuro (carvão suave)'}
               >
                 {prefs.theme === 'dark' ? <SunIcon /> : <MoonIcon />}
               </button>
@@ -185,7 +188,7 @@ export default function App() {
         <p className="font-serif text-lg text-ink" lang="ja">
           いただきます
         </p>
-        <p className="mt-1">Izakaya do Kenzō · caderno 100% offline — suas anotações ficam só neste aparelho.</p>
+        <p className="mt-1">Izakaya do Kenzō · Diário &amp; Laboratório Culinário · 100% offline: suas anotações ficam só neste aparelho.</p>
       </footer>
       </div>
 

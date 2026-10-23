@@ -1,5 +1,8 @@
 import { Lantern } from '../components/Icons';
 import { RecipeCard } from '../components/RecipeCard';
+import { RecipeCover } from '../components/RecipeCover';
+import { CATEGORIA_LABEL } from '../lib/format';
+import { hrefReceita } from '../lib/route';
 import type { Receita } from '../types';
 
 interface Props {
@@ -8,91 +11,138 @@ interface Props {
   onToggleFavorite: (id: string) => void;
 }
 
-const DESTAQUES = ['misoshiru-autentico', 'buta-no-kakuni-classico', 'tori-no-karaage'];
+const DESTAQUE = 'buta-no-kakuni-classico';
+const DO_DIARIO = ['misoshiru-autentico', 'tori-no-karaage', 'oyakodon'];
 
-const PILARES: Array<{ titulo: string; texto: string; href?: string }> = [
-  { titulo: 'Kihon (O Alicerce)', texto: 'A física e a química dos caldos, cortes e temperaturas.', href: '#/fundamentos' },
-  { titulo: 'Caderno da Tomesan', texto: 'Receitas com gramaturas exatas para balança, sem adivinhações.', href: '#/receitas' },
-  { titulo: 'Dōgu (As Ferramentas)', texto: 'O que realmente importa na sua gaveta de utensílios.', href: '#/fundamentos' },
-  { titulo: 'Mercado Honesto', texto: 'O caminho direto para encontrar insumos puros, sem cair em armadilhas de rótulo.', href: '#/mercado' },
+const PILARES: Array<{ titulo: string; texto: string; href: string }> = [
+  { titulo: 'Fundamentos', texto: 'Dashi, cortes, ferramentas e a despensa: a física e a química por trás de cada prato.', href: '#/fundamentos' },
+  { titulo: 'O Diário de Receitas', texto: 'Gramaturas exatas para a balança, timers e um modo de leitura feito para a bancada.', href: '#/receitas' },
+  { titulo: 'Mercado Honesto', texto: 'O caminho direto para insumos puros, sem cair em armadilhas de rótulo.', href: '#/mercado' },
 ];
 
 export function Home({ receitas, favorites, onToggleFavorite }: Props) {
+  const destaque = receitas.find((r) => r.id === DESTAQUE) ?? receitas[0];
+  const doDiario = DO_DIARIO.map((id) => receitas.find((r) => r.id === id)).filter((r): r is Receita => r !== undefined);
+
   return (
-    <div className="space-y-14">
-      <section className="relative overflow-hidden rounded-3xl border border-line bg-surface px-6 py-12 text-center shadow-panel sm:px-12 sm:py-16">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full bg-lantern/25 blur-3xl" aria-hidden="true" />
-        <div className="relative">
-          <div className="flex justify-center">
-            <Lantern size={72} />
-          </div>
-          <h1 className="mt-6 font-serif text-5xl font-bold leading-tight sm:text-7xl" lang="ja">
-            居酒屋 賢三
+    <div className="space-y-20">
+      {/* Capa editorial */}
+      <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]">
+        <div>
+          <p className="kicker">Diário &amp; Laboratório Culinário</p>
+          <h1 className="mt-4 text-5xl font-bold leading-[1.05] sm:text-6xl">
+            Receitas de casa, feitas com calma e precisão.
           </h1>
-          <p className="mt-2 font-serif text-2xl text-lanternink sm:text-3xl">Izakaya do Kenzō</p>
-          <p className="mt-5 text-xl font-medium sm:text-2xl">Onde a tradição centenária não aceita atalhos.</p>
+          <p className="mt-5 max-w-xl text-xl leading-relaxed text-mute">
+            O caderno particular do Kenzo: {receitas.length} receitas clássicas da culinária japonesa, com gramaturas exatas,
+            timers e um modo de leitura pensado para a bancada.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#/receitas" className="btn btn-lantern min-h-[56px] px-8 text-lg">
+              Abrir o diário
+            </a>
+            <a href="#historia" className="btn min-h-[56px] px-8 text-lg" onClick={(e) => { e.preventDefault(); document.getElementById('historia')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              Conhecer o Kenzo
+            </a>
+          </div>
+        </div>
 
-          <div className="mx-auto mt-8 max-w-2xl space-y-4 text-left text-lg leading-relaxed text-mute">
-            <p className="text-center text-ink">Bem-vindo ao caderno secreto da nossa família.</p>
-            <p>
-              Aqui não há espaço para pós instantâneos de laboratório, caldos sem alma ou receitas apressadas da internet moderna. A
-              verdadeira culinária japonesa (<em>Washoku</em>) repousa sobre quatro pilares silenciosos: o respeito pelo tempo de cada
-              ingrediente, a extração pura do umami natural através do fogo manso, a ordem ancestral do <em>Sa-Shi-Su-Se-So</em> e a
-              harmonia sagrada do <em>Ichijū-Sansai</em> (uma sopa, três pratos e uma tigela de gohan fresco).
+        {destaque && (
+          <a
+            href={hrefReceita(destaque.id)}
+            className="group block overflow-hidden rounded-[2rem] border border-line bg-surface shadow-card transition-transform duration-300 ease-out hover:-translate-y-1"
+          >
+            <RecipeCover receita={destaque} className="aspect-[4/3] w-full transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
+            <span className="block p-6">
+              <span className="kicker">Em destaque · {CATEGORIA_LABEL(destaque.categoria)}</span>
+              <span className="mt-2 block font-serif text-2xl font-bold leading-snug">{destaque.titulo_pt}</span>
+              <span className="mt-2 block text-mute">{destaque.subtitulo}</span>
+            </span>
+          </a>
+        )}
+      </section>
+
+      {/* História do personagem */}
+      <section
+        id="historia"
+        aria-labelledby="historia-titulo"
+        className="relative overflow-hidden rounded-[2rem] border border-line bg-surface px-6 py-12 shadow-panel sm:px-12 sm:py-16"
+      >
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-lantern/15 blur-3xl" aria-hidden="true" />
+        <div className="relative grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-14">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <div className="flex h-40 w-40 items-center justify-center rounded-full border border-line bg-raised/60">
+              <Lantern size={64} />
+            </div>
+            <p className="mt-6 font-serif text-5xl font-bold" lang="ja">
+              賢三
             </p>
+            <p className="mt-1 text-sm uppercase tracking-[0.2em] text-mute">Kenzo · o cozinheiro de casa</p>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#/receitas" className="btn btn-lantern min-h-[56px] px-8 text-lg">
-              Abrir o caderno
-            </a>
-            <a href="#/mercado" className="btn min-h-[56px] px-8 text-lg">
-              Mercado honesto
-            </a>
+          <div>
+            <p className="kicker">Quem cozinha aqui</p>
+            <h2 id="historia-titulo" className="mt-3 text-4xl font-bold leading-tight">
+              Kenzo e o laboratório particular
+            </h2>
+            <div className="reading mt-6 space-y-5 text-mute">
+              <p className="dropcap">
+                Kenzo é o alter ego de quem escreve estas páginas: um cozinheiro de casa que decidiu tratar a própria cozinha como
+                um laboratório particular. Nada de pó instantâneo e nada de pressa. Só fogo manso, balança e caderno.
+              </p>
+              <p>
+                O nome vem de um izakaya imaginário: balcão de madeira escura, lanterna vermelha na porta e a voz do Mestre Kenzo
+                repetindo que o sabor mora nos detalhes. É dessa voz que saem os alertas das receitas, como em “Ferveu missô, matou o
+                aroma!”. Com Tomesan, cada receita passa pela balança antes de entrar no diário.
+              </p>
+              <p>
+                Aqui o laboratório é doméstico de verdade: pratos pensados para a cozinha de casa, com gramas e mililitros exatos,
+                tempos cronometrados e um caderno para anotar como ficou hoje. Cozinhar, ajustar, anotar e repetir, até o prato virar
+                rotina.
+              </p>
+            </div>
+            <blockquote className="mt-8 border-l-4 border-lantern pl-5 font-serif text-2xl italic leading-snug">
+              Puxe um banquinho de madeira, mantenha a faca afiada e respeite o fogo.
+              <footer className="mt-2 font-sans text-sm not-italic text-mute">— Kenzo (賢三)</footer>
+            </blockquote>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="pilares">
-        <h2 id="pilares" className="text-3xl font-bold">
-          Fórmulas testadas por mais de cem anos de bancada
-        </h2>
-        <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-          {PILARES.map((p) => (
-            <li key={p.titulo} className="panel p-5">
-              <h3 className="text-xl font-bold">
-                {p.href ? (
-                  <a href={p.href} className="text-lanternink underline-offset-4 hover:underline">
-                    {p.titulo} →
-                  </a>
-                ) : (
-                  p.titulo
-                )}
-              </h3>
-              <p className="mt-1 text-mute">{p.texto}</p>
+      {/* Do diário */}
+      <section aria-labelledby="do-diario">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="kicker">O Diário de Receitas</p>
+            <h2 id="do-diario" className="mt-2 text-4xl font-bold">
+              Para começar hoje
+            </h2>
+          </div>
+          <a href="#/receitas" className="btn btn-ghost text-lanternink">
+            Ver todas as {receitas.length} →
+          </a>
+        </div>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {doDiario.map((r) => (
+            <li key={r.id}>
+              <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
             </li>
           ))}
         </ul>
-        <p className="mt-8 text-center font-serif text-xl italic text-mute">
-          Puxe um banquinho de madeira, mantenha a faca afiada e respeite o fogo.
-        </p>
       </section>
 
-      <section aria-labelledby="cardapio">
-        <div className="flex items-end justify-between gap-3">
-          <h2 id="cardapio" className="text-3xl font-bold">
-            No cardápio de hoje
-          </h2>
-          <a href="#/receitas" className="btn btn-ghost text-lanternink">
-            Ver tudo →
-          </a>
-        </div>
-        <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {DESTAQUES.map((id) => receitas.find((r) => r.id === id)).filter((r): r is Receita => r !== undefined).map((r) => (
-            <li key={r.id} className="flex">
-              <div className="flex-1">
-                <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
-              </div>
+      {/* Pilares */}
+      <section aria-labelledby="pilares">
+        <h2 id="pilares" className="sr-only">
+          Explore o laboratório
+        </h2>
+        <ul className="grid gap-5 md:grid-cols-3">
+          {PILARES.map((p) => (
+            <li key={p.titulo}>
+              <a href={p.href} className="panel group block h-full p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-mute/60">
+                <h3 className="text-xl font-bold text-lanternink">{p.titulo} →</h3>
+                <p className="mt-2 leading-relaxed text-mute">{p.texto}</p>
+              </a>
             </li>
           ))}
         </ul>
