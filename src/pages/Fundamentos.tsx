@@ -1,4 +1,5 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { hrefReceita } from '../lib/route';
 import { BASES, INSTRUMENTOS, INTRO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
 
 /** Fundamentos do Oyaji: abas acessíveis (setas, Home, End) com bases, técnicas e instrumentos. */
@@ -91,6 +92,9 @@ export function Fundamentos() {
                 );
               })}
             </ol>
+            <a href={hrefReceita(b.receitaId)} className="btn relative mt-5 w-full">
+              Ver ficha completa →<span className="sr-only"> de {b.titulo}</span>
+            </a>
           </article>
         ))}
       </div>

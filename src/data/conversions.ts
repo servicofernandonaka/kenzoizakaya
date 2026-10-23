@@ -10,6 +10,8 @@ import type { Conversion } from '../lib/units';
 export const CONVERSIONS: Record<string, Conversion> = {
   'Água filtrada': { metric: 'ml', unit: 'xicara', perUnit: 240 },
   'Katsuobushi (lascas de bonito)': { metric: 'g', unit: 'punhado', perUnit: 9 },
+  'Katsuobushi (flocos de bonito)': { metric: 'g', unit: 'punhado', perUnit: 9 },
+  'Katsuobushi fresco (reforço)': { metric: 'g', unit: 'punhado', perUnit: 9 },
   'Missô (pasta de soja fermentada)': { metric: 'g', unit: 'colher_sopa', perUnit: 18, qualifier: ['cheia', 'cheias'] },
   'Tofu em cubos ou Aburaage': { metric: 'g', unit: 'xicara', perUnit: 150 },
   'Wakame desidratada': { metric: 'g', unit: 'colher_sopa', perUnit: 2 },

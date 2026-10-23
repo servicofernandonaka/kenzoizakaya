@@ -8,13 +8,48 @@
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
     "ingredientes": [
-      { "nome": "Água filtrada", "quantidade_base": 500, "unidade": "ml", "nota": "Para a extração do Dashi" },
-      { "nome": "Alga Kombu", "quantidade_base": 8, "unidade": "g", "nota": "Retângulo com pó branco natural, não lavar" },
-      { "nome": "Katsuobushi (lascas de bonito)", "quantidade_base": 18, "unidade": "g", "nota": "Peso exato na balança! Dá 2 punhados muito fartos" },
-      { "nome": "Missô (pasta de soja fermentada)", "quantidade_base": 2, "unidade": "colheres de sopa cheias", "nota": "Preferência: Awase Miso (mistura de branco e vermelho)" },
-      { "nome": "Tofu em cubos ou Aburaage", "quantidade_base": 80, "unidade": "g", "nota": "Corte em cubos de 1,5 cm" },
-      { "nome": "Wakame desidratada", "quantidade_base": 2, "unidade": "g", "nota": "Hidratada previamente em água morna" },
-      { "nome": "Cebolinha fina (negi)", "quantidade_base": 1, "unidade": "colher de sopa", "nota": "Fatiada bem fininha para finalizar" }
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 500,
+        "unidade": "ml",
+        "nota": "Para a extração do Dashi"
+      },
+      {
+        "nome": "Alga Kombu",
+        "quantidade_base": 8,
+        "unidade": "g",
+        "nota": "Retângulo com pó branco natural, não lavar"
+      },
+      {
+        "nome": "Katsuobushi (lascas de bonito)",
+        "quantidade_base": 18,
+        "unidade": "g",
+        "nota": "Peso exato na balança! Dá 2 punhados muito fartos"
+      },
+      {
+        "nome": "Missô (pasta de soja fermentada)",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa cheias",
+        "nota": "Preferência: Awase Miso (mistura de branco e vermelho)"
+      },
+      {
+        "nome": "Tofu em cubos ou Aburaage",
+        "quantidade_base": 80,
+        "unidade": "g",
+        "nota": "Corte em cubos de 1,5 cm"
+      },
+      {
+        "nome": "Wakame desidratada",
+        "quantidade_base": 2,
+        "unidade": "g",
+        "nota": "Hidratada previamente em água morna"
+      },
+      {
+        "nome": "Cebolinha fina (negi)",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa",
+        "nota": "Fatiada bem fininha para finalizar"
+      }
     ],
     "passos": [
       {
@@ -55,15 +90,60 @@
     "tempo_minutos": 90,
     "rendimento_base_porcoes": 4,
     "ingredientes": [
-      { "nome": "Panceta suína em bloco espesso", "quantidade_base": 800, "unidade": "g", "nota": "Cortar em cubos generosos de 4 a 5 cm" },
-      { "nome": "Gengibre fresco com casca", "quantidade_base": 30, "unidade": "g", "nota": "Fatiado em rodelas grossas" },
-      { "nome": "Cebolinha verde (parte branca e talos)", "quantidade_base": 3, "unidade": "talos inteiros", "nota": "Para tirar o ranço no cozimento inicial" },
-      { "nome": "Água ou Dashi base", "quantidade_base": 600, "unidade": "ml", "nota": "Líquido para o braseado lento" },
-      { "nome": "Saquê culinário seco", "quantidade_base": 150, "unidade": "ml", "nota": "Amacia a carne e perfuma o caldo" },
-      { "nome": "Mirin autêntico (Hon-Mirin)", "quantidade_base": 100, "unidade": "ml", "nota": "Garante o brilho espelhado final" },
-      { "nome": "Açúcar cristal ou mascavo", "quantidade_base": 3, "unidade": "colheres de sopa", "nota": "Entra primeiro conforme a regra Sa-Shi-Su-Se-So" },
-      { "nome": "Shoyu tradicional de fermentação natural", "quantidade_base": 80, "unidade": "ml", "nota": "Entra na metade final para não endurecer a carne" },
-      { "nome": "Mostarda japonesa Karashi", "quantidade_base": 1, "unidade": "colher de chá", "nota": "Opcional para servir ao lado do prato" }
+      {
+        "nome": "Panceta suína em bloco espesso",
+        "quantidade_base": 800,
+        "unidade": "g",
+        "nota": "Cortar em cubos generosos de 4 a 5 cm"
+      },
+      {
+        "nome": "Gengibre fresco com casca",
+        "quantidade_base": 30,
+        "unidade": "g",
+        "nota": "Fatiado em rodelas grossas"
+      },
+      {
+        "nome": "Cebolinha verde (parte branca e talos)",
+        "quantidade_base": 3,
+        "unidade": "talos inteiros",
+        "nota": "Para tirar o ranço no cozimento inicial"
+      },
+      {
+        "nome": "Água ou Dashi base",
+        "quantidade_base": 600,
+        "unidade": "ml",
+        "nota": "Líquido para o braseado lento"
+      },
+      {
+        "nome": "Saquê culinário seco",
+        "quantidade_base": 150,
+        "unidade": "ml",
+        "nota": "Amacia a carne e perfuma o caldo"
+      },
+      {
+        "nome": "Mirin autêntico (Hon-Mirin)",
+        "quantidade_base": 100,
+        "unidade": "ml",
+        "nota": "Garante o brilho espelhado final"
+      },
+      {
+        "nome": "Açúcar cristal ou mascavo",
+        "quantidade_base": 3,
+        "unidade": "colheres de sopa",
+        "nota": "Entra primeiro conforme a regra Sa-Shi-Su-Se-So"
+      },
+      {
+        "nome": "Shoyu tradicional de fermentação natural",
+        "quantidade_base": 80,
+        "unidade": "ml",
+        "nota": "Entra na metade final para não endurecer a carne"
+      },
+      {
+        "nome": "Mostarda japonesa Karashi",
+        "quantidade_base": 1,
+        "unidade": "colher de chá",
+        "nota": "Opcional para servir ao lado do prato"
+      }
     ],
     "passos": [
       {
@@ -100,15 +180,60 @@
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 3,
     "ingredientes": [
-      { "nome": "Massa de arroz Bifun seca", "quantidade_base": 200, "unidade": "g", "nota": "100% arroz tradicional" },
-      { "nome": "Carne bovina em tiras finas (contra a fibra)", "quantidade_base": 250, "unidade": "g", "nota": "Alcatra, contrafilé ou fraldinha" },
-      { "nome": "Amido de milho + 1 colher de shoyu", "quantidade_base": 1, "unidade": "colher de chá de amido", "nota": "Para selar os sucos da carne" },
-      { "nome": "Cogumelos frescos (Portobello ou Shiitake)", "quantidade_base": 150, "unidade": "g", "nota": "Laminados médios" },
-      { "nome": "Cebola média", "quantidade_base": 1, "unidade": "unidade", "nota": "Fatiada em meias-luas finas" },
-      { "nome": "Pimentão vermelho ou verde", "quantidade_base": 1, "unidade": "unidade", "nota": "Em tiras finas; entra logo após a cebola" },
-      { "nome": "Moyashi (broto de feijão fresco)", "quantidade_base": 150, "unidade": "g", "nota": "Lavar e escorrer muito bem; entra só no final" },
-      { "nome": "Óleo de gergelim torrado", "quantidade_base": 1, "unidade": "colher de sopa", "nota": "Para perfumar na finalização fora do fogo" },
-      { "nome": "Molho de tempero final", "quantidade_base": 1, "unidade": "tigela pequena", "nota": "Mistura de 2 colheres de shoyu, 1 colher de saquê, pitada de açúcar e pimenta-do-reino" }
+      {
+        "nome": "Massa de arroz Bifun seca",
+        "quantidade_base": 200,
+        "unidade": "g",
+        "nota": "100% arroz tradicional"
+      },
+      {
+        "nome": "Carne bovina em tiras finas (contra a fibra)",
+        "quantidade_base": 250,
+        "unidade": "g",
+        "nota": "Alcatra, contrafilé ou fraldinha"
+      },
+      {
+        "nome": "Amido de milho + 1 colher de shoyu",
+        "quantidade_base": 1,
+        "unidade": "colher de chá de amido",
+        "nota": "Para selar os sucos da carne"
+      },
+      {
+        "nome": "Cogumelos frescos (Portobello ou Shiitake)",
+        "quantidade_base": 150,
+        "unidade": "g",
+        "nota": "Laminados médios"
+      },
+      {
+        "nome": "Cebola média",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Fatiada em meias-luas finas"
+      },
+      {
+        "nome": "Pimentão vermelho ou verde",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Em tiras finas; entra logo após a cebola"
+      },
+      {
+        "nome": "Moyashi (broto de feijão fresco)",
+        "quantidade_base": 150,
+        "unidade": "g",
+        "nota": "Lavar e escorrer muito bem; entra só no final"
+      },
+      {
+        "nome": "Óleo de gergelim torrado",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa",
+        "nota": "Para perfumar na finalização fora do fogo"
+      },
+      {
+        "nome": "Molho de tempero final",
+        "quantidade_base": 1,
+        "unidade": "tigela pequena",
+        "nota": "Mistura de 2 colheres de shoyu, 1 colher de saquê, pitada de açúcar e pimenta-do-reino"
+      }
     ],
     "passos": [
       {
@@ -151,12 +276,42 @@
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 4,
     "ingredientes": [
-      { "nome": "Pepino japonês fino e firme", "quantidade_base": 2, "unidade": "unidades", "nota": "Fatiado translúcido com mandolina ou faca bem afiada (usugiri)" },
-      { "nome": "Sal refinado", "quantidade_base": 1, "unidade": "colher de chá rasa", "nota": "Para desidratar o pepino (shio-momi)" },
-      { "nome": "Alga Wakame desidratada", "quantidade_base": 3, "unidade": "g", "nota": "Hidratada em água fria por 5 min e bem espremida" },
-      { "nome": "Vinagre de arroz fermentado puro", "quantidade_base": 4, "unidade": "colheres de sopa", "nota": "Acidez limpa sem aromas artificiais" },
-      { "nome": "Açúcar cristal ou refinado", "quantidade_base": 2, "unidade": "colheres de sopa rasas", "nota": "Dissolver completamente no vinagre morno ou bem batido" },
-      { "nome": "Gergelim torrado branco e preto (iri-goma)", "quantidade_base": 1, "unidade": "colher de sopa", "nota": "Levemente amassado entre os dedos para soltar óleo essencial" }
+      {
+        "nome": "Pepino japonês fino e firme",
+        "quantidade_base": 2,
+        "unidade": "unidades",
+        "nota": "Fatiado translúcido com mandolina ou faca bem afiada (usugiri)"
+      },
+      {
+        "nome": "Sal refinado",
+        "quantidade_base": 1,
+        "unidade": "colher de chá rasa",
+        "nota": "Para desidratar o pepino (shio-momi)"
+      },
+      {
+        "nome": "Alga Wakame desidratada",
+        "quantidade_base": 3,
+        "unidade": "g",
+        "nota": "Hidratada em água fria por 5 min e bem espremida"
+      },
+      {
+        "nome": "Vinagre de arroz fermentado puro",
+        "quantidade_base": 4,
+        "unidade": "colheres de sopa",
+        "nota": "Acidez limpa sem aromas artificiais"
+      },
+      {
+        "nome": "Açúcar cristal ou refinado",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa rasas",
+        "nota": "Dissolver completamente no vinagre morno ou bem batido"
+      },
+      {
+        "nome": "Gergelim torrado branco e preto (iri-goma)",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa",
+        "nota": "Levemente amassado entre os dedos para soltar óleo essencial"
+      }
     ],
     "passos": [
       {
@@ -179,6 +334,207 @@
         "ordem": 4,
         "instrucao": "Finalize com o gergelim torrado levemente esmagado e deixe na geladeira por 15 minutos antes de servir geladinho.",
         "alerta_kenzo": "Sunomono morno é uma tristeza! Sirva sempre gelado em tigelinhas pequenas."
+      }
+    ]
+  },
+  {
+    "id": "awase-dashi",
+    "titulo_pt": "Awase Dashi (Caldo Base Misto)",
+    "titulo_jp": "合わせだし",
+    "categoria": "bases",
+    "subtitulo": "A espinha dorsal da culinária japonesa caseira: o umami marinho do kombu com a intensidade do katsuobushi",
+    "tempo_minutos": 45,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 1000,
+        "unidade": "ml",
+        "nota": "Fria, para hidratar o kombu"
+      },
+      {
+        "nome": "Alga Kombu seca",
+        "quantidade_base": 10,
+        "unidade": "g",
+        "nota": "Limpar só com pano úmido; o pó branco da superfície fica"
+      },
+      {
+        "nome": "Katsuobushi (flocos de bonito)",
+        "quantidade_base": 25,
+        "unidade": "g",
+        "nota": "Entra de uma só vez, com a água já fervendo"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Limpe o kombu levemente com um pano de algodão úmido. Nunca lave nem esfregue em excesso.",
+        "alerta_kenzo": "O pó branco esbranquiçado na superfície é manitol e carrega sabor. Esfregar demais leva embora parte do caldo antes dele nascer!"
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Coloque o kombu na água fria e deixe repousar por 30 minutos para hidratar e liberar os sabores suavemente.",
+        "timer_segundos": 1800
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Leve a panela ao fogo médio. Assim que a água começar a chiar e pequenas bolhas se formarem nas bordas (cerca de 80°C, antes da fervura pesada), retire o kombu imediatamente.",
+        "alerta_kenzo": "Segredo do Oyaji: se o kombu ferver, ele libera taninos e amargor indesejado."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Aumente o fogo até a água ferver, desligue o fogo imediatamente e adicione o katsuobushi de uma só vez."
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Deixe repousar por exatos 2 minutos sem mexer, até que os flocos afundem naturalmente para o fundo da panela.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 6,
+        "instrucao": "Coe o caldo delicadamente com uma peneira fina forrada com um pano de algodão (ou coador de voil).",
+        "alerta_kenzo": "Nunca esprema os flocos de bonito: isso joga gordura e amargor dentro do caldo limpo. Guarde o kombu e o bonito usados para o Niban Dashi!"
+      }
+    ]
+  },
+  {
+    "id": "shojin-dashi",
+    "titulo_pt": "Shojin Dashi (Caldo Vegetariano de Kombu e Shiitake)",
+    "titulo_jp": "精進だし",
+    "categoria": "bases",
+    "subtitulo": "Herança dos monges budistas (Shojin Ryori): umami profundo, terroso e 100% vegetal",
+    "tempo_minutos": 265,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 1000,
+        "unidade": "ml",
+        "nota": "Filtrada, para o molho na geladeira"
+      },
+      {
+        "nome": "Alga Kombu seca",
+        "quantidade_base": 10,
+        "unidade": "g",
+        "nota": "Limpar só com pano úmido"
+      },
+      {
+        "nome": "Cogumelos Shiitake secos (inteiros)",
+        "quantidade_base": 4,
+        "unidade": "unidades",
+        "nota": "Os reidratados voltam para refogados e guarnições"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Coloque o kombu e os shiitakes secos na água fria. Deixe na geladeira por pelo menos 4 horas (idealmente durante a noite).",
+        "timer_segundos": 14400,
+        "alerta_kenzo": "O molho frio extrai o umami dos cogumelos sem oxidá-los. Pressa aqui empobrece o caldo!"
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Transfira a panela para o fogo baixo. Aqueça lentamente até quase ferver (80°C)."
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Retire o kombu assim que atingir a temperatura e mantenha apenas os shiitakes em fogo brando por 10 minutos para liberar todo o aroma defumado da terra.",
+        "timer_segundos": 600
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Coe o caldo. Reserve os shiitakes hidratados para picá-los e usar em refogados de acompanhamento (guarnições de macarrão ou recheios).",
+        "dica_tomesan": "Nada se joga fora: o shiitake reidratado é ótimo em nimono."
+      }
+    ]
+  },
+  {
+    "id": "iriko-dashi",
+    "titulo_pt": "Iriko Dashi / Niboshi Dashi (Caldo de Anchova Seca)",
+    "titulo_jp": "煮干しだし",
+    "categoria": "bases",
+    "subtitulo": "Rústico, intenso e rico em minerais: o caldo do dia a dia do campo e das sopas de inverno",
+    "tempo_minutos": 50,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 1000,
+        "unidade": "ml",
+        "nota": "Fria, para o pré-molho"
+      },
+      {
+        "nome": "Iriko ou Niboshi (anchovas ou sardinhas secas inteiras)",
+        "quantidade_base": 30,
+        "unidade": "g",
+        "nota": "Pequenas, inteiras; sem cabeça e sem entranhas depois de limpas"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Remova a cabeça e as entranhas escuras das anchovas secas com os dedos.",
+        "alerta_kenzo": "Essa limpeza elimina o amargor característico do fígado do peixe. Não pule!"
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Deixe os peixinhos limpos de molho na água fria por 30 minutos.",
+        "timer_segundos": 1800
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Leve ao fogo médio. Quando ferver, reduza para o fogo mínimo, remova a espuma superficial com uma escumadeira e deixe cozinhar por 10 a 15 minutos.",
+        "timer_segundos": 900
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Coe em malha fina.",
+        "dica_tomesan": "Excelente para caldos de udon rústicos e sopas de inverno."
+      }
+    ]
+  },
+  {
+    "id": "niban-dashi",
+    "titulo_pt": "Niban Dashi (Dashi de Segunda Extração)",
+    "titulo_jp": "二番だし",
+    "categoria": "bases",
+    "subtitulo": "Mottainai, zero desperdício: o segundo caldo para cozidos e arroz temperado",
+    "tempo_minutos": 10,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Resíduos do Awase Dashi (kombu picado e flocos usados)",
+        "quantidade_base": 1,
+        "unidade": "porção",
+        "nota": "O que sobrou do primeiro dashi"
+      },
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 700,
+        "unidade": "ml",
+        "nota": "Fresca"
+      },
+      {
+        "nome": "Katsuobushi fresco (reforço)",
+        "quantidade_base": 5,
+        "unidade": "g",
+        "nota": "Uma pitada extra para dar corpo"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Pegue os resíduos do Awase Dashi anterior (o kombu picado e os flocos de bonito usados) e cubra com os 700 ml de água fresca. Adicione o katsuobushi extra."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Ferva em fogo médio por 5 minutos.",
+        "timer_segundos": 300
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Coe espremendo bem desta vez.",
+        "alerta_kenzo": "Aqui pode espremer: o objetivo é a extração total de corpo para cozidos (nimono) e para temperar arrozes."
       }
     ]
   }

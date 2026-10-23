@@ -8,6 +8,8 @@ export interface Base {
   descricao: string;
   proporcao: string;
   passos: string[];
+  /** id da receita completa em recipes.json */
+  receitaId: string;
 }
 
 export interface Tecnica {
@@ -40,6 +42,7 @@ export const BASES: Base[] = [
     titulo: 'Awase Dashi (Caldo Base Misto)',
     selo: 'Essencial',
     descricao: 'A espinha dorsal de sopas, molhos, nimono e ensopados tradicionais.',
+    receitaId: 'awase-dashi',
     proporcao: '1000ml de água | 10g de Kombu | 25g de Katsuobushi',
     passos: [
       'Limpe o Kombu levemente com pano úmido, preservando o pó branco umami.',
@@ -52,11 +55,35 @@ export const BASES: Base[] = [
     titulo: 'Shojin Dashi (Vegetariano)',
     selo: 'Vegan',
     descricao: 'Alternativa umami pura combinando alga kombu e cogumelos shiitake secos.',
+    receitaId: 'shojin-dashi',
     proporcao: '1000ml de água | 10g de Kombu | 4 Shiitakes Secos',
     passos: [
       'Deixe o kombu e os shiitakes secos de molho na água fria por pelo menos 4 horas.',
       'Aqueça em fogo baixo até quase ferver, retire o kombu e mantenha em brando por 10 min.',
       'Coe o caldo e aproveite os shiitakes reidratados em refogados e cozidos (nimono).',
+    ],
+  },
+  {
+    titulo: 'Iriko Dashi / Niboshi Dashi (Anchova Seca)',
+    selo: 'Rústico',
+    descricao: 'Caldo intenso e rico em minerais, para sopas do dia a dia e pratos com peixe marcante.',
+    receitaId: 'iriko-dashi',
+    proporcao: '1000ml de água | 30g de Iriko ou Niboshi',
+    passos: [
+      'Remova a cabeça e as entranhas escuras das anchovas para eliminar o amargor.',
+      'Deixe de molho na água fria por 30 minutos.',
+      'Ferva, reduza ao mínimo, retire a espuma e cozinhe por 10 a 15 minutos. Coe em malha fina.',
+    ],
+  },
+  {
+    titulo: 'Niban Dashi (Segunda Extração)',
+    selo: 'Mottainai',
+    descricao: 'Zero desperdício: reaproveita o kombu e o bonito do primeiro dashi para cozidos e arroz temperado.',
+    receitaId: 'niban-dashi',
+    proporcao: 'Resíduos do Awase | 700ml de água | 5g de Katsuobushi fresco',
+    passos: [
+      'Cubra os resíduos do Awase Dashi com água fresca e junte o katsuobushi extra.',
+      'Ferva em fogo médio por 5 minutos e coe espremendo bem desta vez.',
     ],
   },
 ];
