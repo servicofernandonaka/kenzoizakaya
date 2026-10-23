@@ -2,7 +2,7 @@
  * - navegação: rede primeiro, cai para o index.html em cache
  * - assets do mesmo domínio: cache primeiro, atualiza em segundo plano
  */
-const VERSION = 'kenzo-shell-v1';
+const VERSION = 'kenzo-shell-v2';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (event) => {
@@ -31,7 +31,8 @@ self.addEventListener('fetch', (event) => {
 
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request)
+      // no-cache: ignora o cache HTTP (o GitHub Pages guarda o HTML por ~10 min) e sempre revalida
+      fetch(request, { cache: 'no-cache' })
         .then((res) => {
           const copy = res.clone();
           caches.open(VERSION).then((c) => c.put('./index.html', copy));

@@ -17,7 +17,18 @@ createRoot(root).render(
 
 // Offline-first: registra o service worker apenas em produção.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  // Se já havia um service worker controlando a página, uma versão nova recarrega o app uma única vez.
+  const hadController = Boolean(navigator.serviceWorker.controller);
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!hadController || reloaded) return;
+    reloaded = true;
+    window.location.reload();
+  });
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => undefined);
+    navigator.serviceWorker
+      .register(`${import.meta.env.BASE_URL}sw.js`)
+      .then((reg) => reg.update())
+      .catch(() => undefined);
   });
 }
