@@ -1,4 +1,5 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { IngredientesComuns } from '../components/IngredientesComuns';
 import { hrefReceita } from '../lib/route';
 import { BASES, INSTRUMENTOS, INTRO, PILARES_AGEMONO, PILARES_NIMONO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
 
@@ -143,6 +144,16 @@ export function Fundamentos() {
             <p className="mt-3 text-sm italic">“{i.citacao}”</p>
           </article>
         ))}
+      </div>
+
+      {/* Ingredientes Comuns */}
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-ingredientes`}
+        aria-labelledby={`${uid}-tab-ingredientes`}
+        hidden={tab !== 'ingredientes'}
+      >
+        {tab === 'ingredientes' && <IngredientesComuns />}
       </div>
     </section>
   );

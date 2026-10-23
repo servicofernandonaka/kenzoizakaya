@@ -1,6 +1,6 @@
 /* Conteúdo da seção "Bases, Técnicas & Ferramentas" (Fundamentos do Oyaji). */
 
-export type FundamentoTabId = 'dashi' | 'preparo' | 'instrumentos';
+export type FundamentoTabId = 'dashi' | 'preparo' | 'instrumentos' | 'ingredientes';
 
 export interface Base {
   titulo: string;
@@ -36,6 +36,7 @@ export const TABS: Array<{ id: FundamentoTabId; emoji: string; label: string }> 
   { id: 'dashi', emoji: '🍲', label: 'As Bases (Dashi)' },
   { id: 'preparo', emoji: '🔪', label: 'Preparo (Shitajishi)' },
   { id: 'instrumentos', emoji: '🏮', label: 'Instrumentos de Ferro' },
+  { id: 'ingredientes', emoji: '🧂', label: 'Ingredientes Comuns' },
 ];
 
 export const BASES: Base[] = [
