@@ -1,3 +1,4 @@
+import { CATEGORIA_IDS } from '../data/categorias';
 import type { CookNote, ChecksByRecipe, Emporio, NotesByRecipe, Prefs, ProdutoMercado, Receita } from '../types';
 
 /* Validadores em runtime: nenhum dado externo (JSON ou LocalStorage) entra na UI sem passar por aqui. */
@@ -10,7 +11,6 @@ const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFin
 const optStr = (v: unknown) => v === undefined || isStr(v);
 const optNum = (v: unknown) => v === undefined || isNum(v);
 
-const CATEGORIAS = ['shirumono', 'nimono', 'itamemono', 'tsukemono_sunomono'];
 const REGIOES = ['liberdade', 'online', 'bairros'];
 
 function isIngrediente(v: unknown): boolean {
@@ -37,7 +37,7 @@ export function isReceita(v: unknown): v is Receita {
     isStr(v.titulo_pt) &&
     isStr(v.titulo_jp) &&
     isStr(v.categoria) &&
-    CATEGORIAS.includes(v.categoria) &&
+    CATEGORIA_IDS.includes(v.categoria) &&
     isStr(v.subtitulo) &&
     isNum(v.tempo_minutos) &&
     isNum(v.rendimento_base_porcoes) &&

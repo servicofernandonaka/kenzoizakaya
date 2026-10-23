@@ -1,7 +1,7 @@
 import { useId, useMemo, useState } from 'react';
 import { RecipeCard } from '../components/RecipeCard';
 import { HeartIcon, SearchIcon } from '../components/Icons';
-import { CATEGORIA_LABEL } from '../lib/format';
+import { CATEGORIAS } from '../data/categorias';
 import type { Categoria, Receita } from '../types';
 
 interface Props {
@@ -20,7 +20,11 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
   const [cat, setCat] = useState<Categoria | 'todas'>('todas');
   const [onlyFav, setOnlyFav] = useState(false);
 
-  const categorias = useMemo(() => Array.from(new Set(receitas.map((r) => r.categoria))), [receitas]);
+  const counts = useMemo(() => {
+    const m: Partial<Record<Categoria, number>> = {};
+    receitas.forEach((r) => (m[r.categoria] = (m[r.categoria] ?? 0) + 1));
+    return m;
+  }, [receitas]);
 
   const visible = useMemo(() => {
     const q = norm(query.trim());
@@ -61,16 +65,26 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
           </div>
         </div>
         <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Filtrar por categoria">
-          {(['todas', ...categorias] as const).map((c) => (
+          <button
+            type="button"
+            role="radio"
+            aria-checked={cat === 'todas'}
+            className={`btn !min-h-[48px] ${cat === 'todas' ? 'btn-lantern' : ''}`}
+            onClick={() => setCat('todas')}
+          >
+            Todas
+          </button>
+          {CATEGORIAS.map((c) => (
             <button
-              key={c}
+              key={c.id}
               type="button"
               role="radio"
-              aria-checked={cat === c}
-              className={`btn !min-h-[48px] ${cat === c ? 'btn-lantern' : ''}`}
-              onClick={() => setCat(c)}
+              aria-checked={cat === c.id}
+              className={`btn !min-h-[48px] ${cat === c.id ? 'btn-lantern' : ''} ${counts[c.id] ? '' : 'opacity-70'}`}
+              onClick={() => setCat(c.id)}
             >
-              {c === 'todas' ? 'Todas' : CATEGORIA_LABEL[c]}
+              <span aria-hidden="true">{c.icone}</span> {c.nome}
+              <span className="tabular text-sm opacity-80">({counts[c.id] ?? 0})</span>
             </button>
           ))}
           <button
@@ -102,7 +116,9 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
         <p className="rounded-xl border border-dashed border-line p-8 text-center text-mute">
           {onlyFav && favorites.length === 0
             ? 'Você ainda não favoritou nenhuma receita. Toque no coração de um cartão.'
-            : 'Nenhuma receita encontrada. Tente outro termo.'}
+            : cat !== 'todas' && !counts[cat] && query.trim() === ''
+              ? 'Ainda não há receitas nesta categoria. O caderno está crescendo.'
+              : 'Nenhuma receita encontrada. Tente outro termo.'}
         </p>
       )}
     </div>

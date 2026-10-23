@@ -5,7 +5,7 @@ import { InteractiveTimer } from '../components/InteractiveTimer';
 import { NotesLog } from '../components/NotesLog';
 import { UnitConverter } from '../components/UnitConverter';
 import { UnitModeToggle } from '../components/UnitModeToggle';
-import { CATEGORIA_LABEL, formatDuration } from '../lib/format';
+import { CATEGORIA_ICONE, CATEGORIA_LABEL, formatDuration } from '../lib/format';
 import { hrefReceita } from '../lib/route';
 import { hasConversion } from '../lib/units';
 import type { Receita, UnitMode } from '../types';
@@ -37,7 +37,9 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
 
       <header className="panel relative overflow-hidden p-6 sm:p-8">
         <div className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-lantern/20 blur-3xl" aria-hidden="true" />
-        <p className="kicker">{CATEGORIA_LABEL[receita.categoria]}</p>
+        <p className="kicker">
+          <span aria-hidden="true">{CATEGORIA_ICONE(receita.categoria)}</span> {CATEGORIA_LABEL(receita.categoria)}
+        </p>
         <p className="mt-3 font-serif text-5xl leading-tight text-lanternink sm:text-6xl" lang="ja">
           {receita.titulo_jp}
         </p>

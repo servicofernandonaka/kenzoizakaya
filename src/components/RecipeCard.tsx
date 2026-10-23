@@ -1,4 +1,4 @@
-import { CATEGORIA_LABEL } from '../lib/format';
+import { CATEGORIA_ICONE, CATEGORIA_LABEL } from '../lib/format';
 import { hrefReceita } from '../lib/route';
 import type { Receita } from '../types';
 import { ClockIcon, HeartIcon, UsersIcon } from './Icons';
@@ -38,7 +38,9 @@ export function RecipeCard({ receita, favorite, onToggleFavorite }: Props) {
       <p className="mt-2 flex-1 text-mute">{receita.subtitulo}</p>
 
       <ul className="mt-4 flex flex-wrap gap-2">
-        <li className="chip">{CATEGORIA_LABEL[receita.categoria]}</li>
+        <li className="chip">
+          <span aria-hidden="true">{CATEGORIA_ICONE(receita.categoria)}</span> {CATEGORIA_LABEL(receita.categoria)}
+        </li>
         <li className="chip">
           <ClockIcon width={16} height={16} /> {receita.tempo_minutos} min
         </li>

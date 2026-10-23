@@ -1,6 +1,7 @@
 /* Tipos que espelham exatamente o schema dos JSON (recipes.json, market.json, emporios.json). */
 
-export type Categoria = 'shirumono' | 'nimono' | 'itamemono' | 'tsukemono_sunomono';
+import type { Categoria } from './data/categorias';
+export type { Categoria };
 
 export interface Ingrediente {
   nome: string;

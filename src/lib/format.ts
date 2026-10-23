@@ -1,11 +1,8 @@
+import { getCategoria } from '../data/categorias';
 import type { Categoria } from '../types';
 
-export const CATEGORIA_LABEL: Record<Categoria, string> = {
-  shirumono: 'Shirumono · Sopas',
-  nimono: 'Nimono · Cozidos',
-  itamemono: 'Itamemono · Salteados',
-  tsukemono_sunomono: 'Sunomono · Conservas',
-};
+export const CATEGORIA_LABEL = (id: Categoria): string => getCategoria(id).nome;
+export const CATEGORIA_ICONE = (id: Categoria): string => getCategoria(id).icone;
 
 export function formatClock(totalSeconds: number): string {
   const s = Math.max(0, Math.ceil(totalSeconds));
