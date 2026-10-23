@@ -1,0 +1,41 @@
+[
+  {
+    "id": "marukai",
+    "nome": "Marukai",
+    "regiao": "liberdade",
+    "descricao": "Especialista em algas kombu importadas, katsuobushi em lascas grossas e peixes secos (niboshi).",
+    "tags": ["kombu", "katsuobushi", "niboshi"],
+    "mapsQuery": "Marukai Liberdade São Paulo"
+  },
+  {
+    "id": "towa",
+    "nome": "Towa",
+    "regiao": "liberdade",
+    "descricao": "O melhor sortimento de panelas yukihira legítimas, tigelas de cerâmica, facas artesanais e missôs especiais fermentados no barril.",
+    "tags": ["yukihira", "tigelas", "facas", "missô"],
+    "mapsQuery": "Towa Liberdade São Paulo"
+  },
+  {
+    "id": "casa-bueno",
+    "nome": "Casa Bueno",
+    "regiao": "liberdade",
+    "descricao": "Referência em arroz japonês de alta qualidade (Mirokumai, Koshihikari) e molhos clássicos sem conservantes.",
+    "tags": ["arroz", "shoyu", "molhos"],
+    "mapsQuery": "Casa Bueno Liberdade São Paulo"
+  },
+  {
+    "id": "hon-konbini",
+    "nome": "Empório Hon / Konbini",
+    "regiao": "online",
+    "descricao": "Plataformas com envio rápido para a Grande São Paulo, excelentes para comprar Shichimi Togarashi, Hon-Mirin e Bifun Tozan autêntico.",
+    "tags": ["shichimi", "hon-mirin", "bifun"]
+  },
+  {
+    "id": "hortifruti-bairros",
+    "nome": "Hortifrútis e mercearias de bairro",
+    "regiao": "bairros",
+    "descricao": "Pinheiros, Saúde, Barueri e Região Metropolitana: sacolões locais japoneses para comprar folhas frescas de shisô, raiz de gobo e broto de feijão (moyashi) recém-colhido.",
+    "tags": ["shisô", "gobo", "moyashi"],
+    "mapsQuery": "sacolão japonês Pinheiros São Paulo"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "Izakaya do Kenzō",
+  "short_name": "Izakaya Kenzō",
+  "description": "Caderno de receitas clássicas japonesas com Modo Cozinha, timers e conversor de medidas.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
