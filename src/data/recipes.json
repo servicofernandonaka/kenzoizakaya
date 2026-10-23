@@ -719,5 +719,187 @@
         "alerta_kenzo": "Cortou antes do descanso, o suco escorre e o lombo resseca!"
       }
     ]
+  },
+  {
+    "id": "buta-no-kakuni-classico",
+    "titulo_pt": "Buta no Kakuni Clássico (Barriga de Porco Cozida Lentamente)",
+    "titulo_jp": "豚の角煮",
+    "categoria": "nimono",
+    "subtitulo": "Versão do Mestre Kenzo: douração, dupla fervura e horas de fogo brando até a gordura ficar translúcida",
+    "tempo_minutos": 200,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Barriga de porco em blocos altos (com pele)",
+        "quantidade_base": 1000,
+        "unidade": "g"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 150,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Saquê culinário (Ryorishu)",
+        "quantidade_base": 150,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 100,
+        "unidade": "ml"
+      },
+      {
+        "nome": "Açúcar mascavo ou cristal",
+        "quantidade_base": 50,
+        "unidade": "g"
+      },
+      {
+        "nome": "Gengibre fresco",
+        "quantidade_base": 30,
+        "unidade": "g",
+        "nota": "Em rodelas grossas; metade na pré-fervura, metade no caldo"
+      },
+      {
+        "nome": "Cebolinha verde (parte branca)",
+        "quantidade_base": 2,
+        "unidade": "talos",
+        "nota": "Para a pré-fervura"
+      },
+      {
+        "nome": "Água filtrada",
+        "quantidade_base": 800,
+        "unidade": "ml",
+        "nota": "Para o caldo de sabor"
+      },
+      {
+        "nome": "Água para a pré-fervura",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Suficiente para cobrir a carne"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Douração inicial: em uma panela funda de ferro, sem óleo, doure os blocos de porco de todos os lados até formar uma crosta leve. Retire e lave imediatamente em água quente para remover o excesso de gordura superficial."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Primeiro cozimento (remoção de gordura): retorne a carne à panela limpa, cubra com água, adicione metade do gengibre e a cebolinha. Ferva em fogo baixo por 1 hora. Descarte a água e lave os blocos de porco em água corrente morna.",
+        "timer_segundos": 3600,
+        "alerta_kenzo": "Essa primeira fervura tira o sebo e o odor forte do porco. Descarte a água, não aproveite!"
+      },
+      {
+        "ordem": 3,
+        "instrucao": "O caldo de sabor (a glaceagem): na panela limpa, adicione o shoyu, o saquê, o mirin, o açúcar, o restante do gengibre e os 800 ml de água. Acomode a carne."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Otoshibuta e fogo brando: cubra com uma tampa de papel manteiga (otoshibuta) furada no centro. Cozinhe em fogo brando por 1h30 a 2 horas, até que a carne esteja extremamente macia.",
+        "timer_segundos": 5400,
+        "dica_tomesan": "Corte o papel manteiga no diâmetro exato da panela. Ele faz o caldo circular por cima e evita que os blocos batam uns nos outros e se quebrem."
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Descanso e serviço: deixe amornar. Sirva fatiado com ovos cozidos marinados (ajitsuke tamago) e nabo cozido.",
+        "alerta_kenzo": "O nimono atinge o ápice depois de esfriar: é no resfriamento que o caldo penetra fundo nas fibras da carne."
+      }
+    ]
+  },
+  {
+    "id": "nikujaga",
+    "titulo_pt": "Nikujaga (Carne com Batata e Legumes ao Estilo Caseiro)",
+    "titulo_jp": "肉じゃが",
+    "categoria": "nimono",
+    "subtitulo": "O prato mais nostálgico do Japão: carne fatiada, batata macia e cebola doce em caldo de dashi, shoyu e mirin",
+    "tempo_minutos": 40,
+    "rendimento_base_porcoes": 4,
+    "ingredientes": [
+      {
+        "nome": "Carne bovina fatiada finamente",
+        "quantidade_base": 300,
+        "unidade": "g",
+        "nota": "Contrafilé ou acém"
+      },
+      {
+        "nome": "Batatas médias",
+        "quantidade_base": 3,
+        "unidade": "unidades",
+        "nota": "Descascadas e cortadas em pedaços grandes"
+      },
+      {
+        "nome": "Cenoura média",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Em rodelas chanfradas (rangiku)"
+      },
+      {
+        "nome": "Cebola grande",
+        "quantidade_base": 1,
+        "unidade": "unidade",
+        "nota": "Cortada em gomos grossos"
+      },
+      {
+        "nome": "Shirataki (macarrão de konjac)",
+        "quantidade_base": 100,
+        "unidade": "g",
+        "nota": "Opcional; lavado antes de usar"
+      },
+      {
+        "nome": "Awase Dashi",
+        "quantidade_base": 400,
+        "unidade": "ml",
+        "nota": "Veja a receita de Awase Dashi"
+      },
+      {
+        "nome": "Shoyu tradicional",
+        "quantidade_base": 3,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Mirin",
+        "quantidade_base": 2,
+        "unidade": "colheres de sopa"
+      },
+      {
+        "nome": "Açúcar",
+        "quantidade_base": 1,
+        "unidade": "colher de sopa"
+      },
+      {
+        "nome": "Óleo vegetal",
+        "quantidade_base": 0,
+        "unidade": "a gosto",
+        "nota": "Um fio, para o salteio inicial"
+      }
+    ],
+    "passos": [
+      {
+        "ordem": 1,
+        "instrucao": "Salteio inicial: em uma panela com um fio de óleo, doure levemente a cebola e adicione a carne fatiada até mudar de cor."
+      },
+      {
+        "ordem": 2,
+        "instrucao": "Adição dos vegetais: acrescente as batatas e a cenoura. Salteie por 2 minutos.",
+        "timer_segundos": 120
+      },
+      {
+        "ordem": 3,
+        "instrucao": "Caldo e temperos: despeje o Awase Dashi, o shoyu, o mirin e o açúcar. Adicione o shirataki lavado."
+      },
+      {
+        "ordem": 4,
+        "instrucao": "Cozimento com otoshibuta: cubra com o papel manteiga furado e deixe cozinhar em fogo médio-baixo por 15 a 20 minutos, até que a batata e a cenoura estejam macias a ponto de perfurar com um hashi.",
+        "timer_segundos": 1200,
+        "dica_tomesan": "Teste da batata: o hashi deve entrar sem resistência. Se a batata desmanchar, o fogo estava alto."
+      },
+      {
+        "ordem": 5,
+        "instrucao": "Finalização: desligue o fogo e deixe a panela tampada descansar por 30 minutos antes de servir, permitindo que os sabores se fundam perfeitamente.",
+        "timer_segundos": 1800,
+        "alerta_kenzo": "Não pule o descanso! O sabor do nimono se completa enquanto esfria."
+      }
+    ]
   }
 ]

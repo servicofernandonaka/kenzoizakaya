@@ -1,6 +1,6 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { hrefReceita } from '../lib/route';
-import { BASES, INSTRUMENTOS, INTRO, PILARES_AGEMONO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
+import { BASES, INSTRUMENTOS, INTRO, PILARES_AGEMONO, PILARES_NIMONO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
 
 /** Fundamentos do Oyaji: abas acessíveis (setas, Home, End) com bases, técnicas e instrumentos. */
 export function Fundamentos() {
@@ -107,7 +107,7 @@ export function Fundamentos() {
         hidden={tab !== 'preparo'}
         className="grid gap-6 md:grid-cols-2"
       >
-        {[...TECNICAS, ...PILARES_AGEMONO].map((t) => (
+        {[...TECNICAS, ...PILARES_AGEMONO, ...PILARES_NIMONO].map((t) => (
           <article key={t.titulo} className="panel p-6 md:p-8">
             <h2 className="text-xl font-bold">{t.titulo}</h2>
             <p className="mt-2 text-sm text-mute">{t.descricao}</p>

@@ -19,6 +19,8 @@ export const getCategoria = (id: Categoria) => CATEGORIAS.find((c) => c.id === i
 export const CATEGORIA_INTROS: Partial<Record<Categoria, string>> = {
   bases:
     'Na cozinha de um verdadeiro shokudo ou izakaya tradicional, o dashi não é apenas um caldo: é a alma líquida que sustenta o umami de quase todos os preparos, do misoshiru aos cozidos lentos.',
+  nimono:
+    'No Japão, os cozidos lentos são o coração da culinária caseira (obanzai e teishoku): exigem paciência, cortes precisos e fogo brando para que os ingredientes absorvam o dashi, o shoyu e o mirin sem desmanchar. O segredo está no otoshibuta e no cozimento em etapas.',
   agemono:
     'No izakaya, o balcão nunca descansa do som de óleo borbulhando. O verdadeiro agemono não é pesado nem encharcado: exige óleo limpo, temperatura rigorosa e controle da umidade para uma crosta crocante e seca por fora e um interior suculento e fumegante.',
 };

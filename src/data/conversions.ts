@@ -36,6 +36,12 @@ export const CONVERSIONS: Record<string, Conversion> = {
   'Farinha de trigo': { metric: 'g', unit: 'colher_sopa', perUnit: 8 },
   'Farinha Panko': { metric: 'g', unit: 'xicara', perUnit: 50 },
 
+  'Shoyu tradicional': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
+  Mirin: { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },
+  'Açúcar mascavo ou cristal': { metric: 'g', unit: 'colher_sopa', perUnit: 12 },
+  Açúcar: { metric: 'g', unit: 'colher_sopa', perUnit: 12 },
+  'Awase Dashi': { metric: 'ml', unit: 'xicara', perUnit: 240 },
+
   'Sal refinado': { metric: 'g', unit: 'colher_cha', perUnit: 6, qualifier: ['rasa', 'rasas'] },
   'Alga Wakame desidratada': { metric: 'g', unit: 'colher_sopa', perUnit: 2 },
   'Vinagre de arroz fermentado puro': { metric: 'ml', unit: 'colher_sopa', perUnit: 15 },

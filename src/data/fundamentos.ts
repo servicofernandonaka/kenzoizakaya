@@ -126,6 +126,24 @@ export const PILARES_AGEMONO: Tecnica[] = [
   },
 ];
 
+export const PILARES_NIMONO: Tecnica[] = [
+  {
+    titulo: 'Otoshibuta (A Tampa de Queda)',
+    descricao:
+      'Tampa de papel manteiga cortada no diâmetro exato da panela e colocada diretamente sobre os ingredientes. Faz o caldo fervente circular uniformemente por cima dos alimentos e evita que batam uns nos outros e quebrem.',
+  },
+  {
+    titulo: 'Ordem de Cozimento (Textura e Firmeza)',
+    descricao:
+      'Vegetais duros de raiz (cenoura, batata, nabo) cozinham mais devagar; carnes e tofu entram em momentos diferentes para não endurecerem ou desmancharem.',
+  },
+  {
+    titulo: 'Descanso Pós-Cozimento (A Magia do Sabor)',
+    descricao:
+      'O nimono atinge o ápice de sabor depois de esfriar completamente. É durante o resfriamento que o caldo penetra profundamente nas fibras da carne e dos tubérculos.',
+  },
+];
+
 export const INSTRUMENTOS: Instrumento[] = [
   {
     nome: 'Donabe',
