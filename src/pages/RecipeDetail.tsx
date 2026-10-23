@@ -113,7 +113,7 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
         </div>
         {servings !== receita.rendimento_base_porcoes && (
           <p className="mt-3 text-sm text-mute">
-            Escalonado de {receita.rendimento_base_porcoes} para {servings} porções (×{new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 }).format(factor)}). Tempos de cozimento não mudam.{' '}
+            Escalonado de {receita.rendimento_base_porcoes} para {servings} porções (×{new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 }).format(factor)}). Tempos de cozimento não mudam, e as quantidades citadas dentro dos passos continuam as da receita original.{' '}
             <button type="button" className="font-semibold text-lanternink underline underline-offset-4" onClick={() => onServingsChange(receita.rendimento_base_porcoes)}>
               Voltar ao original
             </button>
