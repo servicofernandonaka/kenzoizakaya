@@ -1,0 +1,136 @@
+import { useId, useRef, useState, type KeyboardEvent } from 'react';
+import { BASES, INSTRUMENTOS, INTRO, TABS, TECNICAS, type FundamentoTabId } from '../data/fundamentos';
+
+/** Fundamentos do Oyaji: abas acessíveis (setas, Home, End) com bases, técnicas e instrumentos. */
+export function Fundamentos() {
+  const uid = useId();
+  const [tab, setTab] = useState<FundamentoTabId>('dashi');
+  const refs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const onKeyDown = (e: KeyboardEvent, index: number) => {
+    const last = TABS.length - 1;
+    let to = -1;
+    if (e.key === 'ArrowRight') to = index === last ? 0 : index + 1;
+    else if (e.key === 'ArrowLeft') to = index === 0 ? last : index - 1;
+    else if (e.key === 'Home') to = 0;
+    else if (e.key === 'End') to = last;
+    if (to < 0) return;
+    e.preventDefault();
+    setTab(TABS[to].id);
+    refs.current[TABS[to].id]?.focus();
+  };
+
+  return (
+    <section aria-labelledby={`${uid}-h`} className="space-y-10">
+      <header className="mx-auto max-w-2xl text-center">
+        <span className="inline-block rounded-full border border-lantern/50 bg-lantern/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-lanternink">
+          {INTRO.kicker}
+        </span>
+        <h1 id={`${uid}-h`} className="mt-4 text-4xl font-bold md:text-5xl">
+          {INTRO.titulo}
+        </h1>
+        <p className="mt-3 leading-relaxed text-mute">{INTRO.texto}</p>
+      </header>
+
+      <div role="tablist" aria-label="Fundamentos" className="flex flex-wrap justify-center gap-2 md:gap-3">
+        {TABS.map((t, i) => {
+          const active = t.id === tab;
+          return (
+            <button
+              key={t.id}
+              ref={(el) => {
+                refs.current[t.id] = el;
+              }}
+              id={`${uid}-tab-${t.id}`}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              aria-controls={`${uid}-panel-${t.id}`}
+              tabIndex={active ? 0 : -1}
+              onClick={() => setTab(t.id)}
+              onKeyDown={(e) => onKeyDown(e, i)}
+              className={`btn ${active ? 'btn-lantern' : ''}`}
+            >
+              <span aria-hidden="true">{t.emoji}</span> {t.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* As Bases */}
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-dashi`}
+        aria-labelledby={`${uid}-tab-dashi`}
+        hidden={tab !== 'dashi'}
+        className="grid gap-6 md:grid-cols-2"
+      >
+        {BASES.map((b) => (
+          <article key={b.titulo} className="panel relative overflow-hidden p-6 md:p-8">
+            <div className="pointer-events-none absolute right-0 top-0 h-36 w-36 rounded-full bg-lantern/10 blur-3xl" aria-hidden="true" />
+            <div className="relative flex items-start justify-between gap-3">
+              <h2 className="text-xl font-bold">{b.titulo}</h2>
+              <span className="chip shrink-0 font-mono text-xs">{b.selo}</span>
+            </div>
+            <p className="relative mt-2 text-sm text-mute">{b.descricao}</p>
+            <div className="relative mt-4 rounded-xl border border-line bg-canvas/70 p-4">
+              <span className="block font-mono text-xs text-mute">Proporção Sagrada:</span>
+              <strong className="mt-1 block text-sm">{b.proporcao}</strong>
+            </div>
+            <ol className="relative mt-4 space-y-2 text-sm leading-relaxed">
+              {b.passos.map((p, i) => {
+                const [lead, rest] = p.startsWith('Segredo do Oyaji:') ? ['Segredo do Oyaji:', p.slice(17)] : [null, p];
+                return (
+                  <li key={i} className="flex gap-2">
+                    <strong aria-hidden="true" className="shrink-0 whitespace-nowrap">{i + 1}.</strong>
+                    <span>
+                      {lead && <em className="font-semibold text-lanternink">{lead}</em>}
+                      {rest}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          </article>
+        ))}
+      </div>
+
+      {/* Preparo (Shitajishi) */}
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-preparo`}
+        aria-labelledby={`${uid}-tab-preparo`}
+        hidden={tab !== 'preparo'}
+        className="grid gap-6 md:grid-cols-2"
+      >
+        {TECNICAS.map((t) => (
+          <article key={t.titulo} className="panel p-6 md:p-8">
+            <h2 className="text-xl font-bold">{t.titulo}</h2>
+            <p className="mt-2 text-sm text-mute">{t.descricao}</p>
+            <blockquote className="mt-4 rounded-xl border border-line bg-canvas/70 p-4 text-sm italic">
+              “{t.citacao}”
+              <footer className="mt-2 not-italic text-mute">— Mestre Kenzo</footer>
+            </blockquote>
+          </article>
+        ))}
+      </div>
+
+      {/* Instrumentos de Ferro */}
+      <div
+        role="tabpanel"
+        id={`${uid}-panel-instrumentos`}
+        aria-labelledby={`${uid}-tab-instrumentos`}
+        hidden={tab !== 'instrumentos'}
+        className="grid gap-6 md:grid-cols-3"
+      >
+        {INSTRUMENTOS.map((i) => (
+          <article key={i.nome} className="panel p-6">
+            <h2 className="text-lg font-bold text-lanternink">{i.nome}</h2>
+            <p className="mt-1 text-sm text-mute">{i.descricao}</p>
+            <p className="mt-3 text-sm italic">“{i.citacao}”</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

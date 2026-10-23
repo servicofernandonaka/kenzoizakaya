@@ -8,6 +8,7 @@ import { TimersProvider } from './context/TimersContext';
 import { RECEITAS, findReceita } from './data';
 import { useFavorites, usePrefs } from './hooks/useAppState';
 import { hrefReceita, navigate, parseRoute, useHash } from './lib/route';
+import { Fundamentos } from './pages/Fundamentos';
 import { Home } from './pages/Home';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { RecipesPage } from './pages/RecipesPage';
@@ -15,6 +16,7 @@ import { RecipesPage } from './pages/RecipesPage';
 const NAV = [
   { href: '#/', label: 'Início', match: (n: string) => n === 'home' },
   { href: '#/receitas', label: 'Receitas', match: (n: string) => n === 'receitas' || n === 'receita' },
+  { href: '#/fundamentos', label: 'Fundamentos', match: (n: string) => n === 'fundamentos' },
   { href: '#/mercado', label: 'Mercado', match: (n: string) => n === 'mercado' },
 ];
 
@@ -74,6 +76,8 @@ export default function App() {
     page = <Home receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} />;
   } else if (route.name === 'receitas') {
     page = <RecipesPage receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} />;
+  } else if (route.name === 'fundamentos') {
+    page = <Fundamentos />;
   } else if (route.name === 'mercado') {
     page = (
       <div className="space-y-6">
@@ -126,12 +130,12 @@ export default function App() {
 
       <div className="sticky top-0 z-30">
         <header className="border-b border-line bg-canvas/90 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 px-4 py-1 sm:py-2">
             <a href="#/" className="flex items-center gap-3" aria-label="Izakaya do Kenzō — início">
               <Lantern size={26} />
               <span className="hidden font-serif text-xl font-bold sm:inline">Izakaya do Kenzō</span>
             </a>
-            <nav aria-label="Principal" className="ml-auto flex items-center gap-1">
+            <nav aria-label="Principal" className="ml-auto flex w-full items-center justify-between sm:w-auto sm:justify-start sm:gap-1">
               {NAV.map((n) => {
                 const active = n.match(route.name);
                 return (

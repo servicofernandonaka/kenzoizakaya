@@ -71,5 +71,6 @@ export type Route =
   | { name: 'home' }
   | { name: 'receitas' }
   | { name: 'mercado' }
+  | { name: 'fundamentos' }
   | { name: 'receita'; id: string; kitchen: boolean }
   | { name: 'not-found' };

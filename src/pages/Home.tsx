@@ -9,9 +9,9 @@ interface Props {
 }
 
 const PILARES: Array<{ titulo: string; texto: string; href?: string }> = [
-  { titulo: 'Kihon (O Alicerce)', texto: 'A física e a química dos caldos, cortes e temperaturas.' },
+  { titulo: 'Kihon (O Alicerce)', texto: 'A física e a química dos caldos, cortes e temperaturas.', href: '#/fundamentos' },
   { titulo: 'Caderno da Tomesan', texto: 'Receitas com gramaturas exatas para balança, sem adivinhações.', href: '#/receitas' },
-  { titulo: 'Dōgu (As Ferramentas)', texto: 'O que realmente importa na sua gaveta de utensílios.' },
+  { titulo: 'Dōgu (As Ferramentas)', texto: 'O que realmente importa na sua gaveta de utensílios.', href: '#/fundamentos' },
   { titulo: 'Mercado Honesto', texto: 'O caminho direto para encontrar insumos puros, sem cair em armadilhas de rótulo.', href: '#/mercado' },
 ];
 
