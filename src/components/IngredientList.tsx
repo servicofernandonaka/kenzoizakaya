@@ -1,3 +1,4 @@
+import { GlossaryText } from './GlossaryText';
 import { useChecks } from '../hooks/useAppState';
 import { displayAmount } from '../lib/units';
 import type { Receita, UnitMode } from '../types';
@@ -43,7 +44,7 @@ export function IngredientList({ receita, factor, mode, variant = 'default' }: P
                   >
                     {ing.nome}
                   </span>
-                  {ing.nota && <span className={`block text-mute ${kitchen ? 'mt-1 text-base' : 'text-sm'}`}>{ing.nota}</span>}
+                  {ing.nota && <span className={`block text-mute ${kitchen ? 'mt-1 text-base' : 'text-sm'}`}><GlossaryText text={ing.nota} /></span>}
                 </span>
                 {/* largura mínima fixa + 2 linhas reservadas: trocar de unidade não desloca o layout */}
                 <span className={`tabular shrink-0 text-right ${kitchen ? 'min-w-[9.5rem]' : 'min-w-[7.5rem]'}`}>

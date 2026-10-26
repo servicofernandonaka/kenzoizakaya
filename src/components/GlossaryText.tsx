@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { GLOSSARIO, type Termo } from '../data/glossario';
 import { CloseIcon } from './Icons';
 
@@ -58,6 +59,7 @@ export function GlossaryText({ text }: { text: string }) {
         ),
       )}
 
+      {createPortal(
       <dialog
         ref={dialog}
         onClose={() => setAberto(null)}
@@ -91,7 +93,9 @@ export function GlossaryText({ text }: { text: string }) {
             </a>
           </div>
         )}
-      </dialog>
+      </dialog>,
+      document.body,
+      )}
     </>
   );
 }
