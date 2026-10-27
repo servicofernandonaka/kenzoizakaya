@@ -16,9 +16,9 @@ const PALETA: Record<Categoria, [string, string]> = {
 /**
  * Capa da receita: usa `foto` quando existir (public/fotos/...); caso contrário (ou se a imagem falhar),
  * mostra uma capa ilustrada sóbria com o nome em japonês — nunca fica um buraco na vitrine.
- * `className` controla a proporção (aspect-[4/3], aspect-[16/9]...).
+ * `className` controla a proporção (aspect-[4/3], aspect-[16/9]...). `eager` = imagem principal da página (sem lazy-load).
  */
-export function RecipeCover({ receita, className = '' }: { receita: Receita; className?: string }) {
+export function RecipeCover({ receita, className = '', eager = false }: { receita: Receita; className?: string; eager?: boolean }) {
   const [failed, setFailed] = useState(false);
 
   if (receita.foto && !failed) {
@@ -26,7 +26,7 @@ export function RecipeCover({ receita, className = '' }: { receita: Receita; cla
       <img
         src={receita.foto}
         alt={`Foto de ${receita.titulo_pt}`}
-        loading="lazy"
+        loading={eager ? 'eager' : 'lazy'}
         decoding="async"
         onError={() => setFailed(true)}
         className={`object-cover ${className}`}

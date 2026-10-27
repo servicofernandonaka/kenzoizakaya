@@ -645,6 +645,7 @@
     "subtitulo": "Versão do Mestre Kenzo: douração, dupla fervura e horas de fogo brando até a gordura ficar translúcida",
     "tempo_minutos": 210,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/buta-no-kakuni-classico.webp",
     "ingredientes": [
       {
         "nome": "Barriga de porco em blocos altos (com pele)",
@@ -1045,6 +1046,7 @@
     "subtitulo": "Casquinha delicada de amido sobre tofu macio, em tentsuyu quente",
     "tempo_minutos": 35,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/agedashi-tofu.webp",
     "ingredientes": [
       {
         "nome": "Tofu firme",
@@ -1206,6 +1208,7 @@
     "subtitulo": "Daikon, ovos e bolinhos de peixe em dashi leve, em fogo mínimo",
     "tempo_minutos": 90,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/oden.webp",
     "ingredientes": [
       {
         "nome": "Nabo japonês (daikon) em rodelas grossas de 3 cm",
@@ -1833,6 +1836,7 @@
     "subtitulo": "Tonkatsu em caldo de dashi com ovo cremoso sobre arroz",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/katsudon.webp",
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
@@ -2282,6 +2286,7 @@
     "subtitulo": "Cogumelos salteados em manteiga, com shoyu direto na frigideira",
     "tempo_minutos": 10,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/batayaki-cogumelos.webp",
     "ingredientes": [
       {
         "nome": "Shimeji fresco em raminhos",

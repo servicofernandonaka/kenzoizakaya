@@ -54,7 +54,7 @@ export function Home({ receitas, favorites, onToggleFavorite }: Props) {
         {destaque && (
           <a href={hrefReceita(destaque.id)} className="group block lg:col-span-5 lg:col-start-8 lg:mt-24">
             <div className="overflow-hidden rounded-2xl">
-              <RecipeCover receita={destaque} className="aspect-[4/5] w-full transition-transform duration-500 ease-in-out group-hover:scale-[1.02]" />
+              <RecipeCover eager receita={destaque} className="aspect-[4/5] w-full transition-transform duration-500 ease-in-out group-hover:scale-[1.02]" />
             </div>
             <span className="mt-4 block text-sm text-mute">Em destaque · {CATEGORIA_LABEL(destaque.categoria)}</span>
             <span className="mt-1 block font-serif text-2xl font-semibold leading-snug">{destaque.titulo_pt}</span>

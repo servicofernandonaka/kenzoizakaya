@@ -45,7 +45,7 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
       </div>
 
       <header>
-        <RecipeCover receita={receita} className="aspect-[16/9] w-full rounded-2xl" />
+        <RecipeCover eager receita={receita} className="aspect-[16/9] w-full rounded-2xl" />
         <p className="kicker mt-8">{CATEGORIA_LABEL(receita.categoria)}</p>
         <h1 className="mt-3 text-4xl leading-[1.12] sm:text-5xl">{receita.titulo_pt}</h1>
         <p className="mt-2 font-serif text-2xl text-lanternink" lang="ja">
