@@ -7,6 +7,7 @@
     "subtitulo": "Chega de caldo ralo: sinergia de kombu e katsuobushi pesado",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/misoshiru-autentico.webp",
     "ingredientes": [
       {
         "nome": "Água filtrada",
@@ -89,6 +90,7 @@
     "subtitulo": "Técnica de wok caseira: legumes no ponto sem juntar água",
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 3,
+    "foto": "fotos/bifun-salteado-tradicional.webp",
     "ingredientes": [
       {
         "nome": "Massa de arroz Bifun seca",
@@ -185,6 +187,7 @@
     "subtitulo": "Equilíbrio milenar de vinagre de arroz, sal e açúcar sem perder a crocância",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/sunomono-classico.webp",
     "ingredientes": [
       {
         "nome": "Pepino japonês fino e firme",
@@ -317,6 +320,7 @@
     "subtitulo": "Herança dos monges budistas (Shojin Ryori): umami profundo, terroso e 100% vegetal",
     "tempo_minutos": 265,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/shojin-dashi.webp",
     "ingredientes": [
       {
         "nome": "Água filtrada",
