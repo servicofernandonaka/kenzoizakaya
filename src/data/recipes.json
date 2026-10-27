@@ -457,6 +457,7 @@
     "subtitulo": "Marinado no shoyu, saquê e gengibre, empanado em katakuriko e frito duas vezes: crosta seca e interior suculento",
     "tempo_minutos": 50,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/tori-no-karaage.webp",
     "ingredientes": [
       {
         "nome": "Coxa e sobrecoxa de frango desossada (com pele)",
@@ -884,6 +885,7 @@
     "subtitulo": "Camarão suculento sob uma crosta dourada de panko",
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/ebi-furai.webp",
     "ingredientes": [
       {
         "nome": "Camarões grandes limpos, com a cauda",
@@ -1762,6 +1764,7 @@
     "subtitulo": "Carne ultrafina e cebola num caldo agridoce reduzido",
     "tempo_minutos": 25,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/gyudon.webp",
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
@@ -2053,6 +2056,7 @@
     "subtitulo": "Cubos de contrafilé selados na chapa com alho crocante",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/gyuniku-no-batayaki.webp",
     "ingredientes": [
       {
         "nome": "Contrafilé ou bife ancho em cubos grossos",
