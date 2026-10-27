@@ -255,6 +255,7 @@
     "subtitulo": "A espinha dorsal da culinária japonesa caseira: o umami marinho do kombu com a intensidade do katsuobushi",
     "tempo_minutos": 45,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/awase-dashi.webp",
     "ingredientes": [
       {
         "nome": "Água filtrada",
@@ -367,6 +368,7 @@
     "subtitulo": "Rústico, intenso e rico em minerais: o caldo do dia a dia do campo e das sopas de inverno",
     "tempo_minutos": 50,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/iriko-dashi.webp",
     "ingredientes": [
       {
         "nome": "Água filtrada",
@@ -412,6 +414,7 @@
     "subtitulo": "Mottainai, zero desperdício: o segundo caldo para cozidos e arroz temperado",
     "tempo_minutos": 10,
     "rendimento_base_porcoes": 3,
+    "foto": "fotos/niban-dashi.webp",
     "ingredientes": [
       {
         "nome": "Resíduos do Awase Dashi (kombu picado e flocos usados)",
@@ -838,6 +841,7 @@
     "subtitulo": "Sem molho prévio: para quando há pressa no balcão",
     "tempo_minutos": 10,
     "rendimento_base_porcoes": 4,
+    "foto": "fotos/dashi-rapido.webp",
     "ingredientes": [
       {
         "nome": "Água filtrada",
@@ -1295,6 +1299,7 @@
     "subtitulo": "Kabocha com casca, adocicada pelo caldo de shoyu e mirin",
     "tempo_minutos": 30,
     "rendimento_base_porcoes": 3,
+    "foto": "fotos/kobocha-no-nimono.webp",
     "ingredientes": [
       {
         "nome": "Abóbora japonesa (kabocha) com casca, em cubos de 4 cm",
