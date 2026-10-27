@@ -557,6 +557,7 @@
     "subtitulo": "Clássico dos pratos de conforto (Yoshoku e Teishoku): cortes altos empanados em panko grosso",
     "tempo_minutos": 30,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/tonkatsu.webp",
     "ingredientes": [
       {
         "nome": "Bifes altos de lombo de porco (com capa de gordura)",
@@ -1355,6 +1356,7 @@
     "subtitulo": "Udon vaporizado na chapa e caramelizado nas bordas quentes",
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/yakiudon.webp",
     "ingredientes": [
       {
         "nome": "Macarrão udon pré-cozido",
@@ -1443,6 +1445,7 @@
     "subtitulo": "Soba firme e gelado, servido com tsuyu, cebolinha e wasabi",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/zaru-soba.webp",
     "ingredientes": [
       {
         "nome": "Macarrão soba seco",
@@ -1561,6 +1564,7 @@
     "subtitulo": "Macarrão salteado na wok em fogo alto, com legumes e molho",
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/yakisoba.webp",
     "ingredientes": [
       {
         "nome": "Macarrão para yakisoba",
@@ -2128,6 +2132,7 @@
     "subtitulo": "Negima laqueado com tare até caramelizar",
     "tempo_minutos": 30,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/yakitori.webp",
     "ingredientes": [
       {
         "nome": "Coxa de frango desossada em cubos de 3 cm",
