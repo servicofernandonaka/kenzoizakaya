@@ -1501,6 +1501,7 @@
     "subtitulo": "Caldo de awase dashi com shoyu, macarrão katame, chashu e ovo",
     "tempo_minutos": 20,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/shoyu-ramen.webp",
     "ingredientes": [
       {
         "nome": "Macarrão para ramen",
@@ -1919,6 +1920,7 @@
     "subtitulo": "Tempura recém-frito sobre arroz, regado com tentsuyu",
     "tempo_minutos": 30,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/tendon.webp",
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
@@ -1993,6 +1995,7 @@
     "subtitulo": "Faixas de carne moída escura e ovo amarelo sobre o arroz",
     "tempo_minutos": 25,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/soborodon.webp",
     "ingredientes": [
       {
         "nome": "Gohan (arroz japonês cozido)",
@@ -2189,6 +2192,7 @@
     "subtitulo": "Lombo fatiado fino, glaçado com gengibre fresco",
     "tempo_minutos": 15,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/shogayaki-porco.webp",
     "ingredientes": [
       {
         "nome": "Lombo suíno fatiado ultrafino",
@@ -2247,6 +2251,7 @@
     "subtitulo": "Sal grosso, pele estalando e daikon ralado",
     "tempo_minutos": 35,
     "rendimento_base_porcoes": 2,
+    "foto": "fotos/shiozake.webp",
     "ingredientes": [
       {
         "nome": "Filés de salmão fresco (com pele)",
