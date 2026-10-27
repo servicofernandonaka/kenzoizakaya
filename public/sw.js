@@ -1,15 +1,19 @@
-/* Service worker mínimo — app shell offline-first.
- * - navegação: rede primeiro, cai para o index.html em cache
- * - assets do mesmo domínio: cache primeiro, atualiza em segundo plano
+/* Service worker — app shell offline-first.
+ * - install: pré-armazena todos os arquivos do build (lista injetada por vite.config.ts)
+ * - navegação: rede primeiro (sem cache HTTP) e cai para o index.html em cache
+ * - demais arquivos do mesmo domínio: cache primeiro, atualiza em segundo plano
  */
-const VERSION = 'kenzo-shell-v2';
+const VERSION = 'kenzo-' + /*__VERSION__*/ 'dev';
+const ASSETS = /*__PRECACHE__*/ [];
+/* ignoreVary: pedidos de módulo/CORS não podem falhar contra a cópia guardada só por causa de um cabeçalho Vary */
+const MATCH = { ignoreVary: true };
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
       .open(VERSION)
-      .then((cache) => cache.addAll(SHELL))
+      .then((cache) => cache.addAll([...new Set([...SHELL, ...ASSETS])]))
       .then(() => self.skipWaiting()),
   );
 });
@@ -38,13 +42,13 @@ self.addEventListener('fetch', (event) => {
           caches.open(VERSION).then((c) => c.put('./index.html', copy));
           return res;
         })
-        .catch(() => caches.match('./index.html').then((r) => r || caches.match('./'))),
+        .catch(() => caches.match('./index.html', MATCH).then((r) => r || caches.match('./', MATCH))),
     );
     return;
   }
 
   event.respondWith(
-    caches.match(request).then((cached) => {
+    caches.match(request, MATCH).then((cached) => {
       const network = fetch(request)
         .then((res) => {
           if (res && res.ok) {

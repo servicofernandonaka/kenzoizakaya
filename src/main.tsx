@@ -2,6 +2,13 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import '@fontsource/lora/latin-400.css';
+import '@fontsource/lora/latin-400-italic.css';
+import '@fontsource/lora/latin-600.css';
+import '@fontsource/lora/latin-700.css';
+import '@fontsource/figtree/latin-400.css';
+import '@fontsource/figtree/latin-500.css';
+import '@fontsource/figtree/latin-700.css';
 import './index.css';
 
 const root = document.getElementById('root');

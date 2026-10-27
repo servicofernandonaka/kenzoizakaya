@@ -27,30 +27,30 @@ export function IngredientList({ receita, factor, mode, variant = 'default' }: P
             <li key={ing.nome}>
               <label
                 htmlFor={id}
-                className={`flex cursor-pointer items-start gap-4 py-3 ${kitchen ? 'min-h-[72px] py-4' : 'min-h-[56px]'}`}
+                className={`flex cursor-pointer items-start gap-4 py-3 transition-all duration-300 ${kitchen ? 'min-h-[72px] py-4' : 'min-h-[56px]'} ${
+                  done ? 'line-through opacity-40' : ''
+                }`}
               >
                 <input
                   id={id}
                   type="checkbox"
                   checked={done}
                   onChange={() => toggle(ing.nome)}
-                  className={`mt-1 shrink-0 cursor-pointer accent-[#D32F2F] ${kitchen ? 'h-8 w-8' : 'h-6 w-6'}`}
+                  className={`mt-0.5 shrink-0 cursor-pointer accent-[#AD1E2C] ${kitchen ? 'h-8 w-8' : 'h-7 w-7'}`}
                 />
                 <span className="min-w-0 flex-1">
-                  <span
-                    className={`block font-medium transition-opacity duration-200 ${kitchen ? 'text-xl' : 'text-base'} ${
-                      done ? 'text-mute line-through opacity-70' : ''
-                    }`}
-                  >
-                    {ing.nome}
-                  </span>
-                  {ing.nota && <span className={`block text-mute ${kitchen ? 'mt-1 text-base' : 'text-sm'}`}><GlossaryText text={ing.nota} /></span>}
+                  <span className={`block font-medium ${kitchen ? 'text-xl' : 'text-base'}`}>{ing.nome}</span>
+                  {ing.nota && (
+                    <span className={`block text-mute ${kitchen ? 'mt-1 text-base' : 'text-sm'}`}>
+                      <GlossaryText text={ing.nota} />
+                    </span>
+                  )}
                 </span>
                 {/* largura mínima fixa + 2 linhas reservadas: trocar de unidade não desloca o layout */}
                 <span className={`tabular shrink-0 text-right ${kitchen ? 'min-w-[9.5rem]' : 'min-w-[7.5rem]'}`}>
                   <span className={`block font-bold ${kitchen ? 'text-2xl' : 'text-lg'}`}>{amount.primary}</span>
                   <span className={`block min-h-[1.25rem] text-mute ${kitchen ? 'text-base' : 'text-sm'}`}>
-                    {amount.secondary ?? ' '}
+                    {amount.secondary ?? '\u00A0'}
                   </span>
                 </span>
               </label>

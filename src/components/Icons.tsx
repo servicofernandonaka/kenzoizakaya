@@ -124,7 +124,7 @@ export const PlusIcon = (p: P) => (
 export function Lantern({ className = '', size = 40 }: { className?: string; size?: number }) {
   return (
     <svg
-      className={`lantern-glow animate-flicker ${className}`}
+      className={className}
       width={size}
       height={size * 1.25}
       viewBox="0 0 64 80"

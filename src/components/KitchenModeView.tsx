@@ -173,7 +173,7 @@ export function KitchenModeView({ receita, factor, servings, unitMode, onUnitMod
 
       {/* Passo atual */}
       <main className="flex-1 overflow-y-auto overscroll-contain px-4 py-6 sm:px-8" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        <div key={index} className="mx-auto max-w-4xl animate-rise space-y-6">
+        <div key={index} className="mx-auto max-w-4xl space-y-6">
           {passo ? (
             <>
               <div className="flex items-center gap-4">
@@ -256,7 +256,7 @@ export function KitchenModeView({ receita, factor, servings, unitMode, onUnitMod
             role="dialog"
             aria-modal="true"
             aria-label="Ingredientes"
-            className="animate-rise flex max-h-[88%] flex-col rounded-t-3xl border-t-2 border-lantern bg-surface shadow-lantern"
+            className="flex max-h-[88%] flex-col rounded-t-3xl border-t-2 border-lantern bg-surface shadow-lantern"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line p-4">

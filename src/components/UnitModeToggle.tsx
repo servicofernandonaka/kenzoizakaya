@@ -31,7 +31,7 @@ export function UnitModeToggle({
             } ${active ? 'bg-lantern font-bold text-onlantern shadow-lantern' : 'text-mute hover:text-ink'}`}
           >
             <span>{o.label}</span>
-            <span className={`text-xs ${active ? 'opacity-90' : 'opacity-80'}`}>{o.hint}</span>
+            <span className="text-xs">{o.hint}</span>
           </button>
         );
       })}

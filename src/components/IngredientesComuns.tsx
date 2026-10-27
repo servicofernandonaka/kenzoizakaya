@@ -57,9 +57,7 @@ export function IngredientesComuns() {
               tabIndex={active ? 0 : -1}
               onClick={() => setSub(s.id)}
               onKeyDown={(e) => onKeyDown(e, i)}
-              className={`chip !min-h-[48px] cursor-pointer !px-4 text-base transition-[background-color,border-color,color] duration-200 ${
-                active ? '!border-lantern !bg-lantern/15 font-bold text-lanternink' : 'hover:border-mute'
-              }`}
+              className="pill"
             >
               {s.label}
             </button>

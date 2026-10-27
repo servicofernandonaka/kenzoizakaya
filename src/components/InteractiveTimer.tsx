@@ -27,12 +27,12 @@ export function TimerRing({
           cy="50"
           r={R}
           fill="none"
-          stroke={done ? 'rgb(var(--c-lanternink))' : 'rgb(var(--c-lantern))'}
+          stroke={done ? 'rgb(var(--c-accent))' : 'rgb(var(--c-lanternink))'}
           strokeWidth="7"
           strokeLinecap="round"
           strokeDasharray={CIRC}
           strokeDashoffset={CIRC * (1 - p)}
-          style={{ transition: 'stroke-dashoffset 260ms linear', filter: 'drop-shadow(0 0 4px rgb(211 47 47 / .7))' }}
+          style={{ transition: 'stroke-dashoffset 260ms linear' }}
         />
       </svg>
       <div className="absolute inset-0 flex items-center justify-center">{children}</div>

@@ -46,7 +46,7 @@ export function NotesLog({ recipeId }: { recipeId: string }) {
       {notes.length > 0 ? (
         <ol className="mt-6 space-y-3" aria-label="Anotações salvas">
           {notes.map((n) => (
-            <li key={n.id} className="animate-rise flex items-start gap-3 rounded-xl border border-line bg-canvas/60 p-4">
+            <li key={n.id} className="flex items-start gap-3 rounded-xl border border-line bg-canvas/60 p-4">
               <div className="min-w-0 flex-1">
                 <time dateTime={n.criadoEm} className="text-sm font-semibold text-lanternink">
                   {formatNoteDate(n.criadoEm)}

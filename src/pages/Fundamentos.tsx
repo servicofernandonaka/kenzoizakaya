@@ -26,10 +26,8 @@ export function Fundamentos() {
   return (
     <section aria-labelledby={`${uid}-h`} className="space-y-10">
       <header className="mx-auto max-w-2xl text-center">
-        <span className="inline-block rounded-full border border-lantern/50 bg-lantern/10 px-3 py-1 font-mono text-xs uppercase tracking-widest text-lanternink">
-          {INTRO.kicker}
-        </span>
-        <h1 id={`${uid}-h`} className="mt-4 text-4xl font-bold md:text-5xl">
+        <p className="kicker">{INTRO.kicker}</p>
+        <h1 id={`${uid}-h`} className="mt-4 text-4xl md:text-5xl">
           {INTRO.titulo}
         </h1>
         <p className="mt-3 leading-relaxed text-mute">{INTRO.texto}</p>
@@ -70,7 +68,6 @@ export function Fundamentos() {
       >
         {BASES.map((b) => (
           <article key={b.titulo} className="panel relative overflow-hidden p-6 md:p-8">
-            <div className="pointer-events-none absolute right-0 top-0 h-36 w-36 rounded-full bg-lantern/10 blur-3xl" aria-hidden="true" />
             <div className="relative flex items-start justify-between gap-3">
               <h2 className="text-xl font-bold">{b.titulo}</h2>
               <span className="chip shrink-0 font-mono text-xs">{b.selo}</span>

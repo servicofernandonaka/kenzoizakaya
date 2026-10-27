@@ -23,3 +23,7 @@ Para adicionar uma receita: inclua o objeto em `recipes.json` (mesmo schema) e, 
 ## Fotos das receitas
 Cada receita aceita um campo opcional `"foto": "fotos/<id>.jpg"` em `src/data/recipes.json`, apontando para um arquivo em `public/fotos/`.
 Sem foto, o app mostra uma capa ilustrada da categoria. Veja `public/fotos/LEIA-ME.txt`.
+
+## Offline (PWA)
+`vite.config.ts` grava em `dist/sw.js` a lista de todos os arquivos do build; o service worker os pré-armazena na primeira visita. Cada deploy gera uma versão nova de cache.
+Design system e verificação de acessibilidade: `docs/design-system.md`.

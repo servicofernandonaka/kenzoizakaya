@@ -40,16 +40,16 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
   }, [receitas, query, cat, onlyFav, favorites]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       <header>
         <p className="kicker">Diário &amp; Laboratório Culinário</p>
-        <h1 className="mt-2 text-5xl font-bold leading-tight">O Diário de Receitas</h1>
+        <h1 className="mt-3 text-5xl leading-tight sm:text-6xl">O Diário de Receitas</h1>
         <p className="mt-3 max-w-2xl text-lg leading-relaxed text-mute">
           Cada página tem gramaturas exatas para a balança, tempos cronometrados e espaço para anotar como ficou.
         </p>
       </header>
 
-      <div className="panel space-y-4 p-5">
+      <div className="space-y-5">
         <div>
           <label htmlFor={`${uid}-q`} className="mb-1 block text-sm font-semibold text-mute">
             Buscar receita ou ingrediente
@@ -71,7 +71,7 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
             type="button"
             role="radio"
             aria-checked={cat === 'todas'}
-            className={`btn !min-h-[48px] ${cat === 'todas' ? 'btn-lantern' : ''}`}
+            className="pill"
             onClick={() => setCat('todas')}
           >
             Todas
@@ -82,17 +82,17 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
               type="button"
               role="radio"
               aria-checked={cat === c.id}
-              className={`btn !min-h-[48px] ${cat === c.id ? 'btn-lantern' : ''} ${counts[c.id] ? '' : 'opacity-70'}`}
+              className="pill"
               onClick={() => setCat(c.id)}
             >
-              <span aria-hidden="true">{c.icone}</span> {c.nome}
-              <span className="tabular text-sm opacity-80">({counts[c.id] ?? 0})</span>
+              {c.nome}
+              <span className="tabular text-sm">({counts[c.id] ?? 0})</span>
             </button>
           ))}
           <button
             type="button"
             aria-pressed={onlyFav}
-            className={`btn !min-h-[48px] ${onlyFav ? 'btn-lantern' : ''}`}
+            className="pill"
             onClick={() => setOnlyFav((v) => !v)}
           >
             <HeartIcon filled={onlyFav} width={18} height={18} /> Favoritas
@@ -101,23 +101,27 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
       </div>
 
       {cat !== 'todas' && CATEGORIA_INTROS[cat] && (
-        <p className="rounded-xl border border-line bg-surface p-4 leading-relaxed text-mute">{CATEGORIA_INTROS[cat]}</p>
+        <p className="max-w-3xl border-l-2 border-accent pl-5 leading-relaxed text-mute">{CATEGORIA_INTROS[cat]}</p>
       )}
 
       <p className="text-sm text-mute" aria-live="polite">
         {visible.length} de {receitas.length} receitas
       </p>
 
+      {/* Grade assimétrica: a cada 7 receitas, uma ocupa duas colunas em proporção 16/9 */}
       {visible.length > 0 ? (
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((r) => (
-            <li key={r.id}>
-              <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
-            </li>
-          ))}
+        <ul className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 [grid-auto-flow:dense]">
+          {visible.map((r, i) => {
+            const wide = i % 7 === 0;
+            return (
+              <li key={r.id} className={wide ? 'sm:col-span-2' : ''}>
+                <RecipeCard receita={r} wide={wide} headingLevel={2} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
+              </li>
+            );
+          })}
         </ul>
       ) : (
-        <p className="rounded-xl border border-dashed border-line p-8 text-center text-mute">
+        <p className="rounded-2xl border border-dashed border-line p-8 text-center text-mute">
           {onlyFav && favorites.length === 0
             ? 'Você ainda não favoritou nenhuma receita. Toque no coração de um cartão.'
             : cat !== 'todas' && !counts[cat] && query.trim() === ''

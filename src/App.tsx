@@ -129,11 +129,11 @@ export default function App() {
       </a>
 
       <div className="sticky top-0 z-30">
-        <header className="border-b border-line bg-canvas/85 backdrop-blur-md">
+        <header className="border-b border-line bg-canvas/90 backdrop-blur-md transition-colors duration-300">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 px-4 py-1 sm:py-2">
-            <a href="#/" className="flex items-center gap-3" aria-label="Izakaya do Kenzō — início">
+            <a href="#/" className="flex items-center gap-3">
               <Lantern size={26} />
-              <span className="hidden leading-tight sm:block">
+              <span className="sr-only leading-tight sm:not-sr-only sm:block">
                 <span className="block font-serif text-xl font-bold">Izakaya do Kenzō</span>
                 <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-mute">Diário &amp; Laboratório Culinário</span>
               </span>
@@ -174,10 +174,10 @@ export default function App() {
         id="conteudo"
         ref={mainRef}
         tabIndex={-1}
-        className="mx-auto max-w-6xl px-4 pb-24 pt-8 outline-none sm:px-6"
+        className="mx-auto max-w-6xl px-4 pb-24 pt-10 outline-none sm:px-6"
       >
         <ErrorBoundary label="Página" resetKeys={[hash]}>
-          <div key={hash} className="animate-rise">
+          <div key={hash}>
             {page}
           </div>
         </ErrorBoundary>
