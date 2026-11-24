@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { BenchBar } from '../components/BenchBar';
 import { GlossaryText } from '../components/GlossaryText';
-import { CheckIcon, ClockIcon, HeartIcon, UsersIcon } from '../components/Icons';
+import { CartIcon, CheckIcon, ClockIcon, HeartIcon, UsersIcon } from '../components/Icons';
 import { IngredientList } from '../components/IngredientList';
 import { InteractiveTimer } from '../components/InteractiveTimer';
 import { NotesLog } from '../components/NotesLog';
 import { RecipeCover } from '../components/RecipeCover';
 import { UnitConverter } from '../components/UnitConverter';
 import { UnitModeToggle } from '../components/UnitModeToggle';
-import { useStepChecks } from '../hooks/useAppState';
+import { useShopping, useStepChecks } from '../hooks/useAppState';
 import { CATEGORIA_LABEL, formatDuration } from '../lib/format';
 import { hrefReceita } from '../lib/route';
 import { hasConversion } from '../lib/units';
@@ -31,6 +31,8 @@ interface Props {
 export function RecipeDetail({ receita, servings, onServingsChange, unitMode, onUnitModeChange, favorite, onToggleFavorite }: Props) {
   const [converterOpen, setConverterOpen] = useState(false);
   const steps = useStepChecks(receita.id);
+  const shop = useShopping();
+  const naLista = shop.has(receita.id);
   const factor = servings / receita.rendimento_base_porcoes;
   const shortTitle = receita.titulo_pt.split(' (')[0];
   const canConvert = receita.ingredientes.some((i) => hasConversion(i.nome));
@@ -66,6 +68,14 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
         <div className="mt-7 flex flex-wrap gap-3">
           <button type="button" className="btn" aria-pressed={favorite} onClick={() => onToggleFavorite(receita.id)}>
             <HeartIcon filled={favorite} className={favorite ? 'text-lanternink' : ''} /> {favorite ? 'Nos favoritos' : 'Favoritar'}
+          </button>
+          <button
+            type="button"
+            className="btn"
+            aria-pressed={naLista}
+            onClick={() => (naLista ? shop.remove(receita.id) : shop.add(receita.id, servings))}
+          >
+            <CartIcon className={naLista ? 'text-lanternink' : ''} /> {naLista ? 'Na lista de compras' : 'Adicionar à lista de compras'}
           </button>
           <a href={hrefReceita(receita.id, true)} className="btn">
             Passo a passo em tela cheia

@@ -25,5 +25,13 @@ Cada receita aceita um campo opcional `"foto": "fotos/<id>.jpg"` em `src/data/re
 Sem foto, o app mostra uma capa ilustrada da categoria. Veja `public/fotos/LEIA-ME.txt`.
 
 ## Offline (PWA)
-`vite.config.ts` grava em `dist/sw.js` a lista de todos os arquivos do build; o service worker os pré-armazena na primeira visita. Cada deploy gera uma versão nova de cache.
+`vite.config.ts` grava em `dist/sw.js` a lista dos arquivos do build (código, fontes, ícones); o service worker os pré-armazena na primeira visita, e cada deploy gera uma versão nova de cache.
+As **fotos** (3,6 MB) não são pré-carregadas: o service worker guarda cada uma quando ela é vista, e o rodapé tem o botão "Salvar todas agora" para baixar as 33 de uma vez. Sem foto em cache e sem internet, a receita mostra a capa ilustrada.
 Design system e verificação de acessibilidade: `docs/design-system.md`.
+
+## Lista de compras
+`#/lista`: receitas escolhidas (com porções) e ingredientes somados (`src/lib/shopping.ts`). A água não entra na lista e o óleo de fritura usa o maior volume (é reaproveitado). Fica salva no aparelho, com checklist e botão de copiar.
+
+## Textos editáveis
+- História do Kenzo (home): `src/data/historia.ts`
+- Glossário: `src/data/glossario.ts` · Ingredientes comuns: `src/data/ingredientes.ts` · Fundamentos: `src/data/fundamentos.ts`

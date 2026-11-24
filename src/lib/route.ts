@@ -9,6 +9,7 @@ export function parseRoute(hash: string): Route {
   if (path === 'receitas') return { name: 'receitas' };
   if (path === 'mercado') return { name: 'mercado' };
   if (path === 'fundamentos') return { name: 'fundamentos' };
+  if (path === 'lista') return { name: 'lista' };
   const m = /^receita\/([^/]+)(\/cozinha)?$/.exec(path);
   if (m) return { name: 'receita', id: decodeURIComponent(m[1]), kitchen: Boolean(m[2]) };
   return { name: 'not-found' };

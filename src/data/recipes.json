@@ -89,18 +89,18 @@
     "categoria": "yakimono",
     "subtitulo": "Técnica de wok caseira: legumes no ponto sem juntar água",
     "tempo_minutos": 20,
-    "rendimento_base_porcoes": 3,
+    "rendimento_base_porcoes": 2,
     "foto": "fotos/bifun-salteado-tradicional.webp",
     "ingredientes": [
       {
         "nome": "Massa de arroz Bifun seca",
-        "quantidade_base": 200,
+        "quantidade_base": 130,
         "unidade": "g",
         "nota": "100% arroz tradicional"
       },
       {
         "nome": "Carne bovina em tiras finas (contra a fibra)",
-        "quantidade_base": 250,
+        "quantidade_base": 165,
         "unidade": "g",
         "nota": "Alcatra, contrafilé ou fraldinha"
       },
@@ -112,7 +112,7 @@
       },
       {
         "nome": "Cogumelos frescos (Portobello ou Shiitake)",
-        "quantidade_base": 150,
+        "quantidade_base": 100,
         "unidade": "g",
         "nota": "Laminados médios"
       },
@@ -123,6 +123,12 @@
         "nota": "Fatiada em meias-luas finas"
       },
       {
+        "nome": "Cenoura",
+        "quantidade_base": 70,
+        "unidade": "g",
+        "nota": "Em tiras finas; entra com a cebola"
+      },
+      {
         "nome": "Pimentão vermelho ou verde",
         "quantidade_base": 1,
         "unidade": "unidade",
@@ -130,7 +136,7 @@
       },
       {
         "nome": "Moyashi (broto de feijão fresco)",
-        "quantidade_base": 150,
+        "quantidade_base": 100,
         "unidade": "g",
         "nota": "Lavar e escorrer muito bem; entra só no final"
       },

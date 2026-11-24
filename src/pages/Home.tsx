@@ -1,3 +1,4 @@
+import { HISTORIA } from '../data/historia';
 import { RecipeCard } from '../components/RecipeCard';
 import { RecipeCover } from '../components/RecipeCover';
 import { CATEGORIA_LABEL } from '../lib/format';
@@ -70,33 +71,24 @@ export function Home({ receitas, favorites, onToggleFavorite }: Props) {
             aria-hidden="true"
             className="font-serif text-7xl font-semibold before:text-ink/20 before:content-['賢三']"
           />
-          <p className="mt-3 text-sm text-mute">Kenzo · o cozinheiro de casa</p>
+          <p className="mt-3 text-sm text-mute">{HISTORIA.legenda}</p>
         </div>
 
         <div className="lg:col-span-7 lg:col-start-5">
-          <p className="kicker">Quem cozinha aqui</p>
+          <p className="kicker">{HISTORIA.kicker}</p>
           <h2 id="historia-titulo" className="mt-4 text-4xl leading-tight">
-            Kenzo e o laboratório particular
+            {HISTORIA.titulo}
           </h2>
           <div className="reading mt-8 space-y-6 text-mute">
-            <p className="dropcap">
-              Kenzo é o alter ego de quem escreve estas páginas: um cozinheiro de casa que decidiu tratar a própria cozinha como um
-              laboratório particular. Nada de pó instantâneo e nada de pressa. Só fogo manso, balança e caderno.
-            </p>
-            <p>
-              O nome vem de um izakaya imaginário: balcão de madeira escura, lanterna vermelha na porta e a voz do Mestre Kenzo
-              repetindo que o sabor mora nos detalhes. É dessa voz que saem os alertas das receitas, como em “Ferveu missô, matou o
-              aroma!”. Com Tomesan, cada receita passa pela balança antes de entrar no diário.
-            </p>
-            <p>
-              Aqui o laboratório é doméstico de verdade: pratos pensados para a cozinha de casa, com gramas e mililitros exatos,
-              tempos cronometrados e um caderno para anotar como ficou hoje. Cozinhar, ajustar, anotar e repetir, até o prato virar
-              rotina.
-            </p>
+            {HISTORIA.paragrafos.map((p, i) => (
+              <p key={i} className={i === 0 ? 'dropcap' : undefined}>
+                {p}
+              </p>
+            ))}
           </div>
           <blockquote className="mt-10 border-l-2 border-accent pl-6 font-serif text-2xl italic leading-snug">
-            Puxe um banquinho de madeira, mantenha a faca afiada e respeite o fogo.
-            <footer className="mt-3 font-sans text-sm not-italic text-mute">— Kenzo (賢三)</footer>
+            {HISTORIA.citacao}
+            <footer className="mt-3 font-sans text-sm not-italic text-mute">— {HISTORIA.assinatura}</footer>
           </blockquote>
         </div>
       </section>

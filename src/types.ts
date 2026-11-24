@@ -70,6 +70,16 @@ export interface CookNote {
 
 export type NotesByRecipe = Record<string, CookNote[]>;
 /** receitaId -> nomes dos ingredientes já separados */
+/** Receitas escolhidas para a lista de compras, com as porções de cada uma. */
+export interface ShoppingEntry {
+  id: string;
+  porcoes: number;
+}
+export interface ShoppingState {
+  itens: ShoppingEntry[];
+  /** chaves (`nome|unidade`) dos ingredientes já comprados */
+  marcados: string[];
+}
 export type StepChecksByRecipe = Record<string, number[]>;
 export type ChecksByRecipe = Record<string, string[]>;
 
@@ -78,5 +88,6 @@ export type Route =
   | { name: 'receitas' }
   | { name: 'mercado' }
   | { name: 'fundamentos' }
+  | { name: 'lista' }
   | { name: 'receita'; id: string; kitchen: boolean }
   | { name: 'not-found' };

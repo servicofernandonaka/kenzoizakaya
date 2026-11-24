@@ -33,10 +33,10 @@ const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCa
 
 function ProdutoCard({ p }: { p: ProdutoMercado }) {
   return (
-    <li className="panel flex flex-col p-5">
-      <h3 className="text-xl font-bold">{p.ingrediente}</h3>
+    <li className="flex flex-col border-t border-line pt-5">
+      <h3 className="text-xl leading-snug">{p.ingrediente}</h3>
       <p className="mt-1 flex-1 text-mute">{p.motivo}</p>
-      <p className="mt-3 rounded-lg bg-canvas px-3 py-2 text-sm text-mute">
+      <p className="mt-3 text-sm italic text-mute">
         <span className="sr-only">Termo de busca: </span>“{stripQuotes(p.termo)}”
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -46,7 +46,7 @@ function ProdutoCard({ p }: { p: ProdutoMercado }) {
             href={s.url(p.termo)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn !min-h-[48px] flex-1 !px-3 text-sm"
+            className="pill !px-4 text-sm"
           >
             {s.nome}
             <ExternalIcon width={14} height={14} />
@@ -60,10 +60,10 @@ function ProdutoCard({ p }: { p: ProdutoMercado }) {
 
 function EmporioCard({ e }: { e: Emporio }) {
   return (
-    <li className="panel flex flex-col p-5">
+    <li className="flex flex-col border-t border-line pt-5">
       <p className="kicker">{REGIOES.find((r) => r.value === e.regiao)?.label}</p>
-      <h3 className="mt-1 text-xl font-bold">{e.nome}</h3>
-      <p className="mt-2 flex-1 text-mute">{e.descricao}</p>
+      <h3 className="mt-1 text-xl leading-snug">{e.nome}</h3>
+      <p className="mt-2 text-mute">{e.descricao}</p>
       <ul className="mt-3 flex flex-wrap gap-2" aria-label="Especialidades">
         {e.tags.map((t) => (
           <li key={t} className="chip">
@@ -72,7 +72,7 @@ function EmporioCard({ e }: { e: Emporio }) {
         ))}
       </ul>
       {e.mapsQuery && (
-        <a className="btn mt-4" href={mapsUrl(e.mapsQuery)} target="_blank" rel="noopener noreferrer">
+        <a className="pill mt-4 self-start" href={mapsUrl(e.mapsQuery)} target="_blank" rel="noopener noreferrer">
           <PinIcon width={18} height={18} /> Ver no mapa
           <span className="sr-only">(abre em nova aba) — {e.nome}</span>
         </a>
@@ -103,8 +103,8 @@ export function EmporiumLocator() {
   );
 
   return (
-    <div className="space-y-10">
-      <div className="panel space-y-4 p-5">
+    <div className="space-y-16">
+      <div className="space-y-5">
         <div>
           <label htmlFor={`${uid}-q`} className="mb-1 block text-sm font-semibold text-mute">
             O que você procura?
@@ -129,7 +129,7 @@ export function EmporiumLocator() {
               role="radio"
               aria-checked={regiao === r.value}
               onClick={() => setRegiao(r.value)}
-              className={`btn !min-h-[48px] ${regiao === r.value ? 'btn-lantern' : ''}`}
+              className="pill"
             >
               {r.label}
             </button>
@@ -142,12 +142,12 @@ export function EmporiumLocator() {
       </div>
 
       <section aria-labelledby={`${uid}-emp`}>
-        <h2 id={`${uid}-emp`} className="text-3xl font-bold">
+        <h2 id={`${uid}-emp`} className="text-3xl">
           Empórios orientais de São Paulo
         </h2>
         <p className="mt-1 text-mute">Onde achar o insumo certo, de balcão ou pelo celular.</p>
         {emporios.length > 0 ? (
-          <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {emporios.map((e) => (
               <EmporioCard key={e.id} e={e} />
             ))}
@@ -160,14 +160,14 @@ export function EmporiumLocator() {
       </section>
 
       <section aria-labelledby={`${uid}-ins`}>
-        <h2 id={`${uid}-ins`} className="text-3xl font-bold">
+        <h2 id={`${uid}-ins`} className="text-3xl">
           Mercado honesto · busca cirúrgica
         </h2>
         <p className="mt-1 text-mute">
           Termos de busca afinados para fugir de rótulo enganoso. Os links abrem a loja em nova aba (precisam de internet).
         </p>
         {produtos.length > 0 ? (
-          <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {produtos.map((p) => (
               <ProdutoCard key={p.ingrediente} p={p} />
             ))}

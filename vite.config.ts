@@ -13,7 +13,7 @@ function listFiles(dir: string): string[] {
 
 /**
  * Pré-cache offline: depois do build, grava em dist/sw.js a lista de TODOS os arquivos gerados
- * (JS, CSS, fontes, ícones) e uma versão derivada do conteúdo. Assim o app inteiro fica disponível
+ * (JS, CSS, fontes, ícones; as fotos ficam de fora e são guardadas quando vistas) e uma versão derivada do conteúdo. Assim o app inteiro fica disponível
  * sem conexão já na primeira visita, e cada deploy invalida o cache antigo.
  */
 function swPrecache(): Plugin {
@@ -27,7 +27,7 @@ function swPrecache(): Plugin {
     closeBundle() {
       const files = listFiles(outDir)
         .map((f) => './' + relative(outDir, f).split('\\').join('/'))
-        .filter((f) => f !== './sw.js' && !f.endsWith('.map') && !f.endsWith('.woff'))
+        .filter((f) => f !== './sw.js' && !f.endsWith('.map') && !f.endsWith('.woff') && !f.startsWith('./fotos/'))
         .sort();
       const hash = createHash('sha1');
       files.forEach((f) => hash.update(readFileSync(join(outDir, f))));

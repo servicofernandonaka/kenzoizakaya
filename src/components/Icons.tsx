@@ -151,3 +151,11 @@ export const CheckIcon = (p: SVGProps<SVGSVGElement>) => (
     <path d="m5 12.5 4.5 4.5L19 7.5" />
   </svg>
 );
+
+export const CartIcon = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}>
+    <circle cx="9" cy="20" r="1.5" />
+    <circle cx="18" cy="20" r="1.5" />
+    <path d="M2 3h3l2.7 12.4a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6" />
+  </svg>
+);

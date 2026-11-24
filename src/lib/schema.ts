@@ -102,3 +102,9 @@ export const isChecks = (v: unknown): v is ChecksByRecipe => isRecord(v) && Obje
 
 export const isStepChecks = (v: unknown): v is Record<string, number[]> =>
   isRecord(v) && Object.values(v).every((a) => Array.isArray(a) && a.every(isNum));
+
+export const isShopping = (v: unknown): v is { itens: Array<{ id: string; porcoes: number }>; marcados: string[] } =>
+  isRecord(v) &&
+  Array.isArray(v.itens) &&
+  v.itens.every((i) => isRecord(i) && isStr(i.id) && isNum(i.porcoes) && i.porcoes >= 1) &&
+  isStringArray(v.marcados);

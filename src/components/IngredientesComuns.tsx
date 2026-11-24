@@ -36,11 +36,11 @@ export function IngredientesComuns() {
 
   return (
     <div className="space-y-6">
-      <p className="mx-auto max-w-3xl text-center leading-relaxed text-mute">
+      <p className="max-w-3xl text-lg leading-relaxed text-mute">
         <Rich text={INGREDIENTES_INTRO} />
       </p>
 
-      <div role="tablist" aria-label="Ingredientes comuns" className="flex flex-wrap justify-center gap-2">
+      <div role="tablist" aria-label="Ingredientes comuns" className="flex flex-wrap gap-2">
         {SUBABAS_INGREDIENTES.map((s, i) => {
           const active = s.id === sub;
           return (
@@ -65,20 +65,20 @@ export function IngredientesComuns() {
         })}
       </div>
 
-      <div role="tabpanel" id={`${uid}-subpanel`} aria-labelledby={`${uid}-sub-${sub}`} className="space-y-5">
-        <header className="text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">{grupo.titulo}</h2>
+      <div role="tabpanel" id={`${uid}-subpanel`} aria-labelledby={`${uid}-sub-${sub}`} className="space-y-8">
+        <header>
+          <h2 className="text-3xl">{grupo.titulo}</h2>
           {grupo.intro && (
-            <p className="mx-auto mt-2 max-w-2xl leading-relaxed text-mute">
+            <p className="mt-2 max-w-2xl leading-relaxed text-mute">
               <Rich text={grupo.intro} />
             </p>
           )}
         </header>
 
-        <ul className={`grid gap-5 ${grupo.variantes.length > 2 ? 'md:grid-cols-2' : 'md:grid-cols-2'}`}>
+        <ul className="grid gap-x-12 gap-y-8 md:grid-cols-2">
           {grupo.variantes.map((v) => (
-            <li key={v.nome} className="panel flex flex-col p-6">
-              <h3 className="text-xl font-bold text-lanternink">{v.nome}</h3>
+            <li key={v.nome} className="flex flex-col border-t border-line pt-5">
+              <h3 className="text-xl leading-snug">{v.nome}</h3>
               {v.caracteristicas && (
                 <p className="mt-3 text-sm leading-relaxed">
                   <strong>Características: </strong>
@@ -97,7 +97,7 @@ export function IngredientesComuns() {
                 </p>
               )}
               {v.nota && (
-                <p className="mt-4 rounded-xl border border-lantern/50 bg-lantern/10 p-3 text-sm italic">{v.nota}</p>
+                <p className="mt-4 border-l-2 border-accent bg-accentsubtle py-2 pl-4 pr-3 text-sm italic">{v.nota}</p>
               )}
             </li>
           ))}

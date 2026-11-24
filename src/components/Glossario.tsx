@@ -17,7 +17,7 @@ export function Glossario() {
 
   return (
     <div className="space-y-8">
-      <div className="mx-auto max-w-xl">
+      <div className="max-w-xl">
         <label htmlFor={`${uid}-q`} className="mb-1 block text-sm font-semibold text-mute">
           Buscar termo
         </label>
@@ -42,12 +42,12 @@ export function Glossario() {
         if (termos.length === 0) return null;
         return (
           <section key={g.id} aria-labelledby={`${uid}-${g.id}`}>
-            <h2 id={`${uid}-${g.id}`} className="mb-4 text-2xl font-bold">
+            <h2 id={`${uid}-${g.id}`} className="mb-6 text-3xl">
               {g.titulo}
             </h2>
-            <dl className="grid gap-5 md:grid-cols-2">
+            <dl className="grid gap-x-12 gap-y-8 md:grid-cols-2">
               {termos.map((t) => (
-                <div key={t.id} className="panel p-6">
+                <div key={t.id} className="border-t border-line pt-5">
                   <dt className="flex flex-wrap items-baseline gap-x-3">
                     <span className="font-serif text-xl font-bold text-lanternink">{t.termo}</span>
                     {t.jp && (
@@ -56,7 +56,7 @@ export function Glossario() {
                       </span>
                     )}
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed">{t.definicao}</dd>
+                  <dd className="mt-2 leading-relaxed text-mute">{t.definicao}</dd>
                 </div>
               ))}
             </dl>

@@ -1,15 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { EmporiumLocator } from './components/EmporiumLocator';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Lantern, MoonIcon, SunIcon } from './components/Icons';
+import { OfflinePhotos } from './components/OfflinePhotos';
+import { CartIcon, Lantern, MoonIcon, SunIcon } from './components/Icons';
 import { KitchenModeView } from './components/KitchenModeView';
 import { TimerDock } from './components/TimerDock';
 import { TimersProvider } from './context/TimersContext';
 import { RECEITAS, findReceita } from './data';
-import { useFavorites, usePrefs } from './hooks/useAppState';
+import { useFavorites, usePrefs, useShopping } from './hooks/useAppState';
 import { hrefReceita, navigate, parseRoute, useHash } from './lib/route';
 import { Fundamentos } from './pages/Fundamentos';
 import { Home } from './pages/Home';
+import { ListaPage } from './pages/ListaPage';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { RecipesPage } from './pages/RecipesPage';
 
@@ -40,6 +42,7 @@ export default function App() {
   const route = useMemo(() => parseRoute(hash), [hash]);
   const [prefs, patchPrefs] = usePrefs();
   const { favorites, toggle: toggleFavorite, isFavorite } = useFavorites();
+  const shop = useShopping();
   const [servingsById, setServingsById] = useState<Record<string, number>>({});
   const mainRef = useRef<HTMLElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -78,13 +81,15 @@ export default function App() {
     page = <RecipesPage receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} />;
   } else if (route.name === 'fundamentos') {
     page = <Fundamentos />;
+  } else if (route.name === 'lista') {
+    page = <ListaPage />;
   } else if (route.name === 'mercado') {
     page = (
-      <div className="space-y-6">
+      <div className="space-y-12">
         <header>
           <p className="kicker">Mercado Honesto</p>
-          <h1 className="mt-1 text-4xl font-bold">Onde comprar</h1>
-          <p className="mt-2 max-w-2xl text-mute">O caminho direto para encontrar insumos puros, sem cair em armadilhas de rótulo.</p>
+          <h1 className="mt-3 text-5xl leading-tight sm:text-6xl">Onde comprar</h1>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-mute">O caminho direto para encontrar insumos puros, sem cair em armadilhas de rótulo.</p>
         </header>
         <EmporiumLocator />
       </div>
@@ -131,14 +136,37 @@ export default function App() {
       <div className="sticky top-0 z-30">
         <header className="border-b border-line bg-canvas/90 backdrop-blur-md transition-colors duration-300">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 px-4 py-1 sm:py-2">
-            <a href="#/" className="flex items-center gap-3">
+            <a href="#/" className="order-1 flex items-center gap-3">
               <Lantern size={26} />
               <span className="sr-only leading-tight sm:not-sr-only sm:block">
                 <span className="block font-serif text-xl font-bold">Izakaya do Kenzō</span>
                 <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-mute">Diário &amp; Laboratório Culinário</span>
               </span>
             </a>
-            <nav aria-label="Principal" className="ml-auto flex w-full items-center justify-between sm:w-auto sm:justify-start sm:gap-1">
+            <div className="order-2 ml-auto flex items-center sm:order-3 sm:ml-0">
+              <a
+                href="#/lista"
+                className="btn btn-ghost relative !px-3"
+                aria-current={route.name === 'lista' ? 'page' : undefined}
+                aria-label={`Lista de compras${shop.itens.length ? `, ${shop.itens.length} ${shop.itens.length === 1 ? 'receita' : 'receitas'}` : ''}`}
+              >
+                <CartIcon />
+                {shop.itens.length > 0 && (
+                  <span aria-hidden="true" className="tabular absolute right-0.5 top-0.5 flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-lantern px-1 text-xs font-bold text-onlantern">
+                    {shop.itens.length}
+                  </span>
+                )}
+              </a>
+              <button
+                type="button"
+                className="btn btn-ghost !px-3"
+                onClick={() => patchPrefs({ theme: prefs.theme === 'dark' ? 'washi' : 'dark' })}
+                aria-label={prefs.theme === 'dark' ? 'Mudar para o modo claro (papel de linho)' : 'Mudar para o modo escuro (carvão suave)'}
+              >
+                {prefs.theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+              </button>
+            </div>
+            <nav aria-label="Principal" className="order-3 flex w-full items-center justify-between sm:order-2 sm:ml-auto sm:w-auto sm:justify-start sm:gap-1">
               {NAV.map((n) => {
                 const active = n.match(route.name);
                 return (
@@ -152,14 +180,6 @@ export default function App() {
                   </a>
                 );
               })}
-              <button
-                type="button"
-                className="btn btn-ghost !px-3"
-                onClick={() => patchPrefs({ theme: prefs.theme === 'dark' ? 'washi' : 'dark' })}
-                aria-label={prefs.theme === 'dark' ? 'Mudar para o modo claro (papel de linho)' : 'Mudar para o modo escuro (carvão suave)'}
-              >
-                {prefs.theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-              </button>
             </nav>
           </div>
         </header>
@@ -189,6 +209,7 @@ export default function App() {
           いただきます
         </p>
         <p className="mt-1">Izakaya do Kenzō · Diário &amp; Laboratório Culinário · 100% offline: suas anotações ficam só neste aparelho.</p>
+        <OfflinePhotos />
       </footer>
       </div>
 

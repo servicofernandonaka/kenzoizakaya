@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { isChecks, isNotes, isPrefs, isStepChecks, isStringArray } from '../lib/schema';
-import type { ChecksByRecipe, StepChecksByRecipe, CookNote, NotesByRecipe, Prefs } from '../types';
+import { isChecks, isNotes, isPrefs, isShopping, isStepChecks, isStringArray } from '../lib/schema';
+import type { ChecksByRecipe, ShoppingState, StepChecksByRecipe, CookNote, NotesByRecipe, Prefs } from '../types';
 import { useStoredState } from './useStoredState';
 
 /* Contrato de estado persistido — chaves: prefs, favorites, notes, checks */
@@ -9,6 +9,7 @@ import { useStoredState } from './useStoredState';
 const prefersLight = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-color-scheme: light)').matches;
 const DEFAULT_PREFS: Prefs = { unitMode: 'metric', theme: prefersLight ? 'washi' : 'dark' };
 const NO_STEPS: StepChecksByRecipe = {};
+const EMPTY_SHOPPING: ShoppingState = { itens: [], marcados: [] };
 const NO_FAVORITES: string[] = [];
 const NO_NOTES: NotesByRecipe = {};
 const NO_CHECKS: ChecksByRecipe = {};
@@ -88,4 +89,42 @@ export function useStepChecks(recipeId: string) {
   const clear = useCallback(() => setAll((prev) => ({ ...prev, [recipeId]: [] })), [recipeId, setAll]);
 
   return { done, toggle, clear };
+}
+
+/** Lista de compras: receitas escolhidas (com porções) e ingredientes já marcados como comprados. */
+export function useShopping() {
+  const [state, setState] = useStoredState<ShoppingState>('shopping', EMPTY_SHOPPING, isShopping);
+
+  const add = useCallback(
+    (id: string, porcoes: number) =>
+      setState((s) => (s.itens.some((i) => i.id === id) ? s : { ...s, itens: [...s.itens, { id, porcoes }] })),
+    [setState],
+  );
+  const remove = useCallback(
+    (id: string) => setState((s) => ({ ...s, itens: s.itens.filter((i) => i.id !== id) })),
+    [setState],
+  );
+  const setPorcoes = useCallback(
+    (id: string, porcoes: number) => setState((s) => ({ ...s, itens: s.itens.map((i) => (i.id === id ? { ...i, porcoes } : i)) })),
+    [setState],
+  );
+  const toggleMarcado = useCallback(
+    (key: string) =>
+      setState((s) => ({ ...s, marcados: s.marcados.includes(key) ? s.marcados.filter((k) => k !== key) : [...s.marcados, key] })),
+    [setState],
+  );
+  const limparMarcados = useCallback(() => setState((s) => ({ ...s, marcados: [] })), [setState]);
+  const esvaziar = useCallback(() => setState(EMPTY_SHOPPING), [setState]);
+
+  return {
+    itens: state.itens,
+    marcados: state.marcados,
+    has: (id: string) => state.itens.some((i) => i.id === id),
+    add,
+    remove,
+    setPorcoes,
+    toggleMarcado,
+    limparMarcados,
+    esvaziar,
+  };
 }
