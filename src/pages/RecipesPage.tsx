@@ -1,4 +1,4 @@
-import { useId, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import { RecipeCard } from '../components/RecipeCard';
 import { HeartIcon, SearchIcon } from '../components/Icons';
 import { CATEGORIAS, CATEGORIA_INTROS } from '../data/categorias';
@@ -8,16 +8,18 @@ interface Props {
   receitas: Receita[];
   favorites: string[];
   onToggleFavorite: (id: string) => void;
-  /** Mostra apenas as N primeiras, sem filtros (uso na home) */
-  limit?: number;
+  /** categoria pré-selecionada (vem de `#/receitas?cat=`) */
+  initialCat?: string;
 }
 
 const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
-export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
+export function RecipesPage({ receitas, favorites, onToggleFavorite, initialCat }: Props) {
   const uid = useId();
   const [query, setQuery] = useState('');
-  const [cat, setCat] = useState<Categoria | 'todas'>('todas');
+  const valid = (c?: string): Categoria | 'todas' => (CATEGORIAS.some((x) => x.id === c) ? (c as Categoria) : 'todas');
+  const [cat, setCat] = useState<Categoria | 'todas'>(valid(initialCat));
+  useEffect(() => setCat(valid(initialCat)), [initialCat]); // eslint-disable-line react-hooks/exhaustive-deps
   const [onlyFav, setOnlyFav] = useState(false);
 
   const counts = useMemo(() => {
@@ -43,7 +45,7 @@ export function RecipesPage({ receitas, favorites, onToggleFavorite }: Props) {
     <div className="space-y-10">
       <header>
         <p className="kicker">Diário &amp; Laboratório Culinário</p>
-        <h1 className="mt-3 text-5xl leading-tight sm:text-6xl">O Diário de Receitas</h1>
+        <h1 className="fx-shimmer mt-3 text-5xl leading-tight sm:text-6xl">O Diário de Receitas</h1>
         <p className="mt-3 max-w-2xl text-lg leading-relaxed text-mute">
           Cada página tem gramaturas exatas para a balança, tempos cronometrados e espaço para anotar como ficou.
         </p>

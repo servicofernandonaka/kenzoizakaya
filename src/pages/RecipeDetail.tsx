@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useFestival } from '../context/FestivalContext';
 import { BenchBar } from '../components/BenchBar';
 import { GlossaryText } from '../components/GlossaryText';
 import { CartIcon, CheckIcon, ClockIcon, HeartIcon, UsersIcon } from '../components/Icons';
@@ -32,7 +33,14 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
   const [converterOpen, setConverterOpen] = useState(false);
   const steps = useStepChecks(receita.id);
   const shop = useShopping();
+  const fest = useFestival();
+  const [pronto, setPronto] = useState(false);
   const naLista = shop.has(receita.id);
+  useEffect(() => {
+    if (!pronto) return;
+    const t = window.setTimeout(() => setPronto(false), 6000);
+    return () => window.clearTimeout(t);
+  }, [pronto]);
   const factor = servings / receita.rendimento_base_porcoes;
   const shortTitle = receita.titulo_pt.split(' (')[0];
   const canConvert = receita.ingredientes.some((i) => hasConversion(i.nome));
@@ -66,14 +74,24 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
         </div>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <button type="button" className="btn" aria-pressed={favorite} onClick={() => onToggleFavorite(receita.id)}>
+          <button type="button" className="btn" aria-pressed={favorite} onClick={(e) => {
+              if (!favorite) fest.sparkleAt(e.currentTarget);
+              onToggleFavorite(receita.id);
+            }}
+          >
             <HeartIcon filled={favorite} className={favorite ? 'text-lanternink' : ''} /> {favorite ? 'Nos favoritos' : 'Favoritar'}
           </button>
           <button
             type="button"
             className="btn"
             aria-pressed={naLista}
-            onClick={() => (naLista ? shop.remove(receita.id) : shop.add(receita.id, servings))}
+            onClick={(e) => {
+              if (naLista) shop.remove(receita.id);
+              else {
+                shop.add(receita.id, servings);
+                fest.sparkleAt(e.currentTarget);
+              }
+            }}
           >
             <CartIcon className={naLista ? 'text-lanternink' : ''} /> {naLista ? 'Na lista de compras' : 'Adicionar à lista de compras'}
           </button>
@@ -154,7 +172,16 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
               <li key={p.ordem} className="grid grid-cols-[auto_minmax(0,1fr)] gap-5 sm:gap-8">
                 <button
                   type="button"
-                  onClick={() => steps.toggle(p.ordem)}
+                  onClick={(e) => {
+                    if (!done) {
+                      fest.sparkleAt(e.currentTarget);
+                      if (steps.done.length + 1 === total) {
+                        fest.finale();
+                        setPronto(true);
+                      }
+                    }
+                    steps.toggle(p.ordem);
+                  }}
                   aria-pressed={done}
                   aria-label={`Passo ${p.ordem}: marcar como ${done ? 'não feito' : 'feito'}`}
                   className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border font-serif text-xl font-semibold transition-colors duration-300 sm:h-14 sm:w-14 sm:text-2xl ${
@@ -200,6 +227,16 @@ export function RecipeDetail({ receita, servings, onServingsChange, unitMode, on
         </h2>
         <NotesLog recipeId={receita.id} />
       </section>
+
+      {pronto && (
+        <p
+          role="status"
+          className="fixed inset-x-4 top-24 z-[46] mx-auto w-fit max-w-[92vw] rounded-full px-7 py-4 text-center font-display text-xl font-bold text-onlantern shadow-2xl"
+          style={{ background: 'linear-gradient(135deg,#ffe49a,#ffc94a 55%,#ff9f5a)' }}
+        >
+          Itadakimasu! Prato concluído 🎉
+        </p>
+      )}
 
       <BenchBar servings={servings} onChange={onServingsChange} />
     </article>

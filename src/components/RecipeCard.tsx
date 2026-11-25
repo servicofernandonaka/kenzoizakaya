@@ -1,3 +1,5 @@
+import { useFestival } from '../context/FestivalContext';
+import { useTilt } from '../hooks/useTilt';
 import { CATEGORIA_LABEL } from '../lib/format';
 import { hrefReceita } from '../lib/route';
 import type { Receita } from '../types';
@@ -17,16 +19,21 @@ interface Props {
 /** Card editorial: imagem em destaque e metadados silenciosos (tempo, porções e uma tag). */
 export function RecipeCard({ receita, favorite, onToggleFavorite, wide = false, headingLevel = 3 }: Props) {
   const Heading = `h${headingLevel}` as 'h2' | 'h3';
+  const fest = useFestival();
+  const tilt = useTilt(5);
   return (
-    <article className="group relative flex h-full flex-col">
-      <div className="relative overflow-hidden rounded-2xl">
+    <article className="group fx-glowframe relative flex h-full flex-col" {...tilt}>
+      <div className="fx-tilt relative overflow-hidden rounded-2xl">
         <RecipeCover
           receita={receita}
           className={`w-full transition-transform duration-500 ease-in-out group-hover:scale-[1.02] ${wide ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}
         />
         <button
           type="button"
-          onClick={() => onToggleFavorite(receita.id)}
+          onClick={(e) => {
+            if (!favorite) fest.sparkleAt(e.currentTarget);
+            onToggleFavorite(receita.id);
+          }}
           aria-pressed={favorite}
           aria-label={favorite ? `Remover ${receita.titulo_pt} dos favoritos` : `Favoritar ${receita.titulo_pt}`}
           className={`absolute right-3 top-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-canvas/90 backdrop-blur transition-colors duration-300 hover:bg-canvas ${
@@ -38,7 +45,7 @@ export function RecipeCard({ receita, favorite, onToggleFavorite, wide = false, 
       </div>
 
       <div className="flex flex-1 flex-col pt-4">
-        <Heading className={`font-serif font-semibold leading-snug ${wide ? 'text-3xl' : 'text-xl'}`}>
+        <Heading className={`font-display font-semibold leading-snug ${wide ? 'text-3xl' : 'text-xl'}`}>
           <a
             href={hrefReceita(receita.id)}
             className="after:absolute after:inset-0 after:rounded-2xl focus-visible:after:outline focus-visible:after:outline-[3px] focus-visible:after:outline-focus"

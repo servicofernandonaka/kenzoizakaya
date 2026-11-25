@@ -1,4 +1,5 @@
 import { GlossaryText } from './GlossaryText';
+import { useFestival } from '../context/FestivalContext';
 import { useChecks } from '../hooks/useAppState';
 import { displayAmount } from '../lib/units';
 import type { Receita, UnitMode } from '../types';
@@ -15,6 +16,7 @@ interface Props {
 export function IngredientList({ receita, factor, mode, variant = 'default' }: Props) {
   const { checked, toggle, clear } = useChecks(receita.id);
   const kitchen = variant === 'kitchen';
+  const fest = useFestival();
 
   return (
     <div>
@@ -35,7 +37,10 @@ export function IngredientList({ receita, factor, mode, variant = 'default' }: P
                   id={id}
                   type="checkbox"
                   checked={done}
-                  onChange={() => toggle(ing.nome)}
+                  onChange={(e) => {
+                    if (!done) fest.sparkleAt(e.currentTarget);
+                    toggle(ing.nome);
+                  }}
                   className={`mt-0.5 shrink-0 cursor-pointer accent-[#AD1E2C] ${kitchen ? 'h-8 w-8' : 'h-7 w-7'}`}
                 />
                 <span className="min-w-0 flex-1">

@@ -89,7 +89,11 @@ export const parseEmporios = (raw: unknown): Emporio[] => parseList(raw, isEmpor
 /* ---- LocalStorage ---- */
 
 export const isPrefs = (v: unknown): v is Prefs =>
-  isRecord(v) && (v.unitMode === 'metric' || v.unitMode === 'household') && (v.theme === 'dark' || v.theme === 'washi');
+  isRecord(v) &&
+  (v.unitMode === 'metric' || v.unitMode === 'household') &&
+  (v.theme === 'dark' || v.theme === 'washi') &&
+  (v.fx === undefined || typeof v.fx === 'boolean') &&
+  (v.som === undefined || typeof v.som === 'boolean');
 
 export const isStringArray = (v: unknown): v is string[] => Array.isArray(v) && v.every(isStr);
 

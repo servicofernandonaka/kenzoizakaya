@@ -137,3 +137,80 @@ export const AlarmLoop = {
 export function resumeAudioIfNeeded() {
   if (ctx && ctx.state === 'suspended') void ctx.resume().catch(() => undefined);
 }
+
+/* ---------- Som dos fogos (opcional) ---------- */
+
+let noise: AudioBuffer | null = null;
+let lastWhistle = 0;
+let lastBoom = 0;
+
+function noiseBuffer(c: AudioContext): AudioBuffer {
+  if (noise) return noise;
+  noise = c.createBuffer(1, Math.floor(c.sampleRate * 0.7), c.sampleRate);
+  const d = noise.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  return noise;
+}
+
+/** Assobio do foguete subindo. */
+export function playLaunch() {
+  const c = getContext();
+  if (!c || !master || c.state !== 'running') return;
+  const now = performance.now();
+  if (now - lastWhistle < 180) return;
+  lastWhistle = now;
+  const t = c.currentTime;
+  const o = c.createOscillator();
+  const g = c.createGain();
+  o.type = 'sine';
+  o.frequency.setValueAtTime(520, t);
+  o.frequency.exponentialRampToValueAtTime(1900, t + 0.75);
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime(0.035, t + 0.08);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + 0.8);
+  o.connect(g).connect(master);
+  o.start(t);
+  o.stop(t + 0.85);
+}
+
+/** Estouro grave + estalinhos. `size` ~ 0.5 (brilho de interface) a 1.4 (grande). */
+export function playBoom(size = 1) {
+  const c = getContext();
+  if (!c || !master || c.state !== 'running') return;
+  const now = performance.now();
+  if (now - lastBoom < 90) return;
+  lastBoom = now;
+  const t = c.currentTime;
+  const small = size < 0.7;
+
+  const o = c.createOscillator();
+  const g = c.createGain();
+  o.type = 'sine';
+  o.frequency.setValueAtTime(small ? 420 : 150, t);
+  o.frequency.exponentialRampToValueAtTime(small ? 160 : 38, t + (small ? 0.18 : 0.55));
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.linearRampToValueAtTime((small ? 0.12 : 0.42) * Math.min(size, 1.3), t + 0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + (small ? 0.22 : 0.7));
+  o.connect(g).connect(master);
+  o.start(t);
+  o.stop(t + 0.8);
+
+  // crepitar: ruído filtrado com vários picos curtos
+  const n = c.createBufferSource();
+  n.buffer = noiseBuffer(c);
+  const f = c.createBiquadFilter();
+  f.type = 'highpass';
+  f.frequency.value = small ? 3200 : 1800;
+  const ng = c.createGain();
+  ng.gain.setValueAtTime(0.0001, t);
+  const pops = small ? 3 : 9;
+  for (let i = 0; i < pops; i++) {
+    const at = t + 0.02 + i * (small ? 0.05 : 0.07) + Math.random() * 0.04;
+    ng.gain.setValueAtTime(0.0001, at);
+    ng.gain.linearRampToValueAtTime((small ? 0.05 : 0.09) * Math.random() + 0.02, at + 0.004);
+    ng.gain.exponentialRampToValueAtTime(0.0001, at + 0.05);
+  }
+  n.connect(f).connect(ng).connect(master);
+  n.start(t);
+  n.stop(t + 0.8);
+}

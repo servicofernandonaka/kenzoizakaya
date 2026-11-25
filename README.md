@@ -35,3 +35,9 @@ Design system e verificação de acessibilidade: `docs/design-system.md`.
 ## Textos editáveis
 - História do Kenzo (home): `src/data/historia.ts`
 - Glossário: `src/data/glossario.ts` · Ingredientes comuns: `src/data/ingredientes.ts` · Fundamentos: `src/data/fundamentos.ts`
+
+## Direção de arte: Matsuri
+Tema "festival japonês noturno": hero com fogos em canvas (`src/lib/fx/engine.ts`), castelo, lanternas e lua (`src/components/FestivalHero.tsx`), barraquinhas por categoria (`src/data/yatai.ts`) e celebrações nas receitas.
+- ✨ no menu liga/desliga os efeitos (padrão: desligado para quem pede "menos movimento"); 🔊 liga o som dos fogos (sintetizado, desligado por padrão).
+- O motor de fogos para por completo quando a cena sai da tela.
+- Todas as cores de texto seguem WCAG AAA; os efeitos são decorativos (`aria-hidden`) e há botões equivalentes ("Soltar fogos").

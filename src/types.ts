@@ -59,6 +59,10 @@ export type Theme = 'dark' | 'washi';
 export interface Prefs {
   unitMode: UnitMode;
   theme: Theme;
+  /** efeitos do festival (fogos, brilhos). Padrão: ligado, exceto para quem prefere menos movimento */
+  fx?: boolean;
+  /** som dos fogos (sintetizado). Padrão: desligado */
+  som?: boolean;
 }
 
 export interface CookNote {
@@ -85,7 +89,7 @@ export type ChecksByRecipe = Record<string, string[]>;
 
 export type Route =
   | { name: 'home' }
-  | { name: 'receitas' }
+  | { name: 'receitas'; cat?: string }
   | { name: 'mercado' }
   | { name: 'fundamentos' }
   | { name: 'lista' }

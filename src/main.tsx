@@ -4,12 +4,14 @@ import App from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import '@fontsource/lora/latin-400.css';
 import '@fontsource/lora/latin-400-italic.css';
-import '@fontsource/lora/latin-600.css';
-import '@fontsource/lora/latin-700.css';
+import '@fontsource/fredoka/latin-500.css';
+import '@fontsource/fredoka/latin-600.css';
+import '@fontsource/fredoka/latin-700.css';
 import '@fontsource/figtree/latin-400.css';
 import '@fontsource/figtree/latin-500.css';
 import '@fontsource/figtree/latin-700.css';
 import './index.css';
+import './festival.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Elemento #root não encontrado.');

@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { EmporiumLocator } from './components/EmporiumLocator';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { OfflinePhotos } from './components/OfflinePhotos';
-import { CartIcon, Lantern, MoonIcon, SunIcon } from './components/Icons';
+import { CartIcon, Lantern, MoonIcon, SparkleIcon, SunIcon, VolumeIcon, VolumeOffIcon } from './components/Icons';
 import { KitchenModeView } from './components/KitchenModeView';
 import { TimerDock } from './components/TimerDock';
-import { TimersProvider } from './context/TimersContext';
+import { FestivalProvider, useFestival } from './context/FestivalContext';
+import { TimersProvider, useTimers } from './context/TimersContext';
 import { RECEITAS, findReceita } from './data';
 import { useFavorites, usePrefs, useShopping } from './hooks/useAppState';
 import { hrefReceita, navigate, parseRoute, useHash } from './lib/route';
@@ -37,12 +38,26 @@ function NotFound() {
   );
 }
 
-export default function App() {
+/** Dispara fogos quando um timer termina (o som do alarme continua tocando). */
+function TimerFx() {
+  const { timers } = useTimers();
+  const fest = useFestival();
+  const done = timers.filter((t) => t.status === 'done').length;
+  const prev = useRef(0);
+  useEffect(() => {
+    if (done > prev.current) fest.finale();
+    prev.current = done;
+  }, [done, fest]);
+  return null;
+}
+
+function AppInner() {
   const hash = useHash();
   const route = useMemo(() => parseRoute(hash), [hash]);
   const [prefs, patchPrefs] = usePrefs();
   const { favorites, toggle: toggleFavorite, isFavorite } = useFavorites();
   const shop = useShopping();
+  const fest = useFestival();
   const [servingsById, setServingsById] = useState<Record<string, number>>({});
   const mainRef = useRef<HTMLElement>(null);
   const shellRef = useRef<HTMLDivElement>(null);
@@ -78,7 +93,7 @@ export default function App() {
   if (route.name === 'home') {
     page = <Home receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} />;
   } else if (route.name === 'receitas') {
-    page = <RecipesPage receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} />;
+    page = <RecipesPage receitas={RECEITAS} favorites={favorites} onToggleFavorite={toggleFavorite} initialCat={route.cat} />;
   } else if (route.name === 'fundamentos') {
     page = <Fundamentos />;
   } else if (route.name === 'lista') {
@@ -121,6 +136,7 @@ export default function App() {
 
   return (
     <TimersProvider>
+      <TimerFx />
       <div ref={shellRef}>
       <a
         href="#conteudo"
@@ -159,6 +175,26 @@ export default function App() {
               </a>
               <button
                 type="button"
+                className={`btn btn-ghost !px-3 ${prefs.fx ? 'text-lanternink' : ''}`}
+                aria-pressed={prefs.fx}
+                aria-label="Efeitos do festival (fogos e brilhos)"
+                title="Efeitos do festival"
+                onClick={() => patchPrefs({ fx: !prefs.fx })}
+              >
+                <SparkleIcon />
+              </button>
+              <button
+                type="button"
+                className={`btn btn-ghost !px-3 ${prefs.som ? 'text-lanternink' : ''}`}
+                aria-pressed={prefs.som}
+                aria-label="Som dos fogos"
+                title="Som dos fogos"
+                onClick={() => fest.setSom(!prefs.som)}
+              >
+                {prefs.som ? <VolumeIcon /> : <VolumeOffIcon />}
+              </button>
+              <button
+                type="button"
                 className="btn btn-ghost !px-3"
                 onClick={() => patchPrefs({ theme: prefs.theme === 'dark' ? 'washi' : 'dark' })}
                 aria-label={prefs.theme === 'dark' ? 'Mudar para o modo claro (papel de linho)' : 'Mudar para o modo escuro (carvão suave)'}
@@ -194,7 +230,7 @@ export default function App() {
         id="conteudo"
         ref={mainRef}
         tabIndex={-1}
-        className="mx-auto max-w-6xl px-4 pb-24 pt-10 outline-none sm:px-6"
+        className={`outline-none ${route.name === 'home' ? '' : 'mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6'}`}
       >
         <ErrorBoundary label="Página" resetKeys={[hash]}>
           <div key={hash}>
@@ -231,5 +267,13 @@ export default function App() {
       )}
 
     </TimersProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <FestivalProvider>
+      <AppInner />
+    </FestivalProvider>
   );
 }

@@ -3,68 +3,52 @@
 @tailwind utilities;
 
 /* ============================================================
-   Design tokens — Wabi-Sabi / NHK-inspired minimalist journal
-   Os valores hex abaixo são os tokens oficiais; as variáveis --c-* repetem os mesmos valores em
-   canais RGB (necessário para o Tailwind aplicar opacidade).
+   Tokens — "Matsuri": festival japonês noturno
+   noite : índigo profundo + ouro de lanterna + rosa de sakura (padrão)
+   washi : "dia de festival" — creme quente, tinta índigo e carmim
+   (o id "washi" é mantido por compatibilidade com preferências já salvas)
 
-   AAA (7:1): quatro tokens têm uma variante derivada porque o par especificado não alcança 7:1:
-     --text-secondary  claro #66635F → #55534F   |  escuro #A1A1AA → #A6A6AE
-     --accent-ink      (acento como TEXTO)  claro #A21C29 | escuro #F08A87
-     --accent-strong   (acento como FUNDO de botão, texto branco)  claro #AD1E2C | escuro #AF1A17
-   O acento especificado (--accent-primary) segue em bordas, ícones, anéis e estados.
+   Contraste (WCAG AAA, 7:1) verificado nos pares de texto:
+     noite: ink/canvas 18,4 · mute/raised 8,9 · lanternink/raised 9,0 · onlantern(ink)/ouro 11,5
+     dia  : ink/canvas 16,1 · mute/raised 8,4 · lanternink/surface 8,3 · onlantern(ink)/ouro 11,5
+   O ouro é sempre fundo (texto escuro por cima); o rosa/carmim de texto usa a variante --c-lanternink.
    ============================================================ */
 :root,
 [data-theme='dark'] {
-  /* Sumizumi Charcoal */
-  --bg-primary: #121214;
-  --bg-surface: #1a1a1e;
-  --border: #2a2a2e;
-  --text-primary: #f4f4f5;
-  --text-secondary: #a6a6ae;
-  --accent-primary: #e53935;
-  --accent-subtle: #2d1515;
-  --accent-ink: #f08a87;
-  --accent-strong: #af1a17;
-
-  --c-canvas: 18 18 20;
-  --c-surface: 26 26 30;
-  --c-raised: 35 35 40;
-  --c-ink: 244 244 245;
-  --c-mute: 166 166 174;
-  --c-line: 42 42 46;
-  --c-lantern: 175 26 23;
-  --c-lanternink: 240 138 135;
-  --c-onlantern: 255 255 255;
-  --c-accent: 229 57 53;
-  --c-accentsubtle: 45 21 21;
-  --c-focus: 255 210 122;
+  --c-canvas: 13 10 36;
+  --c-surface: 24 19 64;
+  --c-raised: 36 28 92;
+  --c-ink: 255 248 240;
+  --c-mute: 201 194 240;
+  --c-line: 61 51 128;
+  --c-lantern: 255 201 74; /* ouro: fundos de ação */
+  --c-lanternink: 255 180 200; /* rosa claro: acento como texto */
+  --c-onlantern: 27 16 64; /* texto sobre ouro */
+  --c-accent: 255 79 139; /* rosa vivo: bordas, anéis, ícones */
+  --c-accentsubtle: 42 20 69;
+  --c-focus: 255 201 74;
+  --c-gold: 255 201 74;
+  --c-cyan: 77 225 255;
+  --c-pink: 255 95 162;
   color-scheme: dark;
 }
 
 [data-theme='washi'] {
-  /* Wabi-Sabi Linen */
-  --bg-primary: #f9f8f6;
-  --bg-surface: #ffffff;
-  --border: #e5e2de;
-  --text-primary: #1c1b1a;
-  --text-secondary: #55534f;
-  --accent-primary: #c82333;
-  --accent-subtle: #fdf2f2;
-  --accent-ink: #a21c29;
-  --accent-strong: #ad1e2c;
-
-  --c-canvas: 249 248 246;
+  --c-canvas: 255 244 224;
   --c-surface: 255 255 255;
-  --c-raised: 241 239 235;
-  --c-ink: 28 27 26;
-  --c-mute: 85 83 79;
-  --c-line: 229 226 222;
-  --c-lantern: 173 30 44;
-  --c-lanternink: 162 28 41;
-  --c-onlantern: 255 255 255;
-  --c-accent: 200 35 51;
-  --c-accentsubtle: 253 242 242;
-  --c-focus: 27 42 74;
+  --c-raised: 255 232 199;
+  --c-ink: 27 16 64;
+  --c-mute: 67 59 112;
+  --c-line: 233 207 168;
+  --c-lantern: 255 201 74;
+  --c-lanternink: 143 13 44;
+  --c-onlantern: 27 16 64;
+  --c-accent: 224 36 94;
+  --c-accentsubtle: 255 227 234;
+  --c-focus: 27 16 64;
+  --c-gold: 255 201 74;
+  --c-cyan: 0 150 190;
+  --c-pink: 224 36 94;
   color-scheme: light;
 }
 
@@ -86,20 +70,36 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Fibras de papel quase imperceptíveis — apenas no tema linho */
-  :root[data-theme='washi'] body::before {
+  /* Céu do festival atrás de todas as páginas: estrelinhas + brilho rosado no horizonte superior */
+  body::before {
     content: '';
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .28  0 0 0 .05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 18%, rgb(255 255 255 / 0.55), transparent 60%),
+      radial-gradient(1px 1px at 78% 12%, rgb(255 255 255 / 0.5), transparent 60%),
+      radial-gradient(1.5px 1.5px at 44% 34%, rgb(255 230 180 / 0.45), transparent 60%),
+      radial-gradient(1px 1px at 90% 46%, rgb(255 255 255 / 0.4), transparent 60%),
+      radial-gradient(1px 1px at 22% 62%, rgb(255 255 255 / 0.35), transparent 60%),
+      radial-gradient(1.5px 1.5px at 64% 78%, rgb(255 210 230 / 0.4), transparent 60%),
+      radial-gradient(ellipse 80% 40% at 50% -10%, rgb(255 79 139 / 0.18), transparent 70%),
+      radial-gradient(ellipse 60% 30% at 100% 0%, rgb(77 225 255 / 0.08), transparent 70%);
+  }
+  :root[data-theme='washi'] body::before {
+    background-image:
+      radial-gradient(6px 6px at 10% 14%, rgb(255 95 162 / 0.16), transparent 70%),
+      radial-gradient(5px 5px at 84% 22%, rgb(255 201 74 / 0.28), transparent 70%),
+      radial-gradient(7px 7px at 30% 64%, rgb(77 190 225 / 0.14), transparent 70%),
+      radial-gradient(5px 5px at 72% 80%, rgb(255 95 162 / 0.14), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 50% -10%, rgb(255 201 74 / 0.3), transparent 70%);
   }
 
   h1,
   h2,
   h3 {
-    @apply font-serif font-semibold tracking-tight;
+    @apply font-display font-semibold tracking-normal;
   }
 
   /* Foco acessível — sempre visível ao navegar por teclado */
@@ -113,7 +113,7 @@
   }
 
   ::selection {
-    background: rgb(var(--c-accent) / 0.3);
+    background: rgb(var(--c-accent) / 0.4);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -132,9 +132,9 @@
 
 @layer components {
   .btn {
-    @apply inline-flex min-h-[48px] min-w-[48px] select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-base font-medium;
+    @apply relative inline-flex min-h-[48px] min-w-[48px] select-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-base font-medium;
     @apply border border-line bg-surface text-ink;
-    @apply transition-[transform,background-color,border-color,color,opacity] duration-300 ease-in-out;
+    @apply transition-[transform,background-color,border-color,color,opacity,box-shadow] duration-300 ease-in-out;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
@@ -142,64 +142,99 @@
     @apply border-mute;
   }
   .btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
   }
   .btn:disabled {
     @apply cursor-not-allowed opacity-50;
     transform: none;
   }
-  /* Ação principal: fundo accent-strong + texto branco (≥ 7:1) */
+
+  /* Ação principal: ouro de lanterna com brilho e reflexo que passa */
   .btn-lantern {
-    @apply border-transparent bg-lantern font-bold text-onlantern;
+    @apply overflow-hidden border-transparent font-bold text-onlantern;
+    background: linear-gradient(135deg, #ffe49a 0%, #ffc94a 48%, #ff9f5a 100%);
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.4) inset,
+      0 10px 32px -8px rgb(255 170 60 / 0.75);
+  }
+  .btn-lantern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 0.65) 48%, transparent 66%);
+    transform: translateX(-120%);
   }
   .btn-lantern:hover {
     @apply border-transparent;
-    filter: brightness(0.9);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+      0 0 0 1px rgb(255 255 255 / 0.5) inset,
+      0 14px 44px -6px rgb(255 150 60 / 0.95);
   }
+  .btn-lantern:hover::after {
+    transform: translateX(120%);
+    transition: transform 0.7s ease;
+  }
+  .btn-lantern:active {
+    transform: scale(0.97);
+  }
+
+  /* Vidro noturno: botão secundário sobre cenas escuras */
+  .btn-glass {
+    @apply border-white/30 bg-white/10 text-white backdrop-blur;
+  }
+  .btn-glass:hover {
+    @apply border-white/60 bg-white/20;
+  }
+
   .btn-ghost {
     @apply border-transparent bg-transparent;
   }
   .btn-ghost:hover {
-    @apply border-transparent bg-ink/[0.06];
+    @apply border-transparent bg-ink/[0.08];
   }
 
   .panel {
-    @apply rounded-2xl border border-line bg-surface transition-colors duration-300 ease-in-out;
+    @apply rounded-3xl border border-line bg-surface transition-colors duration-300 ease-in-out;
   }
 
-  /* Pílula silenciosa: sem borda, fundo monocromático de baixa opacidade */
   .chip {
-    @apply inline-flex min-h-[32px] items-center gap-1.5 rounded-full bg-ink/[0.06] px-3 py-1 text-sm font-medium text-ink;
+    @apply inline-flex min-h-[32px] items-center gap-1.5 rounded-full bg-ink/[0.08] px-3 py-1 text-sm font-medium text-ink;
   }
 
-  /* Filtro em pílula (alvo de toque de 48px) */
+  /* Filtro em pílula (48px); ativo = ouro com texto escuro */
   .pill {
-    @apply inline-flex min-h-[48px] cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-ink/[0.06] px-5 text-base font-medium text-ink;
-    @apply transition-colors duration-300 ease-in-out;
+    @apply inline-flex min-h-[48px] cursor-pointer items-center gap-2 whitespace-nowrap rounded-full bg-ink/[0.08] px-5 text-base font-medium text-ink;
+    @apply transition-[background-color,color,transform,box-shadow] duration-300 ease-in-out;
   }
   .pill:hover {
-    @apply bg-ink/10;
+    @apply bg-ink/[0.16];
+    transform: translateY(-1px);
   }
   .pill[aria-checked='true'],
-  .pill[aria-selected='true'],
-  .pill[aria-pressed='true'] {
-    @apply bg-ink text-canvas;
+  .pill[aria-pressed='true'],
+  .pill[aria-selected='true'] {
+    @apply font-bold text-onlantern;
+    background: linear-gradient(135deg, #ffe49a, #ffc94a 55%, #ff9f5a);
+    box-shadow: 0 8px 24px -8px rgb(255 170 60 / 0.8);
   }
 
   .field {
-    @apply min-h-[48px] w-full rounded-xl border border-mute/60 bg-canvas px-4 py-2.5 text-base text-ink placeholder:text-mute;
-    @apply transition-colors duration-300 ease-in-out;
+    @apply min-h-[48px] w-full rounded-2xl border border-mute/60 bg-surface px-4 py-2.5 text-base text-ink placeholder:text-mute;
+    @apply transition-[border-color,box-shadow] duration-300;
   }
   .field:hover {
     @apply border-mute;
   }
-
-  /* Sobretítulo editorial */
-  .kicker {
-    @apply text-xs font-bold uppercase tracking-[0.2em] text-lanternink;
+  .field:focus-visible {
+    box-shadow: 0 0 0 4px rgb(var(--c-gold) / 0.25);
   }
 
-  /* Dados numéricos e metadados: algarismos tabulares (a contagem regressiva não "dança") */
+  /* Sobretítulo: etiqueta de festival */
+  .kicker {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-lanternink;
+  }
+
   .tabular {
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum' 1;
@@ -207,8 +242,8 @@
 
   /* Capitular — abertura de texto narrativo */
   .dropcap::first-letter {
-    @apply float-left font-serif font-bold text-lanternink;
-    font-size: 4.2rem;
+    @apply float-left font-display font-bold text-lanternink;
+    font-size: 4.4rem;
     line-height: 0.82;
     padding: 0.35rem 0.6rem 0 0;
   }
@@ -219,7 +254,7 @@
   }
 }
 
-/* Rolagem horizontal sem barra intrusiva (dock de timers) */
+/* Rolagem horizontal sem barra intrusiva */
 .no-scrollbar {
   scrollbar-width: none;
 }
@@ -231,7 +266,8 @@
   body::before,
   header,
   footer,
-  .no-print {
+  .no-print,
+  .fx {
     display: none !important;
   }
 }

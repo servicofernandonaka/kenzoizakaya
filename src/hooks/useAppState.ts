@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { isChecks, isNotes, isPrefs, isShopping, isStepChecks, isStringArray } from '../lib/schema';
 import type { ChecksByRecipe, ShoppingState, StepChecksByRecipe, CookNote, NotesByRecipe, Prefs } from '../types';
 import { useStoredState } from './useStoredState';
@@ -7,6 +7,7 @@ import { useStoredState } from './useStoredState';
 
 /** Sem preferência salva, o tema segue o sistema (linho no claro, carvão no escuro). */
 const prefersLight = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-color-scheme: light)').matches;
+const prefersReducedMotion = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const DEFAULT_PREFS: Prefs = { unitMode: 'metric', theme: prefersLight ? 'washi' : 'dark' };
 const NO_STEPS: StepChecksByRecipe = {};
 const EMPTY_SHOPPING: ShoppingState = { itens: [], marcados: [] };
@@ -15,7 +16,9 @@ const NO_NOTES: NotesByRecipe = {};
 const NO_CHECKS: ChecksByRecipe = {};
 
 export function usePrefs() {
-  const [prefs, setPrefs] = useStoredState<Prefs>('prefs', DEFAULT_PREFS, isPrefs);
+  const [stored, setPrefs] = useStoredState<Prefs>('prefs', DEFAULT_PREFS, isPrefs);
+  // fx/som resolvidos: quem prefere menos movimento começa com os efeitos desligados
+  const prefs = useMemo(() => ({ ...stored, fx: stored.fx ?? !prefersReducedMotion, som: stored.som ?? false }), [stored]);
   const patch = useCallback((p: Partial<Prefs>) => setPrefs((prev) => ({ ...prev, ...p })), [setPrefs]);
   return [prefs, patch] as const;
 }

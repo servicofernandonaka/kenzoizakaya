@@ -4,9 +4,10 @@ import type { Route } from '../types';
 /* Roteador por hash (#/...) — funciona em qualquer hospedagem estática, sem configuração de servidor. */
 
 export function parseRoute(hash: string): Route {
-  const path = hash.replace(/^#\/?/, '').replace(/\/+$/, '');
+  const [rawPath, query = ''] = hash.replace(/^#\/?/, '').split('?');
+  const path = rawPath.replace(/\/+$/, '');
   if (path === '') return { name: 'home' };
-  if (path === 'receitas') return { name: 'receitas' };
+  if (path === 'receitas') return { name: 'receitas', cat: new URLSearchParams(query).get('cat') ?? undefined };
   if (path === 'mercado') return { name: 'mercado' };
   if (path === 'fundamentos') return { name: 'fundamentos' };
   if (path === 'lista') return { name: 'lista' };

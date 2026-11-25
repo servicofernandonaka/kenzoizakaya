@@ -1,9 +1,16 @@
-import { HISTORIA } from '../data/historia';
-import { RecipeCard } from '../components/RecipeCard';
+import { useEffect, useMemo, useRef } from 'react';
+import { FestivalHero } from '../components/FestivalHero';
+import { Reveal } from '../components/Reveal';
 import { RecipeCover } from '../components/RecipeCover';
+import { useFestival } from '../context/FestivalContext';
+import { CATEGORIAS } from '../data/categorias';
+import { HISTORIA } from '../data/historia';
+import { YATAI } from '../data/yatai';
+import { useTilt } from '../hooks/useTilt';
 import { CATEGORIA_LABEL } from '../lib/format';
 import { hrefReceita } from '../lib/route';
 import type { Receita } from '../types';
+import { ClockIcon, UsersIcon } from '../components/Icons';
 
 interface Props {
   receitas: Receita[];
@@ -11,128 +18,222 @@ interface Props {
   onToggleFavorite: (id: string) => void;
 }
 
-const DESTAQUE = 'buta-no-kakuni-classico';
-const DO_DIARIO = ['misoshiru-autentico', 'tori-no-karaage', 'oyakodon'];
-
-const PILARES: Array<{ titulo: string; texto: string; href: string }> = [
-  { titulo: 'Fundamentos', texto: 'Dashi, cortes, ferramentas, despensa e glossário: a técnica por trás de cada prato.', href: '#/fundamentos' },
-  { titulo: 'O Diário de Receitas', texto: 'Gramaturas exatas para a balança, timers e um modo de leitura feito para a bancada.', href: '#/receitas' },
-  { titulo: 'Mercado Honesto', texto: 'O caminho direto para insumos puros, sem cair em armadilhas de rótulo.', href: '#/mercado' },
+/** Os queridinhos do festival (ordem do carrossel). */
+const CARDAPIO = [
+  'buta-no-kakuni-classico',
+  'tori-no-karaage',
+  'oyakodon',
+  'tonkatsu',
+  'oden',
+  'shoyu-ramen',
+  'katsudon',
+  'yakitori',
 ];
 
-export function Home({ receitas, favorites, onToggleFavorite }: Props) {
-  const destaque = receitas.find((r) => r.id === DESTAQUE) ?? receitas[0];
-  const doDiario = DO_DIARIO.map((id) => receitas.find((r) => r.id === id)).filter((r): r is Receita => r !== undefined);
+function FestaCard({ r }: { r: Receita }) {
+  const tilt = useTilt(6);
+  return (
+    <article className="fx-glowframe group w-[78vw] max-w-[340px] shrink-0 snap-center sm:w-[320px]">
+      <a
+        href={hrefReceita(r.id)}
+        {...tilt}
+        className="fx-tilt relative block aspect-[3/4] overflow-hidden rounded-3xl bg-surface text-white outline-offset-4"
+      >
+        <RecipeCover receita={r} className="absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-110" />
+        <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#070518] via-[#070518]/55 to-transparent" />
+        <span className="absolute inset-x-0 bottom-0 p-5">
+          <span className="block text-xs font-bold uppercase tracking-[0.18em] text-[#ffd36b]">{CATEGORIA_LABEL(r.categoria)}</span>
+          <span className="mt-1 block font-display text-2xl font-semibold leading-tight">{r.titulo_pt.split(' (')[0]}</span>
+          <span className="mt-3 flex items-center gap-4 text-sm text-white/90">
+            <span className="tabular inline-flex items-center gap-1.5">
+              <ClockIcon width={16} height={16} /> {r.tempo_minutos} min
+            </span>
+            <span className="tabular inline-flex items-center gap-1.5">
+              <UsersIcon width={16} height={16} /> {r.rendimento_base_porcoes} porções
+            </span>
+          </span>
+        </span>
+      </a>
+    </article>
+  );
+}
+
+/** Dispara o grande final quando a seção entra na tela (uma vez por visita). */
+function FinaleOnView({ children }: { children: React.ReactNode }) {
+  const fest = useFestival();
+  const ref = useRef<HTMLElement>(null);
+  const done = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !fest.fx) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !done.current) {
+          done.current = true;
+          fest.finale();
+        }
+      },
+      { threshold: 0.65 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [fest]);
+  return (
+    <section ref={ref} aria-labelledby="final-titulo" className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1b1140] via-[#3a1460] to-[#7b2a78] px-6 py-20 text-center text-white sm:py-28" data-theme="dark">
+      {children}
+    </section>
+  );
+}
+
+export function Home({ receitas }: Props) {
+  const cardapio = CARDAPIO.map((id) => receitas.find((r) => r.id === id)).filter((r): r is Receita => r !== undefined);
+  const counts = useMemo(() => {
+    const m: Record<string, number> = {};
+    receitas.forEach((r) => (m[r.categoria] = (m[r.categoria] ?? 0) + 1));
+    return m;
+  }, [receitas]);
+  const fest = useFestival();
+  const faixa = receitas.map((r) => r.titulo_jp);
 
   return (
-    <div className="space-y-28 sm:space-y-36">
-      {/* Capa: texto à esquerda, imagem deslocada para baixo — assimetria e espaço (Ma) */}
-      <section className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-        <div className="lg:col-span-6 lg:pt-10">
-          <p className="kicker">Diário &amp; Laboratório Culinário</p>
-          <h1 className="mt-6 text-5xl leading-[1.08] sm:text-6xl">Receitas de casa, feitas com calma e precisão.</h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-mute">
-            O caderno particular do Kenzo: {receitas.length} receitas clássicas da culinária japonesa, com gramaturas exatas,
-            timers e um modo de leitura pensado para a bancada.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <a href="#/receitas" className="btn btn-lantern min-h-[56px] px-8 text-lg">
-              Abrir o diário
-            </a>
-            <a
-              href="#historia"
-              className="font-medium underline decoration-mute underline-offset-8 hover:decoration-ink"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('historia')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Conhecer o Kenzo
-            </a>
-          </div>
-        </div>
+    <div>
+      <FestivalHero total={receitas.length} />
 
-        {destaque && (
-          <a href={hrefReceita(destaque.id)} className="group block lg:col-span-5 lg:col-start-8 lg:mt-24">
-            <div className="overflow-hidden rounded-2xl">
-              <RecipeCover eager receita={destaque} className="aspect-[4/5] w-full transition-transform duration-500 ease-in-out group-hover:scale-[1.02]" />
+      {/* faixa rolando: nomes dos pratos em japonês */}
+      <div className="overflow-hidden border-y border-line bg-surface py-4" aria-hidden="true">
+        <div className="fx-marquee font-display text-2xl font-semibold text-ink">
+          {[0, 1].map((k) => (
+            <div key={k} className="flex shrink-0 items-center">
+              {faixa.map((t, i) => (
+                <span key={`${k}-${i}`} className="flex items-center">
+                  <span lang="ja" className="px-6">{t}</span>
+                  <span className="text-lanternink">✦</span>
+                </span>
+              ))}
             </div>
-            <span className="mt-4 block text-sm text-mute">Em destaque · {CATEGORIA_LABEL(destaque.categoria)}</span>
-            <span className="mt-1 block font-serif text-2xl font-semibold leading-snug">{destaque.titulo_pt}</span>
-          </a>
-        )}
-      </section>
-
-      {/* História do personagem */}
-      <section id="historia" aria-labelledby="historia-titulo" className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-        <div className="lg:col-span-3">
-          <div
-            lang="ja"
-            aria-hidden="true"
-            className="font-serif text-7xl font-semibold before:text-ink/20 before:content-['賢三']"
-          />
-          <p className="mt-3 text-sm text-mute">{HISTORIA.legenda}</p>
-        </div>
-
-        <div className="lg:col-span-7 lg:col-start-5">
-          <p className="kicker">{HISTORIA.kicker}</p>
-          <h2 id="historia-titulo" className="mt-4 text-4xl leading-tight">
-            {HISTORIA.titulo}
-          </h2>
-          <div className="reading mt-8 space-y-6 text-mute">
-            {HISTORIA.paragrafos.map((p, i) => (
-              <p key={i} className={i === 0 ? 'dropcap' : undefined}>
-                {p}
-              </p>
-            ))}
-          </div>
-          <blockquote className="mt-10 border-l-2 border-accent pl-6 font-serif text-2xl italic leading-snug">
-            {HISTORIA.citacao}
-            <footer className="mt-3 font-sans text-sm not-italic text-mute">— {HISTORIA.assinatura}</footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* Do diário */}
-      <section aria-labelledby="do-diario">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="kicker">O Diário de Receitas</p>
-            <h2 id="do-diario" className="mt-3 text-4xl">
-              Para começar hoje
-            </h2>
-          </div>
-          <a href="#/receitas" className="btn btn-ghost">
-            Ver todas as {receitas.length} →
-          </a>
-        </div>
-        <ul className="mt-10 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {doDiario.map((r) => (
-            <li key={r.id}>
-              <RecipeCard receita={r} favorite={favorites.includes(r.id)} onToggleFavorite={onToggleFavorite} />
-            </li>
           ))}
-        </ul>
-      </section>
+        </div>
+      </div>
 
-      {/* Pilares — lista silenciosa com fios */}
-      <section aria-labelledby="pilares">
-        <h2 id="pilares" className="sr-only">
-          Explore o laboratório
-        </h2>
-        <ul className="grid divide-y divide-line border-y border-line md:grid-cols-3 md:divide-x md:divide-y-0">
-          {PILARES.map((p) => (
-            <li key={p.titulo}>
-              <a href={p.href} className="group block h-full p-8 transition-colors duration-300 hover:bg-ink/[0.03]">
-                <h3 className="text-xl">
-                  {p.titulo} <span aria-hidden="true">→</span>
-                </h3>
-                <p className="mt-3 leading-relaxed text-mute">{p.texto}</p>
+      <div className="mx-auto max-w-6xl space-y-28 px-4 pb-24 pt-24 sm:space-y-36 sm:px-6 sm:pt-32">
+        {/* cardápio do festival */}
+        <section aria-labelledby="cardapio">
+          <Reveal>
+            <p className="kicker">Os queridinhos do festival</p>
+            <h2 id="cardapio" className="fx-shimmer mt-3 text-4xl leading-tight sm:text-5xl">
+              Escolha o seu prato
+            </h2>
+            <p className="mt-3 max-w-xl text-lg text-mute">Arraste para o lado e deixe o cheiro te guiar.</p>
+          </Reveal>
+          <ul
+            className="no-scrollbar -mx-4 mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-8 pt-2 sm:-mx-6 sm:px-6"
+            aria-label="Pratos em destaque"
+          >
+            {cardapio.map((r) => (
+              <li key={r.id} className="shrink-0">
+                <FestaCard r={r} />
+              </li>
+            ))}
+            <li className="flex shrink-0 snap-center items-center pr-4">
+              <a href="#/receitas" className="btn btn-lantern min-h-[64px] px-8 text-lg">
+                Ver as {receitas.length} receitas →
               </a>
             </li>
-          ))}
-        </ul>
-      </section>
+          </ul>
+        </section>
+
+        {/* barraquinhas (yatai) */}
+        <section aria-labelledby="yatai">
+          <Reveal>
+            <p className="kicker">Passeie pelas barraquinhas</p>
+            <h2 id="yatai" className="mt-3 text-4xl leading-tight sm:text-5xl">
+              Cada barraca, um sabor
+            </h2>
+          </Reveal>
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+            {CATEGORIAS.map((c, i) => {
+              const y = YATAI[c.id];
+              return (
+                <Reveal as="li" key={c.id} delay={(i % 4) * 0.08}>
+                  <a
+                    href={`#/receitas?cat=${c.id}`}
+                    className="fx-stall group block aspect-[4/5] p-4 text-white sm:p-5"
+                    style={{ ['--c1' as string]: y.c1, ['--c2' as string]: y.c2 }}
+                    onPointerDown={(e) => fest.sparkleAt(e.currentTarget)}
+                  >
+                    <span className="fx-noren" aria-hidden="true">
+                      {Array.from({ length: 5 }, (_, k) => (
+                        <span key={k} />
+                      ))}
+                    </span>
+                    <span className="fx-stall-kanji" lang="ja" aria-hidden="true">
+                      {y.kanji}
+                    </span>
+                    <span className="relative flex h-full flex-col justify-end">
+                      <span className="text-4xl" aria-hidden="true">
+                        {c.icone}
+                      </span>
+                      <span className="mt-2 block font-display text-xl font-semibold leading-tight sm:text-2xl">{c.nome.replace(/ \(.*\)/, '')}</span>
+                      <span className="mt-1 block text-sm text-white/90">{y.frase}</span>
+                      <span className="tabular mt-3 inline-flex w-fit rounded-full bg-white/20 px-3 py-1 text-sm font-bold">
+                        {counts[c.id] ?? 0} {(counts[c.id] ?? 0) === 1 ? 'receita' : 'receitas'}
+                      </span>
+                    </span>
+                  </a>
+                </Reveal>
+              );
+            })}
+          </ul>
+        </section>
+
+        {/* história do Kenzo */}
+        <section id="historia" aria-labelledby="historia-titulo" className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <Reveal className="lg:col-span-4">
+            <div className="relative mx-auto flex h-64 w-64 items-center justify-center rounded-full bg-gradient-to-br from-[#ff7a59] via-[#ff4f8b] to-[#7b2a78] shadow-[0_0_90px_10px_rgba(255,79,139,0.45)] lg:mx-0">
+              <span className="font-serif text-8xl font-bold text-white" lang="ja" aria-hidden="true">
+                賢三
+              </span>
+            </div>
+            <p className="mt-6 text-center text-sm uppercase tracking-[0.2em] text-mute lg:text-left">{HISTORIA.legenda}</p>
+          </Reveal>
+
+          <Reveal className="lg:col-span-7 lg:col-start-6" delay={0.1}>
+            <p className="kicker">{HISTORIA.kicker}</p>
+            <h2 id="historia-titulo" className="mt-3 text-4xl leading-tight sm:text-5xl">
+              {HISTORIA.titulo}
+            </h2>
+            <div className="reading mt-8 space-y-6 text-mute">
+              {HISTORIA.paragrafos.map((p, i) => (
+                <p key={i} className={i === 0 ? 'dropcap' : undefined}>
+                  {p}
+                </p>
+              ))}
+            </div>
+            <blockquote className="mt-10 border-l-4 border-accent pl-6 font-serif text-2xl italic leading-snug">
+              {HISTORIA.citacao}
+              <footer className="mt-3 font-sans text-sm not-italic text-mute">— {HISTORIA.assinatura}</footer>
+            </blockquote>
+          </Reveal>
+        </section>
+
+        {/* grande final */}
+        <FinaleOnView>
+          <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(ellipse 60% 70% at 50% 110%, rgb(255 201 74 / 0.4), transparent 70%)' }} />
+          <p className="kicker relative">Itadakimasu!</p>
+          <h2 id="final-titulo" className="fx-glow-text relative mx-auto mt-4 max-w-3xl text-4xl leading-tight sm:text-6xl">
+            A festa só começa quando o fogo acende.
+          </h2>
+          <p className="relative mx-auto mt-5 max-w-xl text-lg text-white/85">Escolha uma receita, ligue o timer e cozinhe com a gente. Cada passo concluído vira comemoração.</p>
+          <div className="relative mt-9 flex flex-wrap justify-center gap-4">
+            <a href="#/receitas" className="btn btn-lantern min-h-[60px] px-9 text-lg">
+              Abrir o Diário
+            </a>
+            <a href="#/fundamentos" className="btn btn-glass min-h-[60px] px-7 text-lg">
+              Aprender o básico
+            </a>
+          </div>
+        </FinaleOnView>
+      </div>
     </div>
   );
 }

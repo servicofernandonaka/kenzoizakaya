@@ -19,8 +19,12 @@ export default {
         accent: token('accent'),
         accentsubtle: token('accentsubtle'),
         aizome: '#1B2A4A',
+        gold: token('gold'),
+        cyanfx: token('cyan'),
+        pinkfx: token('pink'),
       },
       fontFamily: {
+        display: ['Fredoka', '"Noto Sans JP"', 'system-ui', 'sans-serif'],
         serif: ['Lora', '"Iowan Old Style"', '"Palatino Linotype"', '"Noto Serif JP"', '"Hiragino Mincho ProN"', '"Yu Mincho"', 'Georgia', 'serif'],
         sans: ['Figtree', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Noto Sans JP"', 'sans-serif'],
       },
